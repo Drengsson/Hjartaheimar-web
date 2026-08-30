@@ -5,10 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hjartaheimar</title>
   <meta name="description" content="Hjartaheimar — rými fyrir jóga, öndun, djúpslökun, vatnsmeðferð og innri vinnu. Vefurinn er í vinnslu.">
+  <link rel="icon" href="img/hjartaheimar-icon-round.png">
   <meta property="og:title" content="Hjartaheimar">
   <meta property="og:description" content="Rými fyrir jóga, öndun, djúpslökun, vatnsmeðferð og innri vinnu.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="is_IS">
+  <meta property="og:url" content="https://hjartaheimar.is">
+  <meta property="og:image" content="https://hjartaheimar.is/img/gudlaug-sound-healing.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
@@ -22,85 +25,102 @@
       --border:#D8C1A6;
     }
     *{box-sizing:border-box;}
-    html,body{height:100%;}
+    html,body{margin:0;}
     body{
-      margin:0;
       background:var(--background);
       color:var(--text-primary);
       font-family:'Montserrat',sans-serif;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:1.5rem;
       -webkit-font-smoothing:antialiased;
     }
-    main{
+
+    .hero{
+      position:relative;
+      height:72vh;
+      min-height:420px;
+      max-height:760px;
+      overflow:hidden;
+    }
+    .hero img.photo{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center 30%;
+    }
+    .hero .fade{
+      position:absolute;
+      left:0; right:0; bottom:0; height:14%;
+      background:linear-gradient(to top, var(--background), rgba(243,237,228,0));
+    }
+
+    .content{
       max-width:640px;
-      text-align:center;
+      margin:0 auto;
       display:flex;
       flex-direction:column;
       align-items:center;
-      gap:1.6rem;
+      gap:1.3rem;
+      padding:3.75rem 1.5rem 0;
+      text-align:center;
     }
-    h1{
-      font-family:'Cormorant Garamond',serif;
-      font-weight:500;
-      font-size:clamp(2.4rem,7vw,3.6rem);
-      letter-spacing:.12em;
-      margin:0;
-      color:var(--accent);
-      text-wrap:balance;
-    }
-    .divider{
-      display:flex;
-      align-items:center;
-      gap:.6rem;
-      color:var(--accent-soft);
-    }
-    .divider .line{ width:34px; height:1px; background:var(--border); }
-    .divider svg{ width:12px; height:12px; }
-    .tagline{
-      font-family:'Cormorant Garamond',serif;
-      font-style:italic;
-      font-size:1.35rem;
-      color:var(--text-secondary);
-      margin:0;
+    .content img.logo{
+      width:min(280px, 58vw);
+      height:auto;
     }
     .areas{
       font-size:.72rem;
-      letter-spacing:.18em;
+      letter-spacing:.2em;
       text-transform:uppercase;
       color:var(--text-secondary);
-      margin:.5rem 0 0;
+      margin:0;
     }
-    p.note{
-      font-size:.95rem;
-      line-height:1.75;
+
+    main{
+      max-width:640px;
+      margin:0 auto;
+      padding:2.25rem 1.5rem 4.5rem;
+      text-align:center;
+    }
+    main p{
+      font-size:1.02rem;
+      line-height:1.8;
       color:var(--text-secondary);
-      max-width:46ch;
-      margin:1.5rem 0 0;
+      margin:0;
     }
+
     footer{
-      margin-top:3.5rem;
+      text-align:center;
+      padding:0 1.5rem 3rem;
       font-size:.72rem;
       letter-spacing:.05em;
       color:var(--text-secondary);
-      opacity:.8;
+      opacity:.75;
+    }
+
+    @media (max-width:560px){
+      .hero{ height:52vh; min-height:340px; }
+      .content{ padding-top:3rem; }
     }
   </style>
 </head>
 <body>
-  <main>
-    <h1>HJARTAHEIMAR</h1>
-    <div class="divider">
-      <span class="line"></span>
-      <svg viewBox="0 0 20 18" fill="currentColor"><path d="M10,17 C10,17 1,11 1,5.5 C1,2 4,0.5 6.5,2 C8,3 10,5 10,5 C10,5 12,3 13.5,2 C16,0.5 19,2 19,5.5 C19,11 10,17 10,17 Z"/></svg>
-      <span class="line"></span>
-    </div>
-    <p class="tagline">Mættu þér eins og þú ert.</p>
+
+  <div class="hero">
+    <img class="photo" src="img/gudlaug-sound-healing.jpg" alt="Guðlaug Ósk Pétursdóttir í hljóðheilun, umkringd hljóðskálum og hljóðfærum">
+    <div class="fade"></div>
+  </div>
+
+  <div class="content">
+    <img class="logo" src="img/hjartaheimar-logo.png" alt="Hjartaheimar — Mættu þér eins og þú ert">
     <p class="areas">Jóga &nbsp;·&nbsp; Öndun &nbsp;·&nbsp; Djúpslökun &nbsp;·&nbsp; Vatnsmeðferð &nbsp;·&nbsp; Heilun</p>
-    <p class="note">Hjartaheimar er að taka á sig mynd — rými fyrir jóga, öndun, djúpslökun og innri vinnu. Meira á leiðinni.</p>
-    <footer>&copy; 2026 Hjartaheimar</footer>
+  </div>
+
+  <main>
+    <p>Hjartaheimar er að taka á sig mynd — rými fyrir jóga, öndun, djúpslökun og innri vinnu. Meira á leiðinni.</p>
   </main>
+
+  <footer>&copy; 2026 Hjartaheimar</footer>
+
 </body>
 </html>
