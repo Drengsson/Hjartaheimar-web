@@ -89,6 +89,31 @@
       margin:0;
     }
 
+    .contact{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:.9rem;
+      margin-top:2.25rem;
+      font-size:.85rem;
+      letter-spacing:.03em;
+    }
+    .contact a{
+      color:var(--accent);
+      text-decoration:none;
+      border-bottom:1px solid var(--border);
+      padding-bottom:2px;
+      transition:border-color .15s ease, color .15s ease;
+    }
+    .contact a:hover,
+    .contact a:focus-visible{
+      color:var(--accent-soft);
+      border-color:var(--accent-soft);
+    }
+    .contact .sep{
+      color:var(--border);
+    }
+
     footer{
       text-align:center;
       padding:0 1.5rem 3rem;
@@ -118,6 +143,11 @@
 
   <main>
     <p>Hjartaheimar er að taka á sig mynd — rými fyrir jóga, öndun, djúpslökun og innri vinnu. Meira á leiðinni.</p>
+    <p class="contact">
+      <a href="https://www.facebook.com/profile.php?id=61593960661093" target="_blank" rel="noopener">Facebook</a>
+      <span class="sep">&middot;</span>
+      <a href="mailto:Gulla80@gmail.com">Gulla80@gmail.com</a>
+    </p>
   </main>
 
   <footer>&copy; 2026 Hjartaheimar</footer>
