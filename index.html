@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="is">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hjartaheimar</title>
+  <meta name="description" content="Hjartaheimar — rými fyrir jóga, öndun, djúpslökun, vatnsmeðferð og innri vinnu. Vefurinn er í vinnslu.">
+  <meta property="og:title" content="Hjartaheimar">
+  <meta property="og:description" content="Rými fyrir jóga, öndun, djúpslökun, vatnsmeðferð og innri vinnu.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="is_IS">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --background:#F3EDE4;
+      --text-primary:#2B2B2B;
+      --text-secondary:#6B5D52;
+      --accent:#5B1F1F;
+      --accent-soft:#C56D5B;
+      --border:#D8C1A6;
+    }
+    *{box-sizing:border-box;}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      background:var(--background);
+      color:var(--text-primary);
+      font-family:'Montserrat',sans-serif;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:1.5rem;
+      -webkit-font-smoothing:antialiased;
+    }
+    main{
+      max-width:640px;
+      text-align:center;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:1.6rem;
+    }
+    h1{
+      font-family:'Cormorant Garamond',serif;
+      font-weight:500;
+      font-size:clamp(2.4rem,7vw,3.6rem);
+      letter-spacing:.12em;
+      margin:0;
+      color:var(--accent);
+      text-wrap:balance;
+    }
+    .divider{
+      display:flex;
+      align-items:center;
+      gap:.6rem;
+      color:var(--accent-soft);
+    }
+    .divider .line{ width:34px; height:1px; background:var(--border); }
+    .divider svg{ width:12px; height:12px; }
+    .tagline{
+      font-family:'Cormorant Garamond',serif;
+      font-style:italic;
+      font-size:1.35rem;
+      color:var(--text-secondary);
+      margin:0;
+    }
+    .areas{
+      font-size:.72rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--text-secondary);
+      margin:.5rem 0 0;
+    }
+    p.note{
+      font-size:.95rem;
+      line-height:1.75;
+      color:var(--text-secondary);
+      max-width:46ch;
+      margin:1.5rem 0 0;
+    }
+    footer{
+      margin-top:3.5rem;
+      font-size:.72rem;
+      letter-spacing:.05em;
+      color:var(--text-secondary);
+      opacity:.8;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>HJARTAHEIMAR</h1>
+    <div class="divider">
+      <span class="line"></span>
+      <svg viewBox="0 0 20 18" fill="currentColor"><path d="M10,17 C10,17 1,11 1,5.5 C1,2 4,0.5 6.5,2 C8,3 10,5 10,5 C10,5 12,3 13.5,2 C16,0.5 19,2 19,5.5 C19,11 10,17 10,17 Z"/></svg>
+      <span class="line"></span>
+    </div>
+    <p class="tagline">Mættu þér eins og þú ert.</p>
+    <p class="areas">Jóga &nbsp;·&nbsp; Öndun &nbsp;·&nbsp; Djúpslökun &nbsp;·&nbsp; Vatnsmeðferð &nbsp;·&nbsp; Heilun</p>
+    <p class="note">Hjartaheimar er að taka á sig mynd — rými fyrir jóga, öndun, djúpslökun og innri vinnu. Meira á leiðinni.</p>
+    <footer>&copy; 2026 Hjartaheimar</footer>
+  </main>
+</body>
+</html>
