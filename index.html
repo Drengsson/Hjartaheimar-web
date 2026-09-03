@@ -321,25 +321,6 @@
   .sk-card p{color:var(--ink-soft); font-size:0.94rem;}
   @media (max-width:820px){ .sk-grid{grid-template-columns:1fr; gap:36px;} }
 
-  /* faq */
-  .faq-list{max-width:70ch; margin-top:32px; border-top:1px solid var(--line);}
-  details{border-bottom:1px solid var(--line);}
-  summary{
-    list-style:none; cursor:pointer; padding:20px 0; display:flex; justify-content:space-between; gap:20px;
-    align-items:center; font-family:'Fraunces',serif; font-size:1.08rem; color:var(--ink);
-  }
-  summary::-webkit-details-marker{display:none;}
-  summary .plus{
-    flex:none; width:20px; height:20px; position:relative;
-  }
-  summary .plus::before, summary .plus::after{
-    content:""; position:absolute; background:var(--brand); transition:transform .25s ease;
-  }
-  summary .plus::before{left:0; top:9px; width:20px; height:1.5px;}
-  summary .plus::after{left:9px; top:0; width:1.5px; height:20px;}
-  details[open] summary .plus::after{transform:rotate(90deg); opacity:0;}
-  details p{color:var(--ink-soft); padding:0 0 22px; max-width:60ch;}
-
   /* contact */
   .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:clamp(30px,6vw,80px); align-items:start;}
   .contact-copy h2{font-size:clamp(1.9rem,3.2vw,2.5rem); color:var(--brand);}
@@ -391,7 +372,6 @@
     <a href="#einkatimar">Einkatímar</a>
     <a href="#namskeid">Námskeið</a>
     <a href="#sjalfsthekking">Sjálfsþekking</a>
-    <a href="#spurningar">Spurningar</a>
     <a href="#samband">Samband</a>
   </nav>
 </header>
@@ -598,7 +578,7 @@
         <div class="course">
           <p class="when">Nánar auglýst síðar</p>
           <h3>Aguahara-námskeið</h3>
-          <p>Vatnsmeðferð í Natura Spa — flotupplifun í hlýju vatni.</p>
+          <p>Vatnsmeðferð í hlýju vatni — flotupplifun sem nærir og kyrrir.</p>
         </div>
       </div>
     </div>
@@ -628,31 +608,6 @@
         </div>
       </div>
       <p class="rhythm-line" style="margin-top:44px;">Markmiðið er ekki að finna út hver þú „ættir“ að vera — heldur að sjá þig skýrar, eins og þú ert.</p>
-    </div>
-  </section>
-
-  <section class="band" id="spurningar">
-    <div class="wrap">
-      <p class="eyebrow">Algengar spurningar</p>
-      <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem); color:var(--brand); margin-top:10px;">Mest spurt um vatnsmeðferðina</h2>
-      <div class="faq-list">
-        <details open>
-          <summary>Hvað þarf ég að hafa með mér?<span class="plus"></span></summary>
-          <p>Sundföt og handklæði — það er í raun allt sem þarf. Þú mátt líka koma með baðslopp eða hlýjan fatnað til að fara í strax á eftir, ef þér finnst það notalegt.</p>
-        </details>
-        <details>
-          <summary>Hvað gerist ef ég kann ekki að synda?<span class="plus"></span></summary>
-          <p>Það skiptir engu máli. Þú þarft ekki að kunna að synda — þú ert studd/ur allan tímann og flýtur, þú synir ekki. Þú ræður alltaf þínum mörkum og ferð aðeins eins langt og þér líður vel með.</p>
-        </details>
-        <details>
-          <summary>Hvernig fer kafunin fram?<span class="plus"></span></summary>
-          <p>Hluti af upplifuninni fer fram rétt undir yfirborði vatnsins. Þá er notuð nefklemma og þú ert í algeru flæði, studd/ur af leiðbeinanda allan tímann. Ekkert gerist sem þú hefur ekki samþykkt fyrirfram.</p>
-        </details>
-        <details>
-          <summary>Hversu lengi er tíminn?<span class="plus"></span></summary>
-          <p>Lengdin fer svolítið eftir þínum þörfum þann daginn — við ræðum það saman áður en tíminn hefst, svo þú vitir alveg að hverju þú gengur.</p>
-        </details>
-      </div>
     </div>
   </section>
 
