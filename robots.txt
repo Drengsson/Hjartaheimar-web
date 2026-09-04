@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hjartaheimar.is/sitemap.xml
+Sitemap: https://www.hjartaheimar.is/sitemap.xml
