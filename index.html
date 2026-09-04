@@ -393,6 +393,29 @@
   dl.contact-fields dd.filled{font-style:normal; font-family:'Karla',sans-serif; color:var(--ink);}
   dl.contact-fields dd.filled a{color:inherit; text-decoration:none; border-bottom:1px solid var(--line); transition:border-color .2s ease;}
   dl.contact-fields dd.filled a:hover, dl.contact-fields dd.filled a:focus-visible{border-color:var(--brand);}
+
+  .contact-form{margin-top:36px; padding-top:30px; border-top:1px solid var(--line); display:flex; flex-direction:column; gap:18px; max-width:46ch;}
+  .contact-form .hp{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;}
+  .form-row{display:flex; flex-direction:column; gap:6px;}
+  .form-row label{font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-faint);}
+  .form-row input, .form-row textarea{
+    font:400 0.95rem/1.5 'Karla',sans-serif; color:var(--ink); background:transparent;
+    border:none; border-bottom:1px solid var(--line); padding:8px 2px; resize:vertical;
+    transition:border-color .2s ease;
+  }
+  .form-row input:focus, .form-row textarea:focus{outline:none; border-color:var(--brand);}
+  .form-row textarea{min-height:96px;}
+  .form-submit{
+    align-self:flex-start; font:500 0.85rem/1 'Karla',sans-serif; letter-spacing:0.03em;
+    background:var(--brand); color:var(--surface); border:1px solid var(--brand);
+    padding:12px 22px; border-radius:2px; cursor:pointer; transition:background .2s ease, border-color .2s ease;
+  }
+  .form-submit:hover, .form-submit:focus-visible{background:var(--brand-2); border-color:var(--brand-2);}
+  .form-submit:disabled{opacity:0.6; cursor:default;}
+  .form-status{margin:0; font-size:0.85rem; min-height:1.2em;}
+  .form-status.ok{color:var(--water);}
+  .form-status.err{color:var(--brand-2);}
+
   .testimonials{
     background:var(--surface); border:1px solid var(--line); padding:30px; display:flex; flex-direction:column; gap:28px;
   }
@@ -408,6 +431,11 @@
   }
   footer.site-foot .brandmark span{font-size:0.95rem;}
   footer.site-foot small{color:var(--ink-faint); font-size:0.78rem;}
+  footer.site-foot .privacy-link{
+    color:var(--ink-faint); font-size:0.78rem; text-decoration:none;
+    border-bottom:1px solid transparent; transition:color .2s ease, border-color .2s ease;
+  }
+  footer.site-foot .privacy-link:hover, footer.site-foot .privacy-link:focus-visible{color:var(--brand); border-color:var(--brand);}
 
   .theme-note{position:fixed; bottom:14px; right:14px; z-index:60;}
   .theme-note button{
@@ -693,6 +721,28 @@ src="https://www.facebook.com/tr?id=926281660184975&ev=PageView&noscript=1"
           <div><dt>Staðsetning</dt><dd class="filled"><a href="https://maps.app.goo.gl/vLaoku56jWaAJrbAA" target="_blank" rel="noopener">Bolholt 4, 4. hæð, Reykjavík</a></dd></div>
           <div><dt>Samfélagsmiðlar</dt><dd class="filled"><a href="https://www.facebook.com/profile.php?id=61593960661093" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.instagram.com/hjartaheimar/" target="_blank" rel="noopener">Instagram</a></dd></div>
         </dl>
+
+        <!-- TODO: replace YOUR_WEB3FORMS_KEY with a real access key — get one free, no signup, at https://web3forms.com/ -->
+        <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY">
+          <input type="hidden" name="subject" value="Ný fyrirspurn af hjartaheimar.is">
+          <input type="hidden" name="from_name" value="Hjartaheimar — vefur">
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+          <div class="form-row">
+            <label for="cf-name">Nafn</label>
+            <input type="text" id="cf-name" name="name" required autocomplete="name">
+          </div>
+          <div class="form-row">
+            <label for="cf-email">Netfang</label>
+            <input type="email" id="cf-email" name="email" required autocomplete="email">
+          </div>
+          <div class="form-row">
+            <label for="cf-message">Skilaboð</label>
+            <textarea id="cf-message" name="message" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Senda</button>
+          <p class="form-status" id="contactFormStatus" role="status" aria-live="polite"></p>
+        </form>
       </div>
       <div class="testimonials">
         <p class="eyebrow">Umsagnir</p>
@@ -716,6 +766,7 @@ src="https://www.facebook.com/tr?id=926281660184975&ev=PageView&noscript=1"
     <span>HJARTAHEIMAR</span>
   </a>
   <small>Mættu þér eins og þú ert.</small>
+  <a class="privacy-link" href="/personuvernd.html">Persónuvernd</a>
 </footer>
 
 <script>
@@ -761,6 +812,47 @@ src="https://www.facebook.com/tr?id=926281660184975&ev=PageView&noscript=1"
         }, 1000);
       });
     });
+</script>
+
+<script>
+  (function(){
+    var form = document.getElementById('contactForm');
+    if(!form) return;
+    var status = document.getElementById('contactFormStatus');
+    var btn = form.querySelector('.form-submit');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if(form.querySelector('.hp').checked) return; // honeypot tripped, silently drop
+      btn.disabled = true;
+      btn.textContent = 'Sendi...';
+      status.textContent = '';
+      status.className = 'form-status';
+      fetch(form.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      })
+        .then(function(res){ return res.json(); })
+        .then(function(data){
+          if(data && data.success){
+            form.reset();
+            status.textContent = 'Takk fyrir — skilaboðin bárust. Ég svara eins fljótt og ég get.';
+            status.className = 'form-status ok';
+          } else {
+            status.textContent = 'Eitthvað fór úrskeiðis. Prófaðu aftur, eða sendu mér línu á Gulla@hjartaheimar.is.';
+            status.className = 'form-status err';
+          }
+        })
+        .catch(function(){
+          status.textContent = 'Eitthvað fór úrskeiðis. Prófaðu aftur, eða sendu mér línu á Gulla@hjartaheimar.is.';
+          status.className = 'form-status err';
+        })
+        .finally(function(){
+          btn.disabled = false;
+          btn.textContent = 'Senda';
+        });
+    });
+  })();
 </script>
 
 </body>
