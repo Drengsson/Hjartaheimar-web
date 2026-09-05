@@ -384,6 +384,7 @@
 
   /* playlist */
   .playlist-grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(20px,3vw,32px); margin-top:32px; max-width:960px;}
+  .playlist-label{font-size:1.05rem; color:var(--brand); margin:0 0 12px;}
   .spotify-embed{border-radius:2px; overflow:hidden;}
   .spotify-embed iframe{display:block; width:100%; border:0;}
   @media (max-width:700px){ .playlist-grid{grid-template-columns:1fr;} }
@@ -502,6 +503,7 @@ src="https://www.facebook.com/tr?id=926281660184975&ev=PageView&noscript=1"
     <a href="#einkatimar">Einkatímar</a>
     <a href="#namskeid">Námskeið</a>
     <a href="#sjalfsthekking">Sjálfsþekking</a>
+    <a href="#tonlist">Tónlist</a>
     <a href="#samband">Samband</a>
     <a href="#" id="bookNavLink" class="nav-cta">Bóka tíma</a>
   </nav>
@@ -722,11 +724,17 @@ src="https://www.facebook.com/tr?id=926281660184975&ev=PageView&noscript=1"
       <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem); color:var(--brand); margin-top:10px; max-width:26ch;">Spilalistar til að hlusta á</h2>
       <p class="measure" style="margin-top:16px;color:var(--ink-soft)">Tónlist sem fylgir þessum stundum — til að hlusta á í ró heima, eða rifja upp andrúmsloftið eftir tíma.</p>
       <div class="playlist-grid">
-        <div class="spotify-embed">
-          <iframe src="https://open.spotify.com/embed/playlist/2PXzeFKCvQaIWuLjhq6Gjo?utm_source=generator&amp;theme=0" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Spotify spilalisti — Hjartaheimar"></iframe>
+        <div class="playlist-col">
+          <h3 class="playlist-label">Hjartaheimar</h3>
+          <div class="spotify-embed">
+            <iframe src="https://open.spotify.com/embed/playlist/3eouVh47JUWvdPtJApuYim?utm_source=generator&amp;theme=0" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Spotify spilalisti — Hjartaheimar"></iframe>
+          </div>
         </div>
-        <div class="spotify-embed">
-          <iframe src="https://open.spotify.com/embed/playlist/3eouVh47JUWvdPtJApuYim?utm_source=generator&amp;theme=0" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Spotify spilalisti — Hjartaheimar"></iframe>
+        <div class="playlist-col">
+          <h3 class="playlist-label">Hjartaheimar — jógatímar</h3>
+          <div class="spotify-embed">
+            <iframe src="https://open.spotify.com/embed/playlist/2PXzeFKCvQaIWuLjhq6Gjo?utm_source=generator&amp;theme=0" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Spotify spilalisti — Hjartaheimar jógatímar"></iframe>
+          </div>
         </div>
       </div>
     </div>
