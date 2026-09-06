@@ -908,13 +908,23 @@
     var body = document.body;
     var links = document.getElementById('navLinks');
     if(!btn || !links) return;
+    // The collapsible panel only exists below this breakpoint (see the
+    // matching @media(max-width:1040px) rules) — above it nav.links is
+    // always shown inline in the header and must never be inert.
+    var mq = window.matchMedia('(max-width:1040px)');
 
     function setOpen(open){
       body.classList.toggle('nav-open', open);
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      // Closed menu links must not be reachable by Tab or a screen reader,
-      // even though they stay in the DOM for the opacity/transform transition.
-      links.inert = !open;
+      // Closed *mobile* menu links must not be reachable by Tab, a screen
+      // reader, or a click, even though they stay in the DOM for the
+      // opacity/transform transition. Bug fixed 2026-09-06: this used to be
+      // "links.inert = !open" unconditionally, which left #navLinks inert
+      // forever on desktop (setOpen(false) runs once on load and nothing
+      // ever calls setOpen(true) there, since the toggle button is hidden)
+      // — every nav link became unclickable, with clicks silently falling
+      // through to the header behind them.
+      links.inert = mq.matches && !open;
     }
     setOpen(false);
 
@@ -927,6 +937,31 @@
         setOpen(false);
         btn.focus();
       }
+    });
+    // Keep inert correct if the viewport crosses the breakpoint (e.g. a
+    // tablet rotated, or a resized desktop window) without a toggle click.
+    mq.addEventListener('change', function(){ setOpen(body.classList.contains('nav-open')); });
+  })();
+</script>
+
+<script>
+  // Drive in-page anchor navigation (nav links, index-strip links, the
+  // "Sjá Einkatímar" link) ourselves instead of relying on the browser's
+  // native fragment-scroll: relying on it left links intermittently
+  // updating the URL hash without ever scrolling. scrollIntoView still
+  // honors each target's scroll-margin-top, so the sticky header offset
+  // stays correct.
+  (function(){
+    document.querySelectorAll('a[href^="#"]').forEach(function(link){
+      var id = link.getAttribute('href').slice(1);
+      if(!id) return;
+      link.addEventListener('click', function(e){
+        var target = document.getElementById(id);
+        if(!target) return;
+        e.preventDefault();
+        target.scrollIntoView({behavior:'smooth', block:'start'});
+        if(history.pushState){ history.pushState(null, '', '#' + id); }
+      });
     });
   })();
 </script>
