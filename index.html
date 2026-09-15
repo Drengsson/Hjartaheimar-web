@@ -402,12 +402,11 @@
   .glow-figure{position:relative; border-radius:2px; overflow:hidden;}
   .glow-figure img{width:100%; display:block;}
 
-  /* Booking is temporarily contact-only sitewide (see the JS comment near
-     the SimplyBook widget setup below) — every former booking button now
-     just scrolls to #samband. SimplyBook's own floating edge-tab stays
-     hidden regardless, since its position is a fixed % of viewport height
-     and isn't aware of what's underneath it, so it can land on top of content. */
-  .simplybook-widget-button{display:none !important;}
+  /* Booking: the fastir tímar (Jóga · Öndun · Djúpslökun) schedule books
+     through the Noona modal (#fastirTimarBookBtn / #bookingModal below).
+     Every other booking button (nav, mobile bar, vatnsmeðferð, reiki,
+     einkatímar) still just scrolls to #samband — those services don't have
+     an online booking link yet. SimplyBook is no longer used. */
 
   .mobile-book-bar{
     display:none; position:fixed; left:0; right:0; bottom:0; z-index:55;
@@ -449,6 +448,37 @@
   .consent-btn:hover, .consent-btn:focus-visible{filter:brightness(0.92);}
   @media (max-width:900px){ .consent-banner{bottom:64px;} }
   .consent-change-btn{background:none; border:0; padding:0; font:inherit; cursor:pointer;}
+
+  /* booking modal — fastir tímar (Noona) */
+  .booking-modal[hidden]{display:none;}
+  .booking-modal{
+    position:fixed; inset:0; z-index:200;
+    background:color-mix(in srgb, var(--ink) 55%, transparent);
+    display:flex; align-items:center; justify-content:center;
+    padding:20px;
+  }
+  .booking-modal .booking-modal-box{
+    position:relative; width:100%; max-width:640px; max-height:90vh;
+    background:var(--surface); border:1px solid var(--line); border-radius:2px;
+    box-shadow:0 12px 40px var(--shadow);
+    display:flex; flex-direction:column; overflow:hidden;
+  }
+  .booking-modal-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 18px; border-bottom:1px solid var(--line); flex:0 0 auto;
+  }
+  .booking-modal-head h3{font-size:1.05rem; color:var(--brand);}
+  .booking-modal-close{
+    background:none; border:0; cursor:pointer; padding:4px 8px;
+    font-size:1.3rem; line-height:1; color:var(--ink-soft);
+  }
+  .booking-modal-close:hover, .booking-modal-close:focus-visible{color:var(--brand);}
+  .booking-modal-body{flex:1 1 auto; overflow:auto; background:var(--ground);}
+  .booking-modal-body iframe{display:block; width:100%; height:80vh; border:0;}
+  @media (max-width:640px){
+    .booking-modal{padding:0;}
+    .booking-modal .booking-modal-box{max-width:none; max-height:none; height:100%; border-radius:0;}
+  }
 
   /* private sessions */
   .choice-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:40px;}
@@ -656,12 +686,7 @@
           <p class="sh-price">60 mínútur · 4.800 kr</p>
           <p class="sh-offer">10 tíma kort á 38.000 kr (21% afsláttur)</p>
         </div>
-        <!-- Temporary: this schedule isn't its own bookable service in
-             SimplyBook yet (only the private/home-visit Jóga session is),
-             so this points at the contact section rather than the widget.
-             Swap back to a real .book-service-btn/data-service link once
-             it exists there. -->
-        <a href="#samband" class="book-service-btn">Hafðu samband til að bóka</a>
+        <button type="button" class="book-service-btn" id="fastirTimarBookBtn" aria-haspopup="dialog" aria-controls="bookingModal">Bóka tíma</button>
       </div>
 
       <div class="modality-body">
@@ -978,6 +1003,18 @@
   <a href="#samband" class="mobile-book-btn">Hafðu samband til að bóka</a>
 </div>
 
+<div class="booking-modal" id="bookingModal" hidden>
+  <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
+    <div class="booking-modal-head">
+      <h3 id="bookingModalTitle">Bóka tíma · Jóga · Öndun · Djúpslökun</h3>
+      <button type="button" class="booking-modal-close" id="bookingModalClose" aria-label="Loka">&times;</button>
+    </div>
+    <div class="booking-modal-body">
+      <iframe src="https://noona.is/hjartaheimar/book?iframe=true&darkModeDisabled=true&showCancelButton=true" title="Bóka tíma hjá Hjartaheimar" frameborder="0" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
 <div class="consent-banner" id="consentBanner" role="region" aria-label="Vafrakökur og mælingar" hidden>
   <p>Þessi vefur notar valfrjálsar mæli- og markaðskökur (Google Analytics, Meta) til að skilja notkun og bæta þjónustuna. <a href="/personuvernd.html">Lesa meira í persónuverndarstefnu</a>.</p>
   <div class="consent-actions">
@@ -1050,24 +1087,52 @@
   })();
 </script>
 
-<script src="//widget.simplybook.it/v2/widget/widget.js" type="text/javascript"></script>
 <script type="text/javascript">
-    var widget = new SimplybookWidget({"widget_type":"button","url":"https:\/\/hjartaheimar.simplybook.it","theme":"space","theme_settings":{"timeline_hide_unavailable":"1","sb_base_color":"#5b1f1f","hide_past_days":"0","timeline_show_end_time":"0","timeline_modern_display":"as_slots","display_item_mode":"block","body_bg_color":"#f8f3e9","sb_review_image":"13","sb_review_image_preview":"\/uploads\/hjartaheimar\/image_files\/preview\/879ceb2662a1c918b2810644268b8aeb.png","dark_font_color":"#2a1d16","light_font_color":"#f8f3e9","btn_color_1":"#c56d5b","sb_company_label_color":"#f8f3e9","hide_img_mode":"0","show_sidebar":"1","sb_busy":"#e3d9c7","sb_available":"#e8ddc9"},"timeline":"modern","datepicker":"top_calendar","is_rtl":false,"app_config":{"clear_session":0,"allow_switch_to_ada":0,"predefined":[]},"button_title":"Bóka tíma","button_background_color":"#5b1f1f","button_text_color":"#f8f3e9","button_position":"right","button_position_offset":"18%"});
-
-    // Booking is temporarily contact-only sitewide: every former booking
-    // button (nav, mobile bar, Jóga/vatnsmeðferð/reiki) now just points at
-    // #samband and is handled by the ordinary anchor/scroll-into-view script
-    // above, not by this widget. The widget object above is kept instantiated
-    // (SimplyBook needs it loaded to run at all) but nothing on the page opens
-    // its popup right now — restore the per-button click handlers here once
-    // SimplyBook's booking setup is fixed and real service links come back.
+    // Contact-fallback tracking for every booking button that still just
+    // scrolls to #samband (nav, mobile bar, vatnsmeðferð, reiki, einkatímar).
+    // The fastir tímar button (#fastirTimarBookBtn) opens the Noona modal
+    // instead and is tracked separately below.
     document.querySelectorAll('.book-service-btn').forEach(function(btn){
+      if(btn.id === 'fastirTimarBookBtn') return;
       btn.addEventListener('click', function(){
         if(typeof gtag === 'function'){
           gtag('event', 'book_button_click', { label: 'contact-fallback' });
         }
       });
     });
+
+    // Fastir tímar (Jóga · Öndun · Djúpslökun) booking — Noona modal.
+    (function(){
+      var openBtn = document.getElementById('fastirTimarBookBtn');
+      var modal = document.getElementById('bookingModal');
+      if(!openBtn || !modal) return;
+      var closeBtn = document.getElementById('bookingModalClose');
+      var lastFocused = null;
+
+      function openModal(){
+        lastFocused = document.activeElement;
+        modal.hidden = false;
+        document.body.style.overflow = 'hidden';
+        if(closeBtn) closeBtn.focus();
+        if(typeof gtag === 'function'){
+          gtag('event', 'book_button_click', { label: 'fastir-timar-noona-modal' });
+        }
+      }
+      function closeModal(){
+        modal.hidden = true;
+        document.body.style.overflow = '';
+        if(lastFocused && typeof lastFocused.focus === 'function'){ lastFocused.focus(); }
+      }
+
+      openBtn.addEventListener('click', openModal);
+      if(closeBtn) closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', function(e){
+        if(e.target === modal) closeModal();
+      });
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape' && !modal.hidden) closeModal();
+      });
+    })();
 
     document.querySelectorAll('.course-link').forEach(function(link){
       link.addEventListener('click', function(){
