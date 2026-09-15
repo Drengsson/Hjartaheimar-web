@@ -679,7 +679,7 @@
           <p class="sh-times">Föstudaga kl. 12:00</p>
           <p class="sh-location">B4 · Bolholt 4 · 4. hæð</p>
           <p class="sh-price">60 mínútur · 4.800 kr</p>
-          <a class="sh-offer cta-link" href="https://noona.is/hjartaheimar/vouchers/5wKDA8qfgmo6BLGf0UYEvsvx?source=Company" target="_blank" rel="noopener">10 tíma kort á 38.000 kr (21% afsláttur) →</a>
+          <a class="sh-offer cta-link open-voucher-modal" href="https://noona.is/hjartaheimar/vouchers/5wKDA8qfgmo6BLGf0UYEvsvx?source=Company" target="_blank" rel="noopener">10 tíma kort á 38.000 kr (21% afsláttur) →</a>
         </div>
         <button type="button" class="book-service-btn open-booking-modal" id="fastirTimarBookBtn" aria-haspopup="dialog" aria-controls="bookingModal">Bóka tíma</button>
       </div>
@@ -1013,6 +1013,19 @@
   </div>
 </div>
 
+<div class="booking-modal" id="voucherModal" hidden>
+  <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="voucherModalTitle">
+    <div class="booking-modal-head">
+      <h3 id="voucherModalTitle">Kaupa gjafakort · 10 tíma kort</h3>
+      <button type="button" class="booking-modal-close" id="voucherModalClose" aria-label="Loka">&times;</button>
+    </div>
+    <div class="booking-modal-body">
+      <iframe src="https://noona.is/hjartaheimar/vouchers/5wKDA8qfgmo6BLGf0UYEvsvx?source=Company&iframe=true" title="Kaupa 10 tíma kort hjá Hjartaheimar" frameborder="0" loading="lazy"></iframe>
+    </div>
+    <p style="margin:0; padding:8px 18px 14px; font-size:0.78rem; color:var(--ink-faint);">Opnast síðan ekki rétt? <a href="https://noona.is/hjartaheimar/vouchers/5wKDA8qfgmo6BLGf0UYEvsvx?source=Company" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Opna á noona.is í nýjum flipa</a>.</p>
+  </div>
+</div>
+
 <div class="consent-banner" id="consentBanner" role="region" aria-label="Vafrakökur og mælingar" hidden>
   <p>Þessi vefur notar valfrjálsar mæli- og markaðskökur (Google Analytics, Meta) til að skilja notkun og bæta þjónustuna. <a href="/personuvernd.html">Lesa meira í persónuverndarstefnu</a>.</p>
   <div class="consent-actions">
@@ -1099,15 +1112,13 @@
       });
     });
 
-    // Fastir tímar (Jóga · Öndun · Djúpslökun) booking — Noona modal.
-    // Every entry point that should open it carries .open-booking-modal:
-    // the nav "Bóka tíma" button, the hero badge and hero CTA, and the
-    // "Bóka tíma" button inside the #joga schedule card itself.
-    (function(){
-      var openTriggers = document.querySelectorAll('.open-booking-modal');
-      var modal = document.getElementById('bookingModal');
+    // Reusable Noona iframe-modal controller — used for both the fastir
+    // tímar booking modal and the 10-tíma-kort voucher modal below.
+    function initNoonaModal(triggerSelector, modalId, closeId, gtagLabel){
+      var openTriggers = document.querySelectorAll(triggerSelector);
+      var modal = document.getElementById(modalId);
       if(!openTriggers.length || !modal) return;
-      var closeBtn = document.getElementById('bookingModalClose');
+      var closeBtn = document.getElementById(closeId);
       var lastFocused = null;
 
       function openModal(e){
@@ -1117,7 +1128,7 @@
         document.body.style.overflow = 'hidden';
         if(closeBtn) closeBtn.focus();
         if(typeof gtag === 'function'){
-          gtag('event', 'book_button_click', { label: 'fastir-timar-noona-modal' });
+          gtag('event', 'book_button_click', { label: gtagLabel });
         }
       }
       function closeModal(){
@@ -1134,7 +1145,16 @@
       document.addEventListener('keydown', function(e){
         if(e.key === 'Escape' && !modal.hidden) closeModal();
       });
-    })();
+    }
+
+    // Fastir tímar (Jóga · Öndun · Djúpslökun) booking. Every entry point
+    // that should open it carries .open-booking-modal: the nav "Bóka tíma"
+    // button, the hero badge, and the "Bóka tíma" button inside the #joga
+    // schedule card itself.
+    initNoonaModal('.open-booking-modal', 'bookingModal', 'bookingModalClose', 'fastir-timar-noona-modal');
+
+    // 10 tíma kort voucher purchase.
+    initNoonaModal('.open-voucher-modal', 'voucherModal', 'voucherModalClose', 'fastir-timar-voucher-modal');
 
     document.querySelectorAll('.course-link').forEach(function(link){
       link.addEventListener('click', function(){
