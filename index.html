@@ -399,9 +399,10 @@
 
   /* Booking: the fastir tímar (Jóga · Öndun · Djúpslökun) schedule books
      through the Noona modal (#fastirTimarBookBtn / #bookingModal below).
-     Every other booking button (nav, mobile bar, vatnsmeðferð, reiki,
-     einkatímar) still just scrolls to #samband — those services don't have
-     an online booking link yet. SimplyBook is no longer used. */
+     The nav "Bóka tíma" button and this mobile sticky bar open the same
+     modal. Service-specific buttons (vatnsmeðferð, reiki, einkatímar)
+     still just scroll to #samband — those services don't have an online
+     booking link yet. SimplyBook is no longer used. */
 
   .mobile-book-bar{
     display:none; position:fixed; left:0; right:0; bottom:0; z-index:55;
@@ -1000,7 +1001,7 @@
 </footer>
 
 <div class="mobile-book-bar">
-  <a href="#samband" class="mobile-book-btn">Hafðu samband til að bóka</a>
+  <a href="#joga" class="mobile-book-btn open-booking-modal">Bóka tíma</a>
 </div>
 
 <div class="booking-modal" id="bookingModal" hidden>
