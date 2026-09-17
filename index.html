@@ -255,6 +255,9 @@
   }
   .hero-badge:hover, .hero-badge:focus-visible{background:var(--brand); color:var(--surface);}
   .hero-badge strong{font-weight:700;}
+  @media (max-width:640px){
+    .hero-badge{width:100%; box-sizing:border-box;}
+  }
   .hero-actions{display:flex; align-items:center; gap:28px; flex-wrap:wrap; margin-top:4px;}
   .scroll-cue{
     display:inline-flex; align-items:center; gap:10px;
@@ -667,6 +670,7 @@
   </button>
   <nav class="links" id="navLinks">
     <a href="#heim">Heim</a>
+    <a href="#fimmtudagar">Fimmtudagar með Gullu</a>
     <a href="#joga">Jógatímar</a>
     <a href="#einkatimar">Einkatímar</a>
     <a href="#sjalfsthekking">Sjálfsþekking</a>
@@ -822,6 +826,11 @@
     <p class="eyebrow" style="text-align:center;">Fleiri valmöguleikar</p>
     <div class="wrap">
       <div class="explore-grid">
+        <a class="explore-card" href="#fimmtudagar">
+          <h3>Fimmtudagar með Gullu</h3>
+          <p>Einkatími í Bolholti 4, jóga, öndun og djúpslökun eða Reikiheilun.</p>
+          <span class="arrow">Skoða →</span>
+        </a>
         <a class="explore-card" href="#vatnsmedferd">
           <h3>Vatnsmeðferð · Aguahara</h3>
           <p>Djúp vatnsupplifun í sundlaug þar sem þú mátt bara fljóta.</p>
