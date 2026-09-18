@@ -194,6 +194,18 @@
   }
   nav.links a.nav-cta:hover, nav.links a.nav-cta:focus-visible{background:var(--brand-2); border-color:var(--brand-2); color:var(--surface);}
   .nav-toggle{display:none;}
+  /* Mobile-only header slot: on narrow viewports the language switcher
+     moves out of the collapsible nav.links dropdown and sits next to the
+     hamburger button instead, so switching language doesn't require
+     opening the menu first. Hidden entirely on desktop, where the
+     nav.links copy below is already visible inline. */
+  .nav-mobile-actions{display:none;}
+  .lang-switch-header{
+    font-size:0.83rem; text-decoration:none; color:var(--ink-soft);
+    letter-spacing:0.02em; padding:6px 2px; border-bottom:1px solid transparent;
+    transition:color .2s ease, border-color .2s ease;
+  }
+  .lang-switch-header:hover, .lang-switch-header:focus-visible{color:var(--brand); border-color:var(--brand);}
   a:focus-visible, button:focus-visible, summary:focus-visible{outline:2px solid var(--focus); outline-offset:3px; border-radius:2px;}
 
   /* nav gets tight with 8 links + CTA, so the mobile menu takes over earlier
@@ -216,6 +228,8 @@
       margin-top:18px; padding:13px 16px;
     }
     body.nav-open nav.links{opacity:1; transform:none; pointer-events:auto;}
+    .nav-mobile-actions{display:flex; align-items:center; gap:14px;}
+    #navLinks > a.lang-switch{display:none;}
     .nav-toggle{
       display:flex; flex-direction:column; justify-content:center; align-items:center; gap:5px;
       width:44px; height:44px; background:none; border:0; cursor:pointer; padding:0;
@@ -670,9 +684,12 @@
     <img class="icon-dark" alt="" width="220" height="143" src="img/logo-dark.png" decoding="async">
     <span>HJARTAHEIMAR</span>
   </a>
-  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" id="navToggle">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav-mobile-actions">
+    <a href="/" class="lang-switch-header">IS</a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" id="navToggle">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
   <nav class="links" id="navLinks">
     <a href="#heim">Home</a>
     <a href="#fimmtudagar">Thursdays with Gulla</a>
