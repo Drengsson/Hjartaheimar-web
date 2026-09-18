@@ -1272,15 +1272,31 @@
         modal.hidden = false;
         document.body.style.overflow = 'hidden';
         if(closeBtn) closeBtn.focus();
+        // Give the modal its own history entry so a phone's back
+        // button/gesture closes the modal instead of leaving the page
+        // entirely. The URL itself doesn't change, so this is invisible
+        // except that "back" now closes the overlay first.
+        history.pushState({ hhModal: modalId }, '', location.href);
         if(typeof gtag === 'function'){
           gtag('event', 'book_button_click', { label: gtagLabel });
         }
       }
-      function closeModal(){
+      function closeModal(fromPopstate){
         modal.hidden = true;
         document.body.style.overflow = '';
         if(lastFocused && typeof lastFocused.focus === 'function'){ lastFocused.focus(); }
+        // Closed some other way (× button, backdrop, Escape): consume the
+        // history entry we pushed on open, so back/forward stays clean and
+        // a second back press doesn't land on a stale modal-open state.
+        // Skip this when we're already responding to a back navigation —
+        // that state is being popped on its own.
+        if(!fromPopstate && history.state && history.state.hhModal === modalId){
+          history.back();
+        }
       }
+      window.addEventListener('popstate', function(){
+        if(!modal.hidden){ closeModal(true); }
+      });
 
       function getFocusable(){
         var nodes = modal.querySelectorAll('a[href], button, input, textarea, select, [tabindex]:not([tabindex="-1"])');
@@ -1290,7 +1306,11 @@
       }
 
       openTriggers.forEach(function(btn){ btn.addEventListener('click', openModal); });
-      if(closeBtn) closeBtn.addEventListener('click', closeModal);
+      // Wrapped in a plain function rather than passed directly: passing
+      // closeModal straight to addEventListener would hand it the click
+      // event as its "fromPopstate" argument, which is truthy and would
+      // wrongly skip the history.back() cleanup below.
+      if(closeBtn) closeBtn.addEventListener('click', function(){ closeModal(); });
       modal.addEventListener('click', function(e){
         if(e.target === modal) closeModal();
       });
