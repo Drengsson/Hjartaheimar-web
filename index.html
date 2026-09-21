@@ -157,6 +157,19 @@
   }
   :root:not([data-theme="light"]) .grain, :root[data-theme="dark"] .grain{ mix-blend-mode:soft-light; opacity:0.35; }
 
+  /* Skip link: invisible until it receives keyboard focus (Tab from the
+     top of the page), then jumps a keyboard/screen-reader user straight
+     past the header nav to the main content instead of forcing them to
+     tab through every nav link first. */
+  .skip-link{
+    position:absolute; top:-100px; left:12px; z-index:100;
+    background:var(--brand); color:var(--surface);
+    font-family:'Karla',sans-serif; font-weight:700; font-size:0.9rem;
+    padding:12px 20px; border-radius:4px; text-decoration:none;
+    transition:top 0.15s ease;
+  }
+  .skip-link:focus{top:12px;}
+
   /* ---------- nav ---------- */
   header.site-nav{
     position:sticky; top:0; z-index:50;
@@ -677,6 +690,7 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main-content">Fara beint í efni</a>
 
 <div class="grain" aria-hidden="true"><svg width="100%" height="100%" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
   <filter id="plaster">
@@ -711,7 +725,7 @@
   </nav>
 </header>
 
-<main>
+<main id="main-content">
 
   <section class="hero" id="heim">
     <div class="hero-copy">
@@ -727,14 +741,14 @@
       </div>
     </div>
     <div class="hero-figure">
-      <img alt="Kona í hugleiðslustellingu í jógasalnum í Hjartaheimum, með kertaljós beggja vegna" width="1800" height="1199" src="img/hero-portrait.jpg" loading="eager" fetchpriority="high" decoding="async">
+      <img alt="Kona í hugleiðslustellingu í jógasalnum í Hjartaheimum, með kertaljós beggja vegna" width="1800" height="1199" src="img/hero-portrait.webp" loading="eager" fetchpriority="high" decoding="async">
     </div>
   </section>
 
   <section class="band alt thursday-invite" id="fimmtudagar">
     <div class="wrap thursday-grid">
       <figure class="thursday-figure">
-        <img src="img/gulla-fimmtudagar.jpg" alt="Guðlaug í jógarýminu að Bolholti 4" width="1400" height="933" loading="lazy" decoding="async">
+        <img src="img/gulla-fimmtudagar.webp" alt="Guðlaug í jógarýminu að Bolholti 4" width="1400" height="933" loading="lazy" decoding="async">
       </figure>
       <div class="thursday-copy">
         <p class="eyebrow">Fimmtudagar með Gullu</p>
@@ -773,11 +787,11 @@
 
       <div class="voucher-grid">
         <a class="voucher-card open-voucher-modal" href="https://noona.is/hjartaheimar/vouchers/5wKDA8qfgmo6BLGf0UYEvsvx?source=Company" target="_blank" rel="noopener">
-          <img src="img/kort-10-tima.jpg" alt="10 tíma kort · 28.000 kr í stað 35.000 kr · 20% afsláttur" width="700" height="391" loading="lazy" decoding="async">
+          <img src="img/kort-10-tima.webp" alt="10 tíma kort · 28.000 kr í stað 35.000 kr · 20% afsláttur" width="700" height="391" loading="lazy" decoding="async">
           <span class="book-service-btn gold">Kaupa 10 tíma kort</span>
         </a>
         <a class="voucher-card open-voucher20-modal" href="https://noona.is/hjartaheimar/vouchers/wDTNAcDyS5FrjwB9Zbcv0rUz?source=Company" target="_blank" rel="noopener">
-          <img src="img/kort-20-tima.jpg" alt="20 tíma kort · 49.000 kr í stað 70.000 kr · 30% afsláttur" width="700" height="391" loading="lazy" decoding="async">
+          <img src="img/kort-20-tima.webp" alt="20 tíma kort · 49.000 kr í stað 70.000 kr · 30% afsláttur" width="700" height="391" loading="lazy" decoding="async">
           <span class="book-service-btn gold">Kaupa 20 tíma kort</span>
         </a>
       </div>
@@ -790,7 +804,7 @@
           <p class="measure" style="margin-top:14px;color:var(--ink-soft)">Þessir tveir tímar í viku hverri verða fastur punktur sem þú getur alltaf treyst á. Þú ert velkomin hvort sem þetta er fyrsti tíminn þinn eða þú kemur aftur og aftur.</p>
         </div>
         <figure class="glow-figure" style="margin:0;">
-          <img alt="Kona í hugleiðslustellingu á jógadýnu í Hjartaheimum" width="900" height="900" src="img/joga-portrait.jpg" loading="lazy" decoding="async">
+          <img alt="Kona í hugleiðslustellingu á jógadýnu í Hjartaheimum" width="900" height="900" src="img/joga-portrait.webp" loading="lazy" decoding="async">
         </figure>
       </div>
       <details class="technique-details">
@@ -825,7 +839,7 @@
           <button type="button" class="book-service-btn open-enquiry-modal" style="margin-left:12px;">Óska eftir einkatíma</button>
         </div>
         <figure class="glow-figure" style="margin:0;">
-          <img alt="Hópur í djúpslökun á jógadýnum, umvafinn teppum í kertaljósi" width="900" height="900" src="img/nidra-group.jpg" loading="lazy" decoding="async">
+          <img alt="Hópur í djúpslökun á jógadýnum, umvafinn teppum í kertaljósi" width="900" height="900" src="img/nidra-group.webp" loading="lazy" decoding="async">
         </figure>
       </div>
 
@@ -948,7 +962,7 @@
           <button type="button" class="book-service-btn open-enquiry-modal">Óska eftir einkatíma</button>
         </div>
         <figure class="glow-figure" style="margin:0;">
-          <img alt="Kona flýtur í sundlaug, studd af leiðbeinanda, í Aguahara vatnsmeðferð" width="900" height="900" src="img/vatnsmedferd-pool.jpg" loading="lazy" decoding="async">
+          <img alt="Kona flýtur í sundlaug, studd af leiðbeinanda, í Aguahara vatnsmeðferð" width="900" height="900" src="img/vatnsmedferd-pool.webp" loading="lazy" decoding="async">
         </figure>
       </div>
     </div>
@@ -969,7 +983,7 @@
           <button type="button" class="book-service-btn open-enquiry-modal">Óska eftir einkatíma</button>
         </div>
         <figure class="glow-figure" style="margin:0;">
-          <img alt="Hendur styðja við höfuð í Reikimeðferð við kertaljós" width="900" height="900" src="img/reiki-hands.jpg" loading="lazy" decoding="async">
+          <img alt="Hendur styðja við höfuð í Reikimeðferð við kertaljós" width="900" height="900" src="img/reiki-hands.webp" loading="lazy" decoding="async">
         </figure>
       </div>
     </div>
@@ -1029,7 +1043,7 @@
   <section class="band" id="um-mig">
     <div class="wrap about-grid">
       <figure>
-        <img alt="Portrett í jógasalnum í Hjartaheimum" width="1000" height="1388" src="img/um-mig-portrait.jpg" loading="lazy" decoding="async">
+        <img alt="Portrett í jógasalnum í Hjartaheimum" width="1000" height="1388" src="img/um-mig-portrait.webp" loading="lazy" decoding="async">
         <figcaption>Gulla hjá Hjartaheimum</figcaption>
       </figure>
       <div class="about-copy">

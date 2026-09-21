@@ -158,6 +158,19 @@
   }
   :root:not([data-theme="light"]) .grain, :root[data-theme="dark"] .grain{ mix-blend-mode:soft-light; opacity:0.35; }
 
+  /* Skip link: invisible until it receives keyboard focus (Tab from the
+     top of the page), then jumps a keyboard/screen-reader user straight
+     past the header nav to the main content instead of forcing them to
+     tab through every nav link first. */
+  .skip-link{
+    position:absolute; top:-100px; left:12px; z-index:100;
+    background:var(--brand); color:var(--surface);
+    font-family:'Karla',sans-serif; font-weight:700; font-size:0.9rem;
+    padding:12px 20px; border-radius:4px; text-decoration:none;
+    transition:top 0.15s ease;
+  }
+  .skip-link:focus{top:12px;}
+
   /* ---------- nav ---------- */
   header.site-nav{
     position:sticky; top:0; z-index:50;
@@ -679,6 +692,7 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main-content">Skip to content</a>
 
 <div class="grain" aria-hidden="true"><svg width="100%" height="100%" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
   <filter id="plaster">
@@ -713,7 +727,7 @@
   </nav>
 </header>
 
-<main>
+<main id="main-content">
 
   <section class="hero" id="heim">
     <div class="hero-copy">
@@ -729,14 +743,14 @@
       </div>
     </div>
     <div class="hero-figure">
-      <img alt="Woman in a meditative pose in the Hjartaheimar yoga room, with candlelight on either side" width="1800" height="1199" src="img/hero-portrait.jpg" loading="eager" fetchpriority="high" decoding="async">
+      <img alt="Woman in a meditative pose in the Hjartaheimar yoga room, with candlelight on either side" width="1800" height="1199" src="img/hero-portrait.webp" loading="eager" fetchpriority="high" decoding="async">
     </div>
   </section>
 
   <section class="band alt thursday-invite" id="fimmtudagar">
     <div class="wrap thursday-grid">
       <figure class="thursday-figure">
-        <img src="img/gulla-fimmtudagar.jpg" alt="Guðlaug in the yoga room at Bolholt 4" width="1400" height="933" loading="lazy" decoding="async">
+        <img src="img/gulla-fimmtudagar.webp" alt="Guðlaug in the yoga room at Bolholt 4" width="1400" height="933" loading="lazy" decoding="async">
       </figure>
       <div class="thursday-copy">
         <p class="eyebrow">Thursdays with Gulla</p>
@@ -775,11 +789,11 @@
 
       <div class="voucher-grid">
         <a class="voucher-card open-voucher-modal" href="https://noona.is/hjartaheimar/vouchers/5wKDA8qfgmo6BLGf0UYEvsvx?source=Company" target="_blank" rel="noopener">
-          <img src="img/kort-10-tima-en.jpg" alt="10-class card · ISK 28,000 instead of ISK 35,000 · 20% off" width="700" height="391" loading="lazy" decoding="async">
+          <img src="img/kort-10-tima-en.webp" alt="10-class card · ISK 28,000 instead of ISK 35,000 · 20% off" width="700" height="391" loading="lazy" decoding="async">
           <span class="book-service-btn gold">Buy a 10-class card</span>
         </a>
         <a class="voucher-card open-voucher20-modal" href="https://noona.is/hjartaheimar/vouchers/wDTNAcDyS5FrjwB9Zbcv0rUz?source=Company" target="_blank" rel="noopener">
-          <img src="img/kort-20-tima-en.jpg" alt="20-class card · ISK 49,000 instead of ISK 70,000 · 30% off" width="700" height="391" loading="lazy" decoding="async">
+          <img src="img/kort-20-tima-en.webp" alt="20-class card · ISK 49,000 instead of ISK 70,000 · 30% off" width="700" height="391" loading="lazy" decoding="async">
           <span class="book-service-btn gold">Buy a 20-class card</span>
         </a>
       </div>
@@ -792,7 +806,7 @@
           <p class="measure" style="margin-top:14px;color:var(--ink-soft)">These two classes each week become a steady point you can always count on. You’re welcome whether this is your first class or you keep coming back.</p>
         </div>
         <figure class="glow-figure" style="margin:0;">
-          <img alt="Woman in a meditative pose on a yoga mat at Hjartaheimar" width="900" height="900" src="img/joga-portrait.jpg" loading="lazy" decoding="async">
+          <img alt="Woman in a meditative pose on a yoga mat at Hjartaheimar" width="900" height="900" src="img/joga-portrait.webp" loading="lazy" decoding="async">
         </figure>
       </div>
       <details class="technique-details">
@@ -827,7 +841,7 @@
           <button type="button" class="book-service-btn open-enquiry-modal" style="margin-left:12px;">Request a private session</button>
         </div>
         <figure class="glow-figure" style="margin:0;">
-          <img alt="Group in deep relaxation on yoga mats, wrapped in blankets by candlelight" width="900" height="900" src="img/nidra-group.jpg" loading="lazy" decoding="async">
+          <img alt="Group in deep relaxation on yoga mats, wrapped in blankets by candlelight" width="900" height="900" src="img/nidra-group.webp" loading="lazy" decoding="async">
         </figure>
       </div>
 
@@ -950,7 +964,7 @@
           <button type="button" class="book-service-btn open-enquiry-modal">Request a private session</button>
         </div>
         <figure class="glow-figure" style="margin:0;">
-          <img alt="Woman floating in a pool, supported by a practitioner, during an Aguahara water therapy session" width="900" height="900" src="img/vatnsmedferd-pool.jpg" loading="lazy" decoding="async">
+          <img alt="Woman floating in a pool, supported by a practitioner, during an Aguahara water therapy session" width="900" height="900" src="img/vatnsmedferd-pool.webp" loading="lazy" decoding="async">
         </figure>
       </div>
     </div>
@@ -971,7 +985,7 @@
           <button type="button" class="book-service-btn open-enquiry-modal">Request a private session</button>
         </div>
         <figure class="glow-figure" style="margin:0;">
-          <img alt="Hands supporting a head during a Reiki treatment by candlelight" width="900" height="900" src="img/reiki-hands.jpg" loading="lazy" decoding="async">
+          <img alt="Hands supporting a head during a Reiki treatment by candlelight" width="900" height="900" src="img/reiki-hands.webp" loading="lazy" decoding="async">
         </figure>
       </div>
     </div>
@@ -1031,7 +1045,7 @@
   <section class="band" id="um-mig">
     <div class="wrap about-grid">
       <figure>
-        <img alt="Portrait in the Hjartaheimar yoga room" width="1000" height="1388" src="img/um-mig-portrait.jpg" loading="lazy" decoding="async">
+        <img alt="Portrait in the Hjartaheimar yoga room" width="1000" height="1388" src="img/um-mig-portrait.webp" loading="lazy" decoding="async">
         <figcaption>Gulla at Hjartaheimar</figcaption>
       </figure>
       <div class="about-copy">
