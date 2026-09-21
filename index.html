@@ -753,14 +753,18 @@
           <p class="sh-times">Miðvikudaga kl. 17:15</p>
           <p class="sh-times">Föstudaga kl. 12:00</p>
           <p class="sh-location">B4 · Bolholt 4 · 4. hæð</p>
-          <p class="sh-price">60 mínútur · 4.800 kr</p>
+          <p class="sh-price">60 mínútur · 3.500 kr</p>
           <p class="sh-note">Allir velkomnir, óháð reynslu.</p>
         </div>
         <div class="sh-actions">
           <button type="button" class="book-service-btn open-booking-modal" id="fastirTimarBookBtn" aria-haspopup="dialog" aria-controls="bookingModal">Bóka tíma</button>
           <a class="voucher-card open-voucher-modal" href="https://noona.is/hjartaheimar/vouchers/5wKDA8qfgmo6BLGf0UYEvsvx?source=Company" target="_blank" rel="noopener">
-            <img src="img/kort-10-tima.jpg" alt="10 tíma kort · 38.000 kr í stað 48.000 kr · 21% afsláttur" width="700" height="391" loading="lazy" decoding="async">
+            <img src="img/kort-10-tima.jpg" alt="10 tíma kort · 28.000 kr í stað 35.000 kr · 20% afsláttur" width="700" height="391" loading="lazy" decoding="async">
             <span class="book-service-btn gold">Kaupa 10 tíma kort</span>
+          </a>
+          <a class="voucher-card open-voucher20-modal" href="https://noona.is/hjartaheimar/vouchers/wDTNAcDyS5FrjwB9Zbcv0rUz?source=Company" target="_blank" rel="noopener">
+            <img src="img/kort-20-tima.jpg" alt="20 tíma kort · 49.000 kr í stað 70.000 kr · 30% afsláttur" width="700" height="391" loading="lazy" decoding="async">
+            <span class="book-service-btn gold">Kaupa 20 tíma kort</span>
           </a>
         </div>
       </div>
@@ -1118,6 +1122,19 @@
   </div>
 </div>
 
+<div class="booking-modal" id="voucher20Modal" hidden>
+  <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="voucher20ModalTitle">
+    <div class="booking-modal-head">
+      <h3 id="voucher20ModalTitle">Kaupa gjafakort · 20 tíma kort</h3>
+      <button type="button" class="booking-modal-close" id="voucher20ModalClose" aria-label="Loka">&times;</button>
+    </div>
+    <div class="booking-modal-body">
+      <iframe src="https://noona.is/hjartaheimar/vouchers/wDTNAcDyS5FrjwB9Zbcv0rUz?source=Company&iframe=true" title="Kaupa 20 tíma kort hjá Hjartaheimar" frameborder="0" loading="lazy"></iframe>
+    </div>
+    <p style="margin:0; padding:8px 18px 14px; font-size:0.78rem; color:var(--ink-faint);">Opnast síðan ekki rétt? <a href="https://noona.is/hjartaheimar/vouchers/wDTNAcDyS5FrjwB9Zbcv0rUz?source=Company" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Opna á noona.is í nýjum flipa</a>.</p>
+  </div>
+</div>
+
 <div class="booking-modal" id="enquiryModal" hidden>
   <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="enquiryModalTitle">
     <div class="booking-modal-head">
@@ -1249,7 +1266,7 @@
     // for the LovE Yoga course-link button. Kept as a fallback in case a
     // future service CTA goes back to a plain #samband scroll link.
     document.querySelectorAll('.book-service-btn').forEach(function(btn){
-      if(btn.classList.contains('open-booking-modal') || btn.classList.contains('open-voucher-modal') || btn.classList.contains('open-enquiry-modal') || btn.id === 'enquiryFormSuccessClose') return;
+      if(btn.classList.contains('open-booking-modal') || btn.classList.contains('open-voucher-modal') || btn.classList.contains('open-voucher20-modal') || btn.classList.contains('open-enquiry-modal') || btn.id === 'enquiryFormSuccessClose') return;
       btn.addEventListener('click', function(){
         if(typeof gtag === 'function'){
           gtag('event', 'book_button_click', { label: 'contact-fallback' });
@@ -1340,6 +1357,9 @@
 
     // 10 tíma kort voucher purchase.
     initNoonaModal('.open-voucher-modal', 'voucherModal', 'voucherModalClose', 'fastir-timar-voucher-modal');
+
+    // 20 tíma kort voucher purchase.
+    initNoonaModal('.open-voucher20-modal', 'voucher20Modal', 'voucher20ModalClose', 'fastir-timar-voucher20-modal');
 
     // Private-session enquiry form (opens a modal with a form, not a
     // Noona iframe — the open/close/escape/backdrop behavior is
