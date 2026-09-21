@@ -375,7 +375,7 @@
 
   .schedule-highlight{
     display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
-    gap:18px 36px; margin:28px 0 40px;
+    gap:18px 36px; margin:28px 0 28px;
     background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--brand);
     padding:26px 30px;
   }
@@ -394,10 +394,20 @@
   .sh-actions{display:flex; flex-direction:column; align-items:stretch; gap:12px;}
   .sh-actions .book-service-btn{text-align:center;}
   .book-service-btn.gold{background:var(--gold);}
+  /* Voucher cards sit in their own row below the schedule box, side by
+     side on desktop, so this section doesn't turn into one tall, narrow
+     stacked column next to much shorter schedule text. */
+  .voucher-grid{
+    display:grid; grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:24px; max-width:640px; margin:0 0 40px;
+  }
   .voucher-card{display:block; text-decoration:none;}
-  .voucher-card img{width:100%; max-width:300px; display:block; border-radius:6px;}
+  .voucher-card img{width:100%; display:block; border-radius:6px;}
   .voucher-card .book-service-btn{width:100%; margin-top:10px;}
-  @media (max-width:640px){ .schedule-highlight{flex-direction:column; align-items:flex-start;} }
+  @media (max-width:640px){
+    .schedule-highlight{flex-direction:column; align-items:flex-start;}
+    .voucher-grid{grid-template-columns:1fr; max-width:320px;}
+  }
 
   .book-service-btn{
     display:inline-block; margin-top:28px;
@@ -760,15 +770,18 @@
         </div>
         <div class="sh-actions">
           <button type="button" class="book-service-btn open-booking-modal" id="fastirTimarBookBtn" aria-haspopup="dialog" aria-controls="bookingModal">Book a Class</button>
-          <a class="voucher-card open-voucher-modal" href="https://noona.is/hjartaheimar/vouchers/5wKDA8qfgmo6BLGf0UYEvsvx?source=Company" target="_blank" rel="noopener">
-            <img src="img/kort-10-tima-en.jpg" alt="10-class card · ISK 28,000 instead of ISK 35,000 · 20% off" width="700" height="391" loading="lazy" decoding="async">
-            <span class="book-service-btn gold">Buy a 10-class card</span>
-          </a>
-          <a class="voucher-card open-voucher20-modal" href="https://noona.is/hjartaheimar/vouchers/wDTNAcDyS5FrjwB9Zbcv0rUz?source=Company" target="_blank" rel="noopener">
-            <img src="img/kort-20-tima-en.jpg" alt="20-class card · ISK 49,000 instead of ISK 70,000 · 30% off" width="700" height="391" loading="lazy" decoding="async">
-            <span class="book-service-btn gold">Buy a 20-class card</span>
-          </a>
         </div>
+      </div>
+
+      <div class="voucher-grid">
+        <a class="voucher-card open-voucher-modal" href="https://noona.is/hjartaheimar/vouchers/5wKDA8qfgmo6BLGf0UYEvsvx?source=Company" target="_blank" rel="noopener">
+          <img src="img/kort-10-tima-en.jpg" alt="10-class card · ISK 28,000 instead of ISK 35,000 · 20% off" width="700" height="391" loading="lazy" decoding="async">
+          <span class="book-service-btn gold">Buy a 10-class card</span>
+        </a>
+        <a class="voucher-card open-voucher20-modal" href="https://noona.is/hjartaheimar/vouchers/wDTNAcDyS5FrjwB9Zbcv0rUz?source=Company" target="_blank" rel="noopener">
+          <img src="img/kort-20-tima-en.jpg" alt="20-class card · ISK 49,000 instead of ISK 70,000 · 30% off" width="700" height="391" loading="lazy" decoding="async">
+          <span class="book-service-btn gold">Buy a 20-class card</span>
+        </a>
       </div>
 
       <div class="modality-body">
