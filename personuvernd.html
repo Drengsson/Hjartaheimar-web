@@ -7,10 +7,23 @@
 <meta name="description" content="Persónuverndarstefna Hjartaheimar — hvaða gögn eru skráð, hvers vegna, og hvaða réttindi þú hefur.">
 <meta name="robots" content="noindex">
 <link rel="canonical" href="https://www.hjartaheimar.is/personuvernd.html">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,420;0,9..144,600;1,9..144,420&family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/Fraunces-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/Karla-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+  @font-face{
+    font-family:'Fraunces';
+    src:url('fonts/Fraunces-Variable.woff2') format('woff2');
+    font-weight:100 900;
+    font-style:normal;
+    font-display:swap;
+  }
+  @font-face{
+    font-family:'Karla';
+    src:url('fonts/Karla-Variable.woff2') format('woff2');
+    font-weight:200 800;
+    font-style:normal;
+    font-display:swap;
+  }
   :root{
     --ground:#ece4d6; --surface:#f8f3e9; --ink:#2a1d16; --ink-soft:#5c4c3f;
     --ink-faint:#8a7a6a; --brand:#5b1f1f; --brand-2:#7c3626; --line:#2a1d1624;
@@ -49,13 +62,13 @@
   <p>Hjartaheimar virðir friðhelgi þeirra sem heimsækja þennan vef, bóka tíma eða hafa samband. Hér er útskýrt hvaða persónuupplýsingar eru skráðar, í hvaða tilgangi, og hvaða réttindi þú hefur varðandi þær.</p>
 
   <h2>Ábyrgðaraðili</h2>
-  <p>Ábyrgðaraðili vinnslu persónuupplýsinga er Guðlaug, eigandi Hjartaheimar.<br>
+  <p>Ábyrgðaraðili vinnslu persónuupplýsinga er Guðlaug, eigandi Hjartaheimar (kt. 531109-2360).<br>
   Netfang: <a href="mailto:Gulla@hjartaheimar.is">Gulla@hjartaheimar.is</a><br>
   Sími: <a href="tel:+3548678743">867 8743</a></p>
 
   <h2>Hvaða upplýsingar eru skráðar</h2>
   <div class="surface-block">
-    <p><strong>Bókanir.</strong> Þegar þú bókar tíma eða námskeið í gegnum bókunarkerfið á síðunni eru nafn, netfang, símanúmer og valin tímasetning skráð hjá Simplybook.me, sem sér um bókunarkerfið fyrir hönd Hjartaheimar.</p>
+    <p><strong>Bókanir.</strong> Þegar þú bókar tíma eða námskeið í gegnum bókunarkerfið á síðunni eru nafn, netfang, símanúmer og valin tímasetning skráð hjá Noona, sem sér um bókunarkerfið fyrir hönd Hjartaheimar.</p>
     <p><strong>Fyrirspurnir.</strong> Ef þú sendir línu í gegnum tengiliðaformið eru nafn, netfang og skilaboðin sjálf send til Hjartaheimar til að hægt sé að svara þér.</p>
     <p><strong>Notkun vefsins.</strong> Ef þú samþykkir vafrakökur í borðanum sem birtist við fyrstu heimsókn, safnar Google Analytics gögnum um heimsóknir — til dæmis hvaða síður eru skoðaðar, hvaðan umferð kemur og almennar upplýsingar um tæki og vafra — í samandregnu formi til að skilja hvernig vefurinn er notaður. Ef þú hafnar er þessum gögnum ekki safnað.</p>
     <p><strong>Auglýsingar.</strong> Sé vafrakaka samþykkt er Meta Pixel (Facebook/Instagram) notaður til að mæla árangur auglýsinga og sýna viðeigandi efni frá Hjartaheimar til fólks sem hefur áður heimsótt vefinn.</p>
@@ -73,7 +86,7 @@
   <h2>Þjónustuaðilar</h2>
   <p>Eftirfarandi þjónustuaðilar vinna með gögn fyrir hönd Hjartaheimar, hver innan síns afmarkaða hlutverks:</p>
   <ul>
-    <li><strong>Simplybook.me</strong> — bókunarkerfi</li>
+    <li><strong>Noona</strong> — bókunarkerfi</li>
     <li><strong>Zoho</strong> — tölvupóstþjónusta</li>
     <li><strong>Web3Forms</strong> — móttaka fyrirspurna af tengiliðaformi</li>
     <li><strong>Google Analytics</strong> — vefgreining (aðeins ef samþykkt)</li>
@@ -90,7 +103,7 @@
   <p>Ef þú telur að ekki sé farið að lögum við vinnslu persónuupplýsinga þinna átt þú rétt á að leggja fram kvörtun hjá <a href="https://www.personuvernd.is" target="_blank" rel="noopener">Persónuvernd</a>.</p>
 
   <h2>Vafrakökur</h2>
-  <p>Þegar þú heimsækir vefinn fyrst birtist borði þar sem þú velur hvort þú leyfir eða hafnar valfrjálsum mæli- og markaðskökum frá Google Analytics og Meta — ekkert af þessu er hlaðið inn fyrr en þú samþykkir. Þú getur breytt vali þínu hvenær sem er með hnappinum „Breyta vali um vafrakökur“ neðst á síðunni, auk þess að stýra vafrakökum almennt í stillingum vafrans þíns. Lagalistar frá Spotify og bókunarkerfið frá Simplybook.me hlaðast inn óháð þessu vali, enda nauðsynlegir fyrir grunnvirkni síðunnar.</p>
+  <p>Þegar þú heimsækir vefinn fyrst birtist borði þar sem þú velur hvort þú leyfir eða hafnar valfrjálsum mæli- og markaðskökum frá Google Analytics og Meta — ekkert af þessu er hlaðið inn fyrr en þú samþykkir. Þú getur breytt vali þínu hvenær sem er með hnappinum „Breyta vali um vafrakökur“ neðst á síðunni, auk þess að stýra vafrakökum almennt í stillingum vafrans þíns. Lagalistar frá Spotify og bókunarkerfið frá Noona hlaðast inn óháð þessu vali, enda nauðsynlegir fyrir grunnvirkni síðunnar.</p>
 </div>
 </body>
 </html>
