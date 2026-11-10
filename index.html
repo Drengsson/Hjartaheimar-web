@@ -492,6 +492,15 @@
   .glow-figure img{width:100%; display:block;}
   .glow-figure video{width:100%; display:block; background:#000; cursor:pointer;}
 
+  /* water therapy photo trio: one wide establishing shot over two closer frames */
+  .water-gallery{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  .water-gallery figure{margin:0; position:relative; border-radius:2px; overflow:hidden;}
+  .water-gallery img{width:100%; height:100%; display:block; object-fit:cover;}
+  .water-gallery .wg-wide{grid-column:1 / -1; aspect-ratio:16/10;}
+  .water-gallery .wg-wide img{object-position:50% 40%;}
+  .water-gallery .wg-square{aspect-ratio:1/1;}
+  .water-gallery .wg-square img{object-position:50% 30%;}
+
   /* Booking: the fastir tímar (Jóga · Öndun · Djúpslökun) schedule books
      through the Noona modal (#fastirTimarBookBtn / #bookingModal below).
      The nav "Bóka tíma" button and this mobile sticky bar open the same
@@ -948,9 +957,17 @@
           <p class="rhythm-line" style="color:var(--water)">Þú mátt bara fljóta.</p>
           <button type="button" class="book-service-btn open-enquiry-modal">Óska eftir einkatíma</button>
         </div>
-        <figure class="glow-figure" style="margin:0;">
-          <img alt="Kona flýtur í sundlaug, studd af leiðbeinanda, í Aguahara vatnsmeðferð" width="900" height="900" src="img/vatnsmedferd-pool.webp" srcset="img/vatnsmedferd-pool-700w.webp 700w, img/vatnsmedferd-pool.webp 900w" sizes="(max-width: 900px) 85vw, 452px" loading="lazy" decoding="async">
-        </figure>
+        <div class="water-gallery">
+          <figure class="wg-wide">
+            <img alt="Guðlaug styður við skjólstæðing sem flýtur í vatninu, í Aguahara vatnsmeðferð" width="1100" height="825" src="img/aguahara-wide.webp" loading="lazy" decoding="async">
+          </figure>
+          <figure class="wg-square">
+            <img alt="Guðlaug heldur varlega utan um skjólstæðing sem flýtur í kyrrð, í Aguahara vatnsmeðferð" width="1100" height="825" src="img/aguahara-embrace.webp" loading="lazy" decoding="async">
+          </figure>
+          <figure class="wg-square">
+            <img alt="Guðlaug í sundlauginni þar sem Aguahara vatnsmeðferðin fer fram" width="1100" height="825" src="img/aguahara-portrait.webp" loading="lazy" decoding="async">
+          </figure>
+        </div>
       </div>
     </div>
   </section>
