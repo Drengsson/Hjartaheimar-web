@@ -256,7 +256,7 @@
      til að bóka" CTA and longer nav labels need more room
      than the site's original short labels did, so this threshold sits above
      where that text would start crowding the logo (empirically ~1240px). */
-  @media (max-width:1260px){
+  @media (max-width:1340px){
     nav.links{
       position:fixed; inset:64px 0 0 0; background:var(--ground);
       flex-direction:column; align-items:flex-start; gap:0;
@@ -736,6 +736,7 @@
     <a href="#joga">Yoga Classes</a>
     <a href="#fimmtudagar">Thursdays with Gulla</a>
     <a href="#einkatimar">Private Sessions</a>
+    <a href="/corporate.html">Corporate</a>
     <a href="#um-mig">About</a>
     <a href="#sjalfsthekking">Self-Discovery</a>
     <a href="#tonlist">Music</a>
@@ -985,6 +986,11 @@
         <a class="explore-card" href="#einkatimar">
           <h3>Private Sessions</h3>
           <p>A one-on-one session in yoga, water therapy or Reiki, just for you.</p>
+          <span class="arrow">Explore →</span>
+        </a>
+        <a class="explore-card" href="/corporate.html">
+          <h3>Yoga Nidra for Companies</h3>
+          <p>Guided deep relaxation at your workplace, 30, 45 or 60 minutes for the group.</p>
           <span class="arrow">Explore →</span>
         </a>
         <a class="explore-card" href="#reiki">
@@ -1264,9 +1270,9 @@
     var links = document.getElementById('navLinks');
     if(!btn || !links) return;
     // The collapsible panel only exists below this breakpoint (see the
-    // matching @media(max-width:1260px) rules) — above it nav.links is
+    // matching @media(max-width:1340px) rules) — above it nav.links is
     // always shown inline in the header and must never be inert.
-    var mq = window.matchMedia('(max-width:1260px)');
+    var mq = window.matchMedia('(max-width:1340px)');
 
     function setOpen(open){
       body.classList.toggle('nav-open', open);
