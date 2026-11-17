@@ -858,3 +858,30 @@ footer.site-foot{align-items:flex-start;}
 /* the three hosts photo on the sómatísk vinna page sits directly on top of their bios */
 .hosts-figure{margin:24px 0 0; border:1px solid var(--line); border-bottom:0;}
 .hosts-figure img{width:100%; display:block;}
+
+/* ---------- front page: weekly schedule + one-off events ---------- */
+.week-layout{display:grid; grid-template-columns:1.6fr 1fr; gap:clamp(24px,4vw,48px); margin-top:32px; align-items:start;}
+.week-layout:has(.oneoffs[hidden]){grid-template-columns:1fr;}
+@media (max-width:960px){ .week-layout{grid-template-columns:1fr;} }
+.week-title{font-family:'Karla',sans-serif; font-weight:700; font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:12px;}
+.week-list{list-style:none; margin:0; padding:0; border-top:1px solid var(--line);}
+.wk{display:grid; grid-template-columns:150px 1fr auto; gap:6px 24px; align-items:center; padding:18px 0; border-bottom:1px solid var(--line);}
+.wk-when{font-family:'Fraunces',serif; font-weight:600; font-size:1.15rem; color:var(--brand); white-space:nowrap;}
+.wk-day{display:inline-block; min-width:2.6em;}
+.wk-what h4{font-family:'Karla',sans-serif; font-weight:700; font-size:1rem; color:var(--ink);}
+.wk-what p{color:var(--ink-soft); font-size:0.86rem; margin-top:3px;}
+.wk-what a{color:inherit; text-decoration:underline; text-decoration-color:var(--line); text-underline-offset:2px;}
+.wk-what a:hover{color:var(--brand); text-decoration-color:currentColor;}
+.wk-btn{
+  display:inline-block; font:600 0.82rem/1 'Karla',sans-serif; letter-spacing:0.02em; text-decoration:none;
+  color:var(--surface); background:var(--brand); border:1px solid var(--brand); padding:11px 18px; border-radius:2px;
+  min-width:96px; text-align:center; transition:filter .2s ease;
+}
+.wk-btn:hover, .wk-btn:focus-visible{filter:brightness(0.88);}
+.wk.water .wk-when{color:var(--water);}
+.wk.water .wk-btn{background:var(--water); border-color:var(--water);}
+@media (max-width:620px){
+  .wk{grid-template-columns:1fr auto; grid-template-areas:"when btn" "what what";}
+  .wk-when{grid-area:when;} .wk-what{grid-area:what;} .wk-btn{grid-area:btn;}
+}
+.oneoffs .event-card{border:1px solid var(--line); border-top:3px solid var(--brand);}

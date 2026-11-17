@@ -86,6 +86,7 @@
     </button>
   </div>
   <nav class="links" id="navLinks" aria-label="Aðalvalmynd">
+    <a href="/" aria-current="page">Forsíða</a>
     <a href="/joga.html">Jóga</a>
     <a href="/vatnsmedferd.html">Vatnsmeðferð</a>
     <a href="/somatisk-vinna.html">Sómatísk vinna</a>
@@ -120,47 +121,66 @@
   <section class="band surface" id="a-dofinni">
     <div class="wrap">
       <p class="eyebrow">Á döfinni</p>
-      <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem); color:var(--brand); margin-top:10px;">Viðburðir og námskeið</h2>
-      <div class="event-grid">
-        <article class="event-card water">
-          <p class="ev-kicker">Vatnsmeðferð · Álftaneslaug</p>
-          <h3>Flæði</h3>
-          <p>Saman í hlýju vatni með öndun, mjúkum hreyfingum og eigin meðferð fyrir hvern og einn. Annan hvern fimmtudag kl. 20:00.</p>
-          <p class="ev-date">Næst: <span data-biweekly="2026-11-19" data-ends="21:00">fimmtudaginn 19. nóvember</span></p>
-          <div class="ev-actions">
-            <a class="book-service-btn" href="/vatnsmedferd.html">Nánar og bókun</a>
-            <a class="ev-fb fb-event" href="https://www.facebook.com/flaediflot" target="_blank" rel="noopener">Á Facebook →</a>
-          </div>
-        </article>
-        <article class="event-card" data-until="2026-11-28T12:00">
-          <p class="ev-kicker">Fyrir konur · Bolholt 4</p>
-          <h3>Það sem líkaminn geymir</h3>
-          <p>Sómatísk losun, trommur, orkuvinna og tónheilun í styðjandi kvennarými. Með Hönnu Lilju og Lovísu.</p>
-          <ul class="ev-dates">
-            <li data-until="2026-11-18T21:30">Mið. 18. nóvember · 19:30</li>
-            <li data-until="2026-11-28T12:00">Lau. 28. nóvember · 10:00</li>
-          </ul>
-          <div class="ev-actions">
-            <a class="book-service-btn" href="https://houseofthecla.com/events/thad-sem-likaminn-geymir" target="_blank" rel="noopener">Skráning</a>
-            <a class="ev-fb" href="/somatisk-vinna.html">Nánar →</a>
-            <!-- Slóð Facebook-viðburðar. Birtist ekki fyrr en href er fyllt út. -->
-            <a class="ev-fb fb-event" href="" target="_blank" rel="noopener">Á Facebook →</a>
-          </div>
-        </article>
-        <article class="event-card">
-          <p class="ev-kicker">Með LovE Yoga · Bolholt 4</p>
-          <h3>Værð &amp; Mildi</h3>
-          <p>Jóga, öndun og djúpslökun með lifandi tónheilun. Opnir tímar alla laugardaga kl. 10:00.</p>
-          <div class="ev-actions">
-            <a class="book-service-btn course-link" href="https://www.loveyoga.is/service-page/v%C3%A6r%C3%B0-mildi" target="_blank" rel="noopener" data-course="vaerd-og-mildi">Skráning</a>
-            <a class="ev-fb" href="/joga.html#vaerd-og-mildi">Nánar →</a>
-            <a class="ev-fb fb-event" href="https://www.facebook.com/events/973107868413855/" target="_blank" rel="noopener">Á Facebook →</a>
-          </div>
-        </article>
+      <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem); color:var(--brand); margin-top:10px;">Vikan í Hjartaheimum</h2>
+      <div class="week-layout">
+        <div class="week">
+          <h3 class="week-title">Fastir tímar</h3>
+          <ol class="week-list">
+            <li class="wk">
+              <p class="wk-when"><span class="wk-day">Mið.</span> 17:15</p>
+              <div class="wk-what">
+                <h4>Jóga · Öndun · Djúpslökun</h4>
+                <p>Bolholt 4 · 60 mín. · 3.500 kr. · <a href="https://www.facebook.com/events/1641124764459948/" target="_blank" rel="noopener">Facebook</a></p>
+              </div>
+              <a class="wk-btn open-booking-modal" href="/joga.html">Bóka</a>
+            </li>
+            <li class="wk water">
+              <p class="wk-when"><span class="wk-day">Fim.</span> 19:00</p>
+              <div class="wk-what">
+                <h4>Vatnsmeðferð · Aguahara og Flæði</h4>
+                <p>Aguahara kl. 19:00 · Flæði kl. 20:00 · Álftaneslaug, annan hvern fimmtudag · næst <span data-biweekly="2026-11-19" data-ends="21:00">fimmtudaginn 19. nóvember</span> · <a href="https://www.facebook.com/flaediflot" target="_blank" rel="noopener">Facebook</a></p>
+              </div>
+              <a class="wk-btn" href="/vatnsmedferd.html">Bóka</a>
+            </li>
+            <li class="wk">
+              <p class="wk-when"><span class="wk-day">Fös.</span> 12:00</p>
+              <div class="wk-what">
+                <h4>Jóga · Öndun · Djúpslökun</h4>
+                <p>Bolholt 4 · 60 mín. · 3.500 kr. · <a href="https://www.facebook.com/events/1686378336825767/" target="_blank" rel="noopener">Facebook</a></p>
+              </div>
+              <a class="wk-btn open-booking-modal" href="/joga.html">Bóka</a>
+            </li>
+            <li class="wk">
+              <p class="wk-when"><span class="wk-day">Lau.</span> 10:00</p>
+              <div class="wk-what">
+                <h4>Værð &amp; Mildi · jóga og tónheilun</h4>
+                <p>Með Lovísu og LovE Yoga · Bolholt 4 · <a href="https://www.facebook.com/events/973107868413855/" target="_blank" rel="noopener">Facebook</a></p>
+              </div>
+              <a class="wk-btn course-link" href="https://www.loveyoga.is/service-page/v%C3%A6r%C3%B0-mildi" target="_blank" rel="noopener" data-course="vaerd-og-mildi">Skráning</a>
+            </li>
+          </ol>
+        </div>
+
+        <div class="oneoffs" data-hide-when-empty>
+          <h3 class="week-title">Stakir viðburðir</h3>
+          <article class="event-card" data-until="2026-11-28T12:00">
+            <p class="ev-kicker">Fyrir konur · Bolholt 4</p>
+            <h3>Það sem líkaminn geymir</h3>
+            <p>Sómatísk losun, trommur, orkuvinna og tónheilun í styðjandi kvennarými. Með Hönnu Lilju og Lovísu.</p>
+            <ul class="ev-dates">
+              <li data-until="2026-11-18T21:30">Mið. 18. nóvember · 19:30</li>
+              <li data-until="2026-11-28T12:00">Lau. 28. nóvember · 10:00</li>
+            </ul>
+            <div class="ev-actions">
+              <a class="book-service-btn" href="https://houseofthecla.com/events/thad-sem-likaminn-geymir" target="_blank" rel="noopener">Skráning</a>
+              <a class="ev-fb" href="/somatisk-vinna.html">Nánar →</a>
+              <!-- Slóð Facebook-viðburðar. Birtist ekki fyrr en href er fyllt út. -->
+              <a class="ev-fb fb-event" href="" target="_blank" rel="noopener">Á Facebook →</a>
+            </div>
+          </article>
+        </div>
       </div>
       <p class="ev-more">
-        <a href="https://www.facebook.com/events/1641124764459948/" target="_blank" rel="noopener">Jóga Nidra á miðvikudögum →</a>
-        <a href="https://www.facebook.com/events/1686378336825767/" target="_blank" rel="noopener">Jóga Nidra á föstudögum →</a>
         <a href="https://www.facebook.com/profile.php?id=61593960661093&amp;sk=events" target="_blank" rel="noopener">Allir viðburðir á Facebook →</a>
       </p>
     </div>
@@ -175,13 +195,12 @@
       <div class="offer-feature">
         <figure><img alt="Guðlaug í hugleiðslustellingu á jógadýnu í Hjartaheimum" width="900" height="900" src="img/joga-portrait.webp" srcset="img/joga-portrait-700w.webp 700w, img/joga-portrait.webp 900w" sizes="(max-width: 820px) 100vw, 590px" loading="lazy" decoding="async"></figure>
         <div class="of-copy">
-          <p class="eyebrow">Opnir tímar · Bolholt 4</p>
+          <p class="eyebrow">Opnir tímar og einkatímar</p>
           <h3>Jóga · Öndun · Djúpslökun</h3>
           <p>Mjúk en markviss hreyfing, öndun og nærvera, og hver tími endar í leiddri djúpslökun. Allir velkomnir, óháð reynslu.</p>
-          <p class="of-times">Miðvikudaga kl. 17:15 · Föstudaga kl. 12:00</p>
+          <p>Tímarnir byggja á Raja og Ashtanga jóga, þar sem öndunin er rauði þráðurinn. Einnig í boði sem einkatími heima hjá þér.</p>
           <div class="btn-row">
-            <button type="button" class="btn open-booking-modal" aria-haspopup="dialog" aria-controls="bookingModal">Bóka tíma</button>
-            <a class="text-link" href="/joga.html">Nánar um tímana →</a>
+            <a class="btn" href="/joga.html">Skoða jógatímana</a>
           </div>
         </div>
       </div>
