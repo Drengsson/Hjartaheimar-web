@@ -52,7 +52,7 @@ function T(is, en){ return HH_EN ? en : is; }
   // honors each target's scroll-margin-top, so the sticky header offset
   // stays correct.
   (function(){
-    document.querySelectorAll('a[href^="#"]:not(.open-booking-modal)').forEach(function(link){
+    document.querySelectorAll('a[href^="#"]:not(.open-booking-modal):not(.go-request):not(.go-quote)').forEach(function(link){
       var id = link.getAttribute('href').slice(1);
       if(!id) return;
       link.addEventListener('click', function(e){
@@ -199,32 +199,36 @@ function T(is, en){ return HH_EN ? en : is; }
     // Reset the enquiry modal back to its form view (not the success
     // panel) each time it's opened, so a second enquiry later in the
     // session doesn't still show the previous "takk fyrir" message.
-    document.querySelectorAll('.open-enquiry-modal').forEach(function(btn){
-      btn.addEventListener('click', function(){
-        var form = document.getElementById('enquiryForm');
-        var panel = document.getElementById('enquiryFormSuccess');
-        if(form) form.hidden = false;
-        if(panel) panel.hidden = true;
-        // Buttons can preselect the service: data-service="Reikiheilun"
-        var service = btn.getAttribute('data-service');
-        var select = document.getElementById('tf-service');
-        if(select && service){
-          var match = Array.prototype.some.call(select.options, function(o){ return o.value === service; });
-          if(!match){ var o = document.createElement('option'); o.value = o.textContent = service; select.appendChild(o); }
-          select.value = service;
-        }
-      });
-    });
-
-    // The success panel's own "Loka" button just triggers the real
-    // close button, reusing its focus-restore/escape/backdrop handling.
-    var enquirySuccessClose = document.getElementById('enquiryFormSuccessClose');
-    if(enquirySuccessClose){
-      enquirySuccessClose.addEventListener('click', function(){
-        var realClose = document.getElementById('enquiryModalClose');
-        if(realClose) realClose.click();
-      });
+    // "Óska eftir tíma" / "Fá tilboð": go to the form at the bottom of the
+    // page, choose the service the visitor came from, and land on the form
+    // itself (not the section heading above it), on phones too.
+    function goToForm(e, formId, successId){
+      var form = document.getElementById(formId);
+      if(!form) return;
+      e.preventDefault();
+      var btn = e.currentTarget;
+      var success = document.getElementById(successId);
+      if(success && !success.hidden){ success.hidden = true; form.hidden = false; }
+      var service = btn.getAttribute('data-service');
+      var select = form.querySelector('#tf-service');
+      if(select && service){
+        var match = Array.prototype.some.call(select.options, function(o){ return o.value === service; });
+        if(!match){ var o = document.createElement('option'); o.value = o.textContent = service; select.appendChild(o); }
+        select.value = service;
+      }
+      var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      form.scrollIntoView({behavior: still ? 'auto' : 'smooth', block:'start'});
+      var first = form.querySelector('select, input:not([type=hidden]):not(.hp)');
+      if(first){ try{ first.focus({preventScroll:true}); }catch(err){} }
+      form.classList.remove('flash'); void form.offsetWidth; form.classList.add('flash');
+      if(typeof gtag === 'function'){ gtag('event', 'request_form_open', {service: service || ''}); }
     }
+    document.querySelectorAll('.go-request').forEach(function(btn){
+      btn.addEventListener('click', function(e){ goToForm(e, 'enquiryForm', 'enquiryFormSuccess'); });
+    });
+    document.querySelectorAll('.go-quote').forEach(function(btn){
+      btn.addEventListener('click', function(e){ goToForm(e, 'fyrirtaekiForm', 'fyrirtaekiFormSuccess'); });
+    });
 
     document.querySelectorAll('.course-link').forEach(function(link){
       link.addEventListener('click', function(){

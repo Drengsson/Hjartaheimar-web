@@ -94,6 +94,10 @@
         <p>Mér finnst sérstaklega fallegt hvernig ólíkar leiðir geta unnið saman. Stundum þurfum við hreyfingu og öndun. Stundum þurfum við að láta vatnið bera okkur. Stundum þurfum við einfaldlega að liggja kyrr og leyfa líkamanum að slaka á.</p>
         <p>Ég trúi á visku líkamans. Markmiðið mitt er ekki að segja þér hvernig þú átt að vera, heldur að skapa öruggt rými þar sem þú getur tengst þér á þínum eigin forsendum.</p>
         <p class="signoff">Verið velkomin í Hjartaheima.</p>
+        <div class="about-links">
+          <a class="btn go-request" href="#beidni">Hafa samband við Gullu</a>
+          <span class="social-links">Fylgstu með: <a href="https://www.facebook.com/profile.php?id=61593960661093" target="_blank" rel="noopener">Facebook ↗</a> · <a href="https://www.instagram.com/hjartaheimar/" target="_blank" rel="noopener">Instagram ↗</a></span>
+        </div>
       </div>
     </div>
   </section>
@@ -125,7 +129,7 @@
         </div>
         <p class="rhythm-line" style="margin-top:44px;">Markmiðið er ekki að finna út hver þú „ættir“ að vera, heldur að sjá þig skýrar, eins og þú ert.</p>
         <p class="measure" style="margin-top:20px;color:var(--ink-soft)">Þessir tímar eru bókanlegir sem einkatímar.</p>
-        <button type="button" class="book-service-btn open-enquiry-modal" data-service="Sjálfsþekking (Gene Keys, Human Design, Enneagram)">Óska eftir tíma</button>
+        <a href="#beidni" class="book-service-btn go-request" data-service="Sjálfsþekking (Gene Keys, Human Design, Enneagram)">Óska eftir tíma</a>
         </div>
       </div>
     </div>
@@ -148,6 +152,68 @@
           <div class="spotify-embed">
             <iframe src="https://open.spotify.com/embed/playlist/2PXzeFKCvQaIWuLjhq6Gjo?utm_source=generator&amp;theme=0" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Spotify lagalisti · Hjartaheimar jógatímar"></iframe>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt request-band" id="beidni">
+    <div class="wrap contact-grid">
+      <div class="contact-copy">
+        <p class="eyebrow">Hafðu samband</p>
+        <h2>Óska eftir tíma</h2>
+        <p>Veldu það sem þú hefur áhuga á og sendu línu, eða spurðu bara. Gulla hefur samband, fer yfir óskir þínar og staðfestir tímann. Þetta er beiðni, ekki staðfest bókun.</p>
+        <dl class="contact-fields">
+          <div><dt>Netfang</dt><dd class="filled"><a href="mailto:Gulla@hjartaheimar.is">Gulla@hjartaheimar.is</a></dd></div>
+          <div><dt>Sími</dt><dd class="filled"><a href="tel:+3548678743">867 8743</a></dd></div>
+          <div><dt>Staðsetning</dt><dd class="filled"><a href="https://maps.app.goo.gl/vLaoku56jWaAJrbAA" target="_blank" rel="noopener">Bolholt 4, 4. hæð, Reykjavík</a></dd></div>
+        </dl>
+      </div>
+      <div>
+        <form class="contact-form" id="enquiryForm" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="65892dab-6990-4005-a4a9-bc3da02886f6">
+          <input type="hidden" name="subject" value="Ósk um tíma af hjartaheimar.is">
+          <input type="hidden" name="from_name" value="Hjartaheimar · web">
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="form-row">
+            <label for="tf-service">Hvað viltu bóka?</label>
+            <select id="tf-service" name="service">
+              <option value="">Ekki viss ennþá eða almenn spurning</option>
+              <option value="Jóga Nidra · einkatími heima">Jóga Nidra · einkatími heima</option>
+              <option value="Flæði · hóptími">Flæði · hóptími</option>
+              <option value="Aguahara · einkatími">Aguahara · einkatími</option>
+              <option value="Reikiheilun">Reikiheilun</option>
+              <option value="Að koma heim til sín · sómatísk vinna">Að koma heim til sín · sómatísk vinna</option>
+              <option value="Sjálfsþekking (Gene Keys, Human Design, Enneagram)">Sjálfsþekking (Gene Keys, Human Design, Enneagram)</option>
+              <option value="Mig langar að fá ráðleggingu">Mig langar að fá ráðleggingu</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="tf-name">Nafn</label>
+            <input type="text" id="tf-name" name="name" required autocomplete="name">
+          </div>
+          <div class="form-row">
+            <label for="tf-email">Netfang</label>
+            <input type="email" id="tf-email" name="email" required autocomplete="email">
+          </div>
+          <div class="form-row">
+            <label for="tf-phone">Sími <span style="text-transform:none; letter-spacing:0;">(valfrjálst)</span></label>
+            <input type="tel" id="tf-phone" name="phone" autocomplete="tel">
+          </div>
+          <div class="form-row">
+            <label for="tf-when">Óskir um dag og tíma <span style="text-transform:none; letter-spacing:0;">(valfrjálst)</span></label>
+            <input type="text" id="tf-when" name="date_time_preference" autocomplete="off">
+          </div>
+          <div class="form-row">
+            <label for="tf-message">Skilaboð <span style="text-transform:none; letter-spacing:0;">(valfrjálst)</span></label>
+            <textarea id="tf-message" name="message" rows="3"></textarea>
+          </div>
+          <button type="submit" class="form-submit">Senda ósk</button>
+          <p class="form-status" id="enquiryFormStatus" role="status" aria-live="polite"></p>
+          <p style="font-size:0.78rem;color:var(--ink-faint);margin-top:-6px;">Sjá <a class="privacy-link" href="/personuvernd.html">persónuverndarstefnu</a> um meðferð gagna.</p>
+        </form>
+        <div class="form-success" id="enquiryFormSuccess" hidden tabindex="-1">
+          <p class="form-success-msg">Takk. Gulla hefur samband og staðfestir tímann.</p>
         </div>
       </div>
     </div>
@@ -219,64 +285,6 @@
       <iframe src="https://noona.is/hjartaheimar/vouchers/wDTNAcDyS5FrjwB9Zbcv0rUz?source=Company&iframe=true" title="Kaupa 20 tíma kort hjá Hjartaheimar" frameborder="0" loading="lazy"></iframe>
     </div>
     <p style="margin:0; padding:8px 18px 14px; font-size:0.78rem; color:var(--ink-faint);">Opnast síðan ekki rétt? <a href="https://noona.is/hjartaheimar/vouchers/wDTNAcDyS5FrjwB9Zbcv0rUz?source=Company" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Opna á noona.is í nýjum flipa</a>.</p>
-  </div>
-</div>
-
-<div class="booking-modal" id="enquiryModal" hidden>
-  <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="enquiryModalTitle">
-    <div class="booking-modal-head">
-      <h3 id="enquiryModalTitle">Óska eftir tíma</h3>
-      <button type="button" class="booking-modal-close" id="enquiryModalClose" aria-label="Loka">&times;</button>
-    </div>
-    <div class="booking-modal-body form-body">
-      <p class="form-intro">Gulla hefur samband, fer yfir óskir þínar og staðfestir tímann. Þetta er beiðni, ekki staðfest bókun.</p>
-      <form class="contact-form" id="enquiryForm" action="https://api.web3forms.com/submit" method="POST" style="margin-top:0; padding-top:0; border-top:none;">
-        <input type="hidden" name="access_key" value="65892dab-6990-4005-a4a9-bc3da02886f6">
-        <input type="hidden" name="subject" value="Ósk um tíma af hjartaheimar.is">
-        <input type="hidden" name="from_name" value="Hjartaheimar · web">
-        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <div class="form-row">
-          <label for="tf-service">Hvað viltu bóka?</label>
-          <select id="tf-service" name="service">
-            <option value="">Ekki viss ennþá</option>
-            <option value="Jóga Nidra · einkatími heima">Jóga Nidra · einkatími heima</option>
-            <option value="Flæði · hóptími">Flæði · hóptími</option>
-            <option value="Aguahara · einkatími">Aguahara · einkatími</option>
-            <option value="Reikiheilun">Reikiheilun</option>
-            <option value="Að koma heim til sín · sómatísk vinna">Að koma heim til sín · sómatísk vinna</option>
-            <option value="Sjálfsþekking (Gene Keys, Human Design, Enneagram)">Sjálfsþekking (Gene Keys, Human Design, Enneagram)</option>
-            <option value="Mig langar að fá ráðleggingu">Mig langar að fá ráðleggingu</option>
-          </select>
-        </div>
-        <div class="form-row">
-          <label for="tf-name">Nafn</label>
-          <input type="text" id="tf-name" name="name" required autocomplete="name">
-        </div>
-        <div class="form-row">
-          <label for="tf-email">Netfang</label>
-          <input type="email" id="tf-email" name="email" required autocomplete="email">
-        </div>
-        <div class="form-row">
-          <label for="tf-phone">Sími <span style="text-transform:none; letter-spacing:0;">(valfrjálst)</span></label>
-          <input type="tel" id="tf-phone" name="phone" autocomplete="tel">
-        </div>
-        <div class="form-row">
-          <label for="tf-when">Óskir um dag og tíma <span style="text-transform:none; letter-spacing:0;">(valfrjálst)</span></label>
-          <input type="text" id="tf-when" name="date_time_preference" autocomplete="off">
-        </div>
-        <div class="form-row">
-          <label for="tf-message">Skilaboð <span style="text-transform:none; letter-spacing:0;">(valfrjálst)</span></label>
-          <textarea id="tf-message" name="message" rows="3"></textarea>
-        </div>
-        <button type="submit" class="form-submit">Senda ósk</button>
-        <p class="form-status" id="enquiryFormStatus" role="status" aria-live="polite"></p>
-        <p style="font-size:0.78rem;color:var(--ink-faint);margin-top:-6px;">Sjá <a class="privacy-link" href="/personuvernd.html">persónuverndarstefnu</a> um meðferð gagna.</p>
-      </form>
-      <div class="form-success" id="enquiryFormSuccess" hidden>
-        <p class="form-success-msg">Takk. Gulla hefur samband og staðfestir tímann.</p>
-        <button type="button" class="book-service-btn" id="enquiryFormSuccessClose">Loka</button>
-      </div>
-    </div>
   </div>
 </div>
 

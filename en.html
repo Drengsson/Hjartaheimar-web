@@ -143,7 +143,7 @@
                 <h4>Water Therapy · Aguahara and Flæði</h4>
                 <p>Aguahara at 19:00 · Flæði at 20:00 · Álftaneslaug pool, every other Thursday · next on <span data-biweekly="2026-11-19" data-ends="21:00">Thursday 19 November</span> · <a href="https://www.facebook.com/flaediflot" target="_blank" rel="noopener">Facebook</a></p>
               </div>
-              <button type="button" class="wk-btn water-btn open-enquiry-modal">Request a time</button>
+              <a href="#request" class="wk-btn water-btn go-request">Request a time</a>
             </li>
             <li class="wk">
               <p class="wk-when"><span class="wk-day">Fri</span> 12:00</p>
@@ -262,46 +262,16 @@
         <p>I'm a yoga teacher, goldsmith, and a leisure and social studies specialist. Beneath all these roles lies the same curiosity about the connection between body, mind, emotions and energy.</p>
         <p>Hjartaheimar grew out of a wish to create a space where nothing needs fixing or rushing, just room to give ourselves time to be.</p>
         <a class="text-link" href="/about.html">Read more about Gulla and Hjartaheimar →</a>
+        <p class="social-links">Follow Hjartaheimar on <a href="https://www.facebook.com/profile.php?id=61593960661093" target="_blank" rel="noopener">Facebook ↗</a> and <a href="https://www.instagram.com/hjartaheimar/" target="_blank" rel="noopener">Instagram ↗</a></p>
       </div>
     </div>
   </section>
 
-  <section class="band" id="samband">
-    <div class="wrap contact-grid">
-      <div class="contact-copy">
-        <p class="eyebrow">Get in touch</p>
-        <h2>Tell me about yourself</h2>
-        <p>Whether you're considering a private session or a class, or you just have a question, send a note and we'll figure it out together. Not sure whether a class will suit you in English? Ask.</p>
-        <dl class="contact-fields">
-          <div><dt>Email</dt><dd class="filled"><a href="mailto:Gulla@hjartaheimar.is">Gulla@hjartaheimar.is</a></dd></div>
-          <div><dt>Phone</dt><dd class="filled"><a href="tel:+3548678743">867 8743</a></dd></div>
-          <div><dt>Location</dt><dd class="filled"><a href="https://maps.app.goo.gl/vLaoku56jWaAJrbAA" target="_blank" rel="noopener">Bolholt 4, 4th floor, Reykjavík</a></dd></div>
-        </dl>
-
-        <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="65892dab-6990-4005-a4a9-bc3da02886f6">
-          <input type="hidden" name="subject" value="New inquiry from hjartaheimar.is (EN)">
-          <input type="hidden" name="from_name" value="Hjartaheimar · website">
-          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <div class="form-row">
-            <label for="cf-name">Name</label>
-            <input type="text" id="cf-name" name="name" required autocomplete="name">
-          </div>
-          <div class="form-row">
-            <label for="cf-email">Email</label>
-            <input type="email" id="cf-email" name="email" required autocomplete="email">
-          </div>
-          <div class="form-row">
-            <label for="cf-message">Message</label>
-            <textarea id="cf-message" name="message" rows="4" required></textarea>
-          </div>
-          <button type="submit" class="form-submit">Send</button>
-          <p class="form-status" id="contactFormStatus" role="status" aria-live="polite"></p>
-          <p style="font-size:0.78rem;color:var(--ink-faint);margin-top:-6px;">See our <a class="privacy-link" href="/privacy.html">privacy policy</a> regarding data handling.</p>
-        </form>
-      </div>
-      <div class="testimonials">
-        <p class="eyebrow">Testimonials</p>
+  <section class="band" id="umsagnir">
+    <div class="wrap">
+      <p class="eyebrow">Testimonials</p>
+      <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem); color:var(--brand); margin-top:10px;">What people say</h2>
+      <div class="quote-grid">
         <blockquote class="testimonial">
           <p>“It was so wonderful to come to yoga with Gulla. She has a lovely, calming presence that makes you feel good the moment you walk in. The yoga class hit the mark for me completely, and the breathing exercises were challenging in such a good way. So nourishing for the nervous system. I recommend her wholeheartedly.”</p>
           <cite>Guðríður (translated from Icelandic)</cite>
@@ -310,6 +280,68 @@
           <p>“A wonderful, nourishing yoga experience and Aguahara water therapy session with Guðlaug. She's an exceptionally great teacher, with a warm, good presence that creates a calm, safe environment. I felt really good in her sessions and found deep relaxation. A restorative experience I recommend without hesitation.”</p>
           <cite>Íris (translated from Icelandic)</cite>
         </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt request-band" id="request">
+    <div class="wrap contact-grid">
+      <div class="contact-copy">
+        <p class="eyebrow">Get in touch</p>
+        <h2>Request a time</h2>
+        <p>Choose what you are interested in and send a note, or just ask a question. Gulla will get back to you, go through what you would like and confirm the time. This is a request, not a confirmed booking.</p>
+        <dl class="contact-fields">
+          <div><dt>Email</dt><dd class="filled"><a href="mailto:Gulla@hjartaheimar.is">Gulla@hjartaheimar.is</a></dd></div>
+          <div><dt>Phone</dt><dd class="filled"><a href="tel:+3548678743">867 8743</a></dd></div>
+          <div><dt>Location</dt><dd class="filled"><a href="https://maps.app.goo.gl/vLaoku56jWaAJrbAA" target="_blank" rel="noopener">Bolholt 4, 4th floor, Reykjavík</a></dd></div>
+        </dl>
+      </div>
+      <div>
+        <form class="contact-form" id="enquiryForm" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="65892dab-6990-4005-a4a9-bc3da02886f6">
+          <input type="hidden" name="subject" value="Request from hjartaheimar.is (EN)">
+          <input type="hidden" name="from_name" value="Hjartaheimar · web">
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="form-row">
+            <label for="tf-service">What would you like to book?</label>
+            <select id="tf-service" name="service">
+              <option value="">Not sure yet, or a general question</option>
+              <option value="Yoga Nidra · private session at home">Yoga Nidra · private session at home</option>
+              <option value="Flæði · group session">Flæði · group session</option>
+              <option value="Aguahara · private session">Aguahara · private session</option>
+              <option value="Reiki healing">Reiki healing</option>
+              <option value="Coming Home to Yourself · somatic work">Coming Home to Yourself · somatic work</option>
+              <option value="Self-discovery (Gene Keys, Human Design, Enneagram)">Self-discovery (Gene Keys, Human Design, Enneagram)</option>
+              <option value="I'd like some guidance">I'd like some guidance</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="tf-name">Name</label>
+            <input type="text" id="tf-name" name="name" required autocomplete="name">
+          </div>
+          <div class="form-row">
+            <label for="tf-email">Email</label>
+            <input type="email" id="tf-email" name="email" required autocomplete="email">
+          </div>
+          <div class="form-row">
+            <label for="tf-phone">Phone <span style="text-transform:none; letter-spacing:0;">(optional)</span></label>
+            <input type="tel" id="tf-phone" name="phone" autocomplete="tel">
+          </div>
+          <div class="form-row">
+            <label for="tf-when">Preferred day and time <span style="text-transform:none; letter-spacing:0;">(optional)</span></label>
+            <input type="text" id="tf-when" name="date_time_preference" autocomplete="off">
+          </div>
+          <div class="form-row">
+            <label for="tf-message">Message <span style="text-transform:none; letter-spacing:0;">(optional)</span></label>
+            <textarea id="tf-message" name="message" rows="3"></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send request</button>
+          <p class="form-status" id="enquiryFormStatus" role="status" aria-live="polite"></p>
+          <p style="font-size:0.78rem;color:var(--ink-faint);margin-top:-6px;">See our <a class="privacy-link" href="/privacy.html">privacy policy</a> regarding data handling.</p>
+        </form>
+        <div class="form-success" id="enquiryFormSuccess" hidden tabindex="-1">
+          <p class="form-success-msg">Thank you. Gulla will be in touch to confirm the time.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -380,64 +412,6 @@
       <iframe src="https://noona.is/hjartaheimar/vouchers/wDTNAcDyS5FrjwB9Zbcv0rUz?source=Company&iframe=true" title="Buy a 20-class card at Hjartaheimar" frameborder="0" loading="lazy"></iframe>
     </div>
     <p style="margin:0; padding:8px 18px 14px; font-size:0.78rem; color:var(--ink-faint);">Isn’t the page loading correctly? <a href="https://noona.is/hjartaheimar/vouchers/wDTNAcDyS5FrjwB9Zbcv0rUz?source=Company" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Open on noona.is in a new tab</a>.</p>
-  </div>
-</div>
-
-<div class="booking-modal" id="enquiryModal" hidden>
-  <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="enquiryModalTitle">
-    <div class="booking-modal-head">
-      <h3 id="enquiryModalTitle">Request a time</h3>
-      <button type="button" class="booking-modal-close" id="enquiryModalClose" aria-label="Close">&times;</button>
-    </div>
-    <div class="booking-modal-body form-body">
-      <p class="form-intro">Gulla will get back to you, go through what you would like and confirm the time. This is a request, not a confirmed booking.</p>
-      <form class="contact-form" id="enquiryForm" action="https://api.web3forms.com/submit" method="POST" style="margin-top:0; padding-top:0; border-top:none;">
-        <input type="hidden" name="access_key" value="65892dab-6990-4005-a4a9-bc3da02886f6">
-        <input type="hidden" name="subject" value="Request from hjartaheimar.is (EN)">
-        <input type="hidden" name="from_name" value="Hjartaheimar · web">
-        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <div class="form-row">
-          <label for="tf-service">What would you like to book?</label>
-          <select id="tf-service" name="service">
-            <option value="">Not sure yet</option>
-            <option value="Yoga Nidra · private session at home">Yoga Nidra · private session at home</option>
-            <option value="Flæði · group session">Flæði · group session</option>
-            <option value="Aguahara · private session">Aguahara · private session</option>
-            <option value="Reiki healing">Reiki healing</option>
-            <option value="Coming Home to Yourself · somatic work">Coming Home to Yourself · somatic work</option>
-            <option value="Self-discovery (Gene Keys, Human Design, Enneagram)">Self-discovery (Gene Keys, Human Design, Enneagram)</option>
-            <option value="I'd like some guidance">I'd like some guidance</option>
-          </select>
-        </div>
-        <div class="form-row">
-          <label for="tf-name">Name</label>
-          <input type="text" id="tf-name" name="name" required autocomplete="name">
-        </div>
-        <div class="form-row">
-          <label for="tf-email">Email</label>
-          <input type="email" id="tf-email" name="email" required autocomplete="email">
-        </div>
-        <div class="form-row">
-          <label for="tf-phone">Phone <span style="text-transform:none; letter-spacing:0;">(optional)</span></label>
-          <input type="tel" id="tf-phone" name="phone" autocomplete="tel">
-        </div>
-        <div class="form-row">
-          <label for="tf-when">Preferred day and time <span style="text-transform:none; letter-spacing:0;">(optional)</span></label>
-          <input type="text" id="tf-when" name="date_time_preference" autocomplete="off">
-        </div>
-        <div class="form-row">
-          <label for="tf-message">Message <span style="text-transform:none; letter-spacing:0;">(optional)</span></label>
-          <textarea id="tf-message" name="message" rows="3"></textarea>
-        </div>
-        <button type="submit" class="form-submit">Send request</button>
-        <p class="form-status" id="enquiryFormStatus" role="status" aria-live="polite"></p>
-        <p style="font-size:0.78rem;color:var(--ink-faint);margin-top:-6px;">See our <a class="privacy-link" href="/privacy.html">privacy policy</a> regarding data handling.</p>
-      </form>
-      <div class="form-success" id="enquiryFormSuccess" hidden>
-        <p class="form-success-msg">Thank you. Gulla will be in touch to confirm the time.</p>
-        <button type="button" class="book-service-btn" id="enquiryFormSuccessClose">Close</button>
-      </div>
-    </div>
   </div>
 </div>
 

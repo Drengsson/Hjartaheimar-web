@@ -94,6 +94,10 @@
         <p>I find it especially beautiful how different paths can work together. Sometimes we need movement and breath. Sometimes we need to let the water carry us. Sometimes we simply need to lie still and let the body relax.</p>
         <p>I believe in the wisdom of the body. My goal isn’t to tell you how to be, but to create a safe space where you can connect with yourself on your own terms.</p>
         <p class="signoff">Welcome to Hjartaheimar.</p>
+        <div class="about-links">
+          <a class="btn go-request" href="#request">Get in touch with Gulla</a>
+          <span class="social-links">Follow along: <a href="https://www.facebook.com/profile.php?id=61593960661093" target="_blank" rel="noopener">Facebook ↗</a> · <a href="https://www.instagram.com/hjartaheimar/" target="_blank" rel="noopener">Instagram ↗</a></span>
+        </div>
       </div>
     </div>
   </section>
@@ -125,7 +129,7 @@
         </div>
         <p class="rhythm-line" style="margin-top:44px;">The goal isn’t to work out who you “should” be, but to see yourself more clearly, just as you are.</p>
         <p class="measure" style="margin-top:20px;color:var(--ink-soft)">These sessions can be booked as private sessions.</p>
-        <button type="button" class="book-service-btn open-enquiry-modal" data-service="Self-discovery (Gene Keys, Human Design, Enneagram)">Request a time</button>
+        <a href="#request" class="book-service-btn go-request" data-service="Self-discovery (Gene Keys, Human Design, Enneagram)">Request a time</a>
         </div>
       </div>
     </div>
@@ -148,6 +152,68 @@
           <div class="spotify-embed">
             <iframe src="https://open.spotify.com/embed/playlist/2PXzeFKCvQaIWuLjhq6Gjo?utm_source=generator&amp;theme=0" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Spotify playlist · Hjartaheimar yoga classes"></iframe>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt request-band" id="request">
+    <div class="wrap contact-grid">
+      <div class="contact-copy">
+        <p class="eyebrow">Get in touch</p>
+        <h2>Request a time</h2>
+        <p>Choose what you are interested in and send a note, or just ask a question. Gulla will get back to you, go through what you would like and confirm the time. This is a request, not a confirmed booking.</p>
+        <dl class="contact-fields">
+          <div><dt>Email</dt><dd class="filled"><a href="mailto:Gulla@hjartaheimar.is">Gulla@hjartaheimar.is</a></dd></div>
+          <div><dt>Phone</dt><dd class="filled"><a href="tel:+3548678743">867 8743</a></dd></div>
+          <div><dt>Location</dt><dd class="filled"><a href="https://maps.app.goo.gl/vLaoku56jWaAJrbAA" target="_blank" rel="noopener">Bolholt 4, 4th floor, Reykjavík</a></dd></div>
+        </dl>
+      </div>
+      <div>
+        <form class="contact-form" id="enquiryForm" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="65892dab-6990-4005-a4a9-bc3da02886f6">
+          <input type="hidden" name="subject" value="Request from hjartaheimar.is (EN)">
+          <input type="hidden" name="from_name" value="Hjartaheimar · web">
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="form-row">
+            <label for="tf-service">What would you like to book?</label>
+            <select id="tf-service" name="service">
+              <option value="">Not sure yet, or a general question</option>
+              <option value="Yoga Nidra · private session at home">Yoga Nidra · private session at home</option>
+              <option value="Flæði · group session">Flæði · group session</option>
+              <option value="Aguahara · private session">Aguahara · private session</option>
+              <option value="Reiki healing">Reiki healing</option>
+              <option value="Coming Home to Yourself · somatic work">Coming Home to Yourself · somatic work</option>
+              <option value="Self-discovery (Gene Keys, Human Design, Enneagram)">Self-discovery (Gene Keys, Human Design, Enneagram)</option>
+              <option value="I'd like some guidance">I'd like some guidance</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="tf-name">Name</label>
+            <input type="text" id="tf-name" name="name" required autocomplete="name">
+          </div>
+          <div class="form-row">
+            <label for="tf-email">Email</label>
+            <input type="email" id="tf-email" name="email" required autocomplete="email">
+          </div>
+          <div class="form-row">
+            <label for="tf-phone">Phone <span style="text-transform:none; letter-spacing:0;">(optional)</span></label>
+            <input type="tel" id="tf-phone" name="phone" autocomplete="tel">
+          </div>
+          <div class="form-row">
+            <label for="tf-when">Preferred day and time <span style="text-transform:none; letter-spacing:0;">(optional)</span></label>
+            <input type="text" id="tf-when" name="date_time_preference" autocomplete="off">
+          </div>
+          <div class="form-row">
+            <label for="tf-message">Message <span style="text-transform:none; letter-spacing:0;">(optional)</span></label>
+            <textarea id="tf-message" name="message" rows="3"></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send request</button>
+          <p class="form-status" id="enquiryFormStatus" role="status" aria-live="polite"></p>
+          <p style="font-size:0.78rem;color:var(--ink-faint);margin-top:-6px;">See our <a class="privacy-link" href="/privacy.html">privacy policy</a> regarding data handling.</p>
+        </form>
+        <div class="form-success" id="enquiryFormSuccess" hidden tabindex="-1">
+          <p class="form-success-msg">Thank you. Gulla will be in touch to confirm the time.</p>
         </div>
       </div>
     </div>
@@ -219,64 +285,6 @@
       <iframe src="https://noona.is/hjartaheimar/vouchers/wDTNAcDyS5FrjwB9Zbcv0rUz?source=Company&iframe=true" title="Buy a 20-class card at Hjartaheimar" frameborder="0" loading="lazy"></iframe>
     </div>
     <p style="margin:0; padding:8px 18px 14px; font-size:0.78rem; color:var(--ink-faint);">Isn’t the page loading correctly? <a href="https://noona.is/hjartaheimar/vouchers/wDTNAcDyS5FrjwB9Zbcv0rUz?source=Company" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Open on noona.is in a new tab</a>.</p>
-  </div>
-</div>
-
-<div class="booking-modal" id="enquiryModal" hidden>
-  <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="enquiryModalTitle">
-    <div class="booking-modal-head">
-      <h3 id="enquiryModalTitle">Request a time</h3>
-      <button type="button" class="booking-modal-close" id="enquiryModalClose" aria-label="Close">&times;</button>
-    </div>
-    <div class="booking-modal-body form-body">
-      <p class="form-intro">Gulla will get back to you, go through what you would like and confirm the time. This is a request, not a confirmed booking.</p>
-      <form class="contact-form" id="enquiryForm" action="https://api.web3forms.com/submit" method="POST" style="margin-top:0; padding-top:0; border-top:none;">
-        <input type="hidden" name="access_key" value="65892dab-6990-4005-a4a9-bc3da02886f6">
-        <input type="hidden" name="subject" value="Request from hjartaheimar.is (EN)">
-        <input type="hidden" name="from_name" value="Hjartaheimar · web">
-        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <div class="form-row">
-          <label for="tf-service">What would you like to book?</label>
-          <select id="tf-service" name="service">
-            <option value="">Not sure yet</option>
-            <option value="Yoga Nidra · private session at home">Yoga Nidra · private session at home</option>
-            <option value="Flæði · group session">Flæði · group session</option>
-            <option value="Aguahara · private session">Aguahara · private session</option>
-            <option value="Reiki healing">Reiki healing</option>
-            <option value="Coming Home to Yourself · somatic work">Coming Home to Yourself · somatic work</option>
-            <option value="Self-discovery (Gene Keys, Human Design, Enneagram)">Self-discovery (Gene Keys, Human Design, Enneagram)</option>
-            <option value="I'd like some guidance">I'd like some guidance</option>
-          </select>
-        </div>
-        <div class="form-row">
-          <label for="tf-name">Name</label>
-          <input type="text" id="tf-name" name="name" required autocomplete="name">
-        </div>
-        <div class="form-row">
-          <label for="tf-email">Email</label>
-          <input type="email" id="tf-email" name="email" required autocomplete="email">
-        </div>
-        <div class="form-row">
-          <label for="tf-phone">Phone <span style="text-transform:none; letter-spacing:0;">(optional)</span></label>
-          <input type="tel" id="tf-phone" name="phone" autocomplete="tel">
-        </div>
-        <div class="form-row">
-          <label for="tf-when">Preferred day and time <span style="text-transform:none; letter-spacing:0;">(optional)</span></label>
-          <input type="text" id="tf-when" name="date_time_preference" autocomplete="off">
-        </div>
-        <div class="form-row">
-          <label for="tf-message">Message <span style="text-transform:none; letter-spacing:0;">(optional)</span></label>
-          <textarea id="tf-message" name="message" rows="3"></textarea>
-        </div>
-        <button type="submit" class="form-submit">Send request</button>
-        <p class="form-status" id="enquiryFormStatus" role="status" aria-live="polite"></p>
-        <p style="font-size:0.78rem;color:var(--ink-faint);margin-top:-6px;">See our <a class="privacy-link" href="/privacy.html">privacy policy</a> regarding data handling.</p>
-      </form>
-      <div class="form-success" id="enquiryFormSuccess" hidden>
-        <p class="form-success-msg">Thank you. Gulla will be in touch to confirm the time.</p>
-        <button type="button" class="book-service-btn" id="enquiryFormSuccessClose">Close</button>
-      </div>
-    </div>
   </div>
 </div>
 
