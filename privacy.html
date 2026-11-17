@@ -114,7 +114,7 @@
   </a>
   <a class="back" href="/en.html">← Back to hjartaheimar.is</a>
   <h1>Privacy</h1>
-  <p class="updated">Last updated September 2026.</p>
+  <p class="updated">Last updated November 2026.</p>
 
   <p>Hjartaheimar respects the privacy of everyone who visits this site, books a class or gets in touch. Below is an explanation of what personal data is recorded, for what purpose, and what rights you have regarding it.</p>
 
@@ -125,11 +125,12 @@
 
   <h2>What information is recorded</h2>
   <div class="surface-block">
-    <p><strong>Bookings.</strong> When you book a class or course through the booking system on this site, your name, email, phone number and chosen time are recorded with Noona, which operates the booking system on behalf of Hjartaheimar.</p>
-    <p><strong>Inquiries.</strong> If you send a message through the contact form, your name, email and the message itself are sent to Hjartaheimar so you can be answered.</p>
+    <p><strong>Bookings.</strong> When you book a class or buy a class card through the booking system, your name, email, phone number and chosen time are recorded with Noona, which operates the booking system on behalf of Hjartaheimar. The booking system only loads when you open the booking window.</p>
+    <p><strong>Partner registrations.</strong> Værð &amp; Mildi is registered through LovE Yoga, and events run with House of Thecla are registered there. Their own privacy policies apply.</p>
+    <p><strong>Inquiries and session requests.</strong> When you send the form at the bottom of the pages, your name, email, phone number (optional), the service you choose, your preferred day and time and your message are sent to Hjartaheimar by email, so you can be answered and a time confirmed. Companies also give their company name and number of participants. None of this is sent to analytics.</p>
     <p><strong>Site usage.</strong> If you accept cookies in the banner shown on your first visit, Google Analytics collects data about visits — such as which pages are viewed, where traffic comes from, and general device and browser information — in aggregated form to help understand how the site is used. If you decline, this data is not collected.</p>
     <p><strong>Advertising.</strong> If cookies are accepted, Meta Pixel (Facebook/Instagram) is used to measure ad performance and show relevant content from Hjartaheimar to people who have previously visited the site.</p>
-    <p><strong>Music.</strong> The site includes embedded playlists from Spotify. When they load, Spotify may record technical playback data under its own privacy policy.</p>
+    <p><strong>Music.</strong> The About Gulla page includes embedded Spotify playlists, which load when that page is opened. Spotify may then record technical data under its own privacy policy.</p>
   </div>
 
   <h2>Purpose of processing</h2>
@@ -145,7 +146,8 @@
   <ul>
     <li><strong>Noona</strong> — booking system</li>
     <li><strong>Zoho</strong> — email service</li>
-    <li><strong>Web3Forms</strong> — receiving inquiries from the contact form</li>
+    <li><strong>Web3Forms</strong>: receiving inquiries from the site's forms</li>
+    <li><strong>LovE Yoga</strong> and <strong>House of Thecla</strong>: registration for partner events, on their own websites</li>
     <li><strong>Google Analytics</strong> — web analytics (only if accepted)</li>
     <li><strong>Meta (Facebook/Instagram)</strong> — ad measurement (only if accepted)</li>
     <li><strong>Spotify</strong> — embedded playlists</li>
@@ -160,7 +162,7 @@
   <p>If you believe your personal data is not being processed lawfully, you have the right to file a complaint with the <a href="https://www.personuvernd.is/information-in-english" target="_blank" rel="noopener">Icelandic Data Protection Authority</a>.</p>
 
   <h2>Cookies</h2>
-  <p>When you first visit the site, a banner appears where you choose whether to allow or decline optional analytics and marketing cookies from Google Analytics and Meta — none of this is loaded until you accept. You can change your choice at any time with the "Change cookie preferences" button at the bottom of the page, as well as manage cookies generally in your browser's settings. Playlists from Spotify and the booking system from Noona load regardless of this choice, as they are necessary for the site's core functionality.</p>
+  <p>When you first visit the site, a banner appears where you choose whether to allow or decline optional analytics and marketing cookies from Google Analytics and Meta — none of this is loaded until you accept. You can change your choice at any time with the "Change cookie preferences" button at the bottom of the page, as well as manage cookies generally in your browser's settings. If you withdraw consent, the analytics tools are stopped and their cookies removed. The Noona booking system only loads when you open the booking window, and Spotify playlists only on the About Gulla page.</p>
 </div>
 
 <footer class="site-foot">
@@ -184,67 +186,7 @@
   </div>
 </div>
 
-<script>
-  // Google Analytics and Meta Pixel only start loading once the visitor has
-  // actively accepted optional cookies here — nothing is loaded up front.
-  // Shares the same 'hh_consent' localStorage key as the rest of the site,
-  // so a choice made here or on the homepage is respected everywhere.
-  (function(){
-    var KEY = 'hh_consent';
-    var banner = document.getElementById('consentBanner');
-    var acceptBtn = document.getElementById('consentAccept');
-    var rejectBtn = document.getElementById('consentReject');
-    var changeBtn = document.getElementById('consentChangeBtn');
-
-    function loadGA(){
-      if(window.__hhGaLoaded) return;
-      window.__hhGaLoaded = true;
-      var s = document.createElement('script');
-      s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-TPB5RGKBBF';
-      document.head.appendChild(s);
-      window.dataLayer = window.dataLayer || [];
-      window.gtag = function(){ window.dataLayer.push(arguments); };
-      gtag('js', new Date());
-      gtag('config', 'G-TPB5RGKBBF');
-    }
-
-    function loadPixel(){
-      if(window.__hhFbLoaded) return;
-      window.__hhFbLoaded = true;
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '926281660184975');
-      fbq('track', 'PageView');
-    }
-
-    function showBanner(){ if(banner){ banner.hidden = false; } }
-    function hideBanner(){ if(banner){ banner.hidden = true; } }
-
-    var choice = null;
-    try{ choice = localStorage.getItem(KEY); }catch(err){}
-
-    if(choice === 'granted'){ loadGA(); loadPixel(); }
-    else if(choice !== 'denied'){ showBanner(); }
-
-    if(acceptBtn) acceptBtn.addEventListener('click', function(){
-      try{ localStorage.setItem(KEY, 'granted'); }catch(err){}
-      loadGA(); loadPixel();
-      hideBanner();
-    });
-    if(rejectBtn) rejectBtn.addEventListener('click', function(){
-      try{ localStorage.setItem(KEY, 'denied'); }catch(err){}
-      hideBanner();
-    });
-    if(changeBtn) changeBtn.addEventListener('click', showBanner);
-  })();
-</script>
+<script src="/js/site.js"></script>
 
 </body>
 </html>

@@ -26,6 +26,19 @@ function T(is, en){ return HH_EN ? en : is; }
       // — every nav link became unclickable, with clicks silently falling
       // through to the header behind them.
       links.inert = mq.matches && !open;
+      // While the phone menu is open, everything outside the header is out
+      // of reach (Tab, screen readers, clicks), so focus can't slip behind
+      // the opaque panel.
+      var outside = document.querySelectorAll('body > *:not(header):not(script)');
+      Array.prototype.forEach.call(outside, function(el){
+        if(open && mq.matches){ if(!el.inert){ el.inert = true; el.setAttribute('data-menu-inert',''); } }
+        else if(el.hasAttribute('data-menu-inert')){ el.inert = false; el.removeAttribute('data-menu-inert'); }
+      });
+    }
+    function headerFocusables(){
+      return Array.prototype.filter.call(
+        document.querySelectorAll('header.site-nav a[href], header.site-nav button'),
+        function(el){ return el.offsetParent !== null && !el.hidden; });
     }
     setOpen(false);
 
@@ -34,14 +47,18 @@ function T(is, en){ return HH_EN ? en : is; }
       if(e.target.tagName === 'A'){ setOpen(false); }
     });
     document.addEventListener('keydown', function(e){
-      if(e.key === 'Escape' && body.classList.contains('nav-open')){
-        setOpen(false);
-        btn.focus();
+      if(!body.classList.contains('nav-open')) return;
+      if(e.key === 'Escape'){ setOpen(false); btn.focus(); return; }
+      if(e.key === 'Tab'){
+        var f = headerFocusables(); if(!f.length) return;
+        var first = f[0], last = f[f.length - 1];
+        if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+        else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
       }
     });
     // Keep inert correct if the viewport crosses the breakpoint (e.g. a
     // tablet rotated, or a resized desktop window) without a toggle click.
-    mq.addEventListener('change', function(){ setOpen(body.classList.contains('nav-open')); });
+    mq.addEventListener('change', function(){ setOpen(mq.matches && body.classList.contains('nav-open')); });
   })();
 
 
@@ -62,6 +79,9 @@ function T(is, en){ return HH_EN ? en : is; }
         var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         target.scrollIntoView({behavior: still ? 'auto' : 'smooth', block:'start'});
         if(history.pushState){ history.pushState(null, '', '#' + id); }
+        // Move keyboard focus too, so the next Tab continues from here.
+        if(!target.matches('a[href], button, input, select, textarea, [tabindex]')){ target.setAttribute('tabindex', '-1'); }
+        try{ target.focus({preventScroll:true}); }catch(err){ target.focus(); }
       });
     });
   })();
@@ -107,6 +127,7 @@ function T(is, en){ return HH_EN ? en : is; }
         if(e) e.preventDefault();
         lastFocused = document.activeElement;
         modal.hidden = false;
+        modal.querySelectorAll('iframe[data-src]').forEach(function(f){ if(!f.getAttribute('src')){ f.src = f.getAttribute('data-src'); } });
         setBackgroundInert(modal, true);
         document.body.style.overflow = 'hidden';
         if(closeBtn) closeBtn.focus();
@@ -275,6 +296,10 @@ function T(is, en){ return HH_EN ? en : is; }
             if(panel){
               form.hidden = true;
               panel.hidden = false;
+              panel.setAttribute('tabindex', '-1');
+              panel.setAttribute('role', 'status');
+              try{ panel.focus({preventScroll:true}); }catch(err){}
+              panel.scrollIntoView({block:'center'});
             } else {
               status.textContent = successMessage;
               status.className = 'form-status ok';
@@ -340,8 +365,8 @@ function T(is, en){ return HH_EN ? en : is; }
       fbq('track', 'PageView');
     }
 
-    function showBanner(){ if(banner){ banner.hidden = false; } }
-    function hideBanner(){ if(banner){ banner.hidden = true; } }
+    function showBanner(){ if(banner){ banner.hidden = false; document.body.classList.add('consent-open'); } }
+    function hideBanner(){ if(banner){ banner.hidden = true; document.body.classList.remove('consent-open'); } }
 
     var choice = null;
     try{ choice = localStorage.getItem(KEY); }catch(err){}
@@ -433,3 +458,16 @@ window.addEventListener('load', function(){
   var t = document.getElementById(location.hash.slice(1));
   if(t) setTimeout(function(){ t.scrollIntoView({block:'start'}); }, 50);
 });
+
+/* Hide the sticky phone action while its own form is on screen. */
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  var forms = document.querySelectorAll('#enquiryForm, #fyrirtaekiForm, .form-success');
+  if(!forms.length) return;
+  var visible = new Set();
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ visible.add(en.target); } else { visible.delete(en.target); } });
+    document.body.classList.toggle('form-in-view', visible.size > 0);
+  }, {threshold: 0.15});
+  forms.forEach(function(f){ io.observe(f); });
+})();
