@@ -396,6 +396,29 @@
   .explore-card p{color:var(--ink-soft); font-size:0.88rem; flex:1;}
   .explore-card .arrow{color:var(--brand); font-size:0.85rem; font-weight:600; letter-spacing:0.02em;}
 
+  /* "Á döfinni": dated events and series. Items with data-until hide
+     themselves once the date has passed (see script at the bottom). */
+  #a-dofinni{scroll-margin-top:78px;}
+  .event-grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:32px;}
+  .event-card{background:var(--ground); padding:28px 26px; display:flex; flex-direction:column; gap:10px; border-top:3px solid var(--brand);}
+  .event-card.water{border-top-color:var(--water);}
+  .event-card.water h3, .event-card.water .ev-date{color:var(--water);}
+  .event-card h3{font-size:1.45rem; color:var(--brand);}
+  .event-card p{color:var(--ink-soft); font-size:0.94rem;}
+  .ev-kicker{font-size:0.72rem !important; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold) !important;}
+  .ev-date{font-weight:600; color:var(--brand) !important;}
+  .ev-dates{list-style:none; margin:0; padding:0; font-weight:600; color:var(--brand); font-size:0.94rem;}
+  .ev-actions{margin-top:auto; padding-top:8px; display:flex; flex-wrap:wrap; align-items:center; gap:10px 18px;}
+  .ev-actions .book-service-btn{margin-top:0;}
+  .event-card.water .book-service-btn{background:var(--water);}
+  .ev-fb, .ev-more a{font-size:0.85rem; font-weight:600; color:var(--brand); text-decoration:none; border-bottom:1px solid transparent;}
+  .ev-fb:hover, .ev-more a:hover{border-color:currentColor;}
+  .ev-more{margin-top:22px; display:flex; flex-wrap:wrap; gap:10px 28px;}
+  a.fb-event[href=""]{display:none;}
+  [data-until][hidden]{display:none !important;}
+  .choice p a{color:var(--brand); font-weight:600; text-decoration:none; white-space:nowrap;}
+  @media (max-width:900px){ .event-grid{grid-template-columns:1fr;} }
+
   /* modality sections */
   .modality{scroll-margin-top:78px;}
   .modality .head{max-width:56ch; margin-bottom:36px;}
@@ -432,6 +455,8 @@
   }
   .schedule-highlight .sh-location{color:var(--ink-soft); font-size:0.88rem; margin-top:4px;}
   .schedule-highlight .sh-price{color:var(--ink-soft); font-size:0.95rem; font-weight:600; margin-top:8px;}
+  .schedule-highlight .sh-fb{font-size:0.82rem; margin-top:8px; color:var(--ink-faint);}
+  .schedule-highlight .sh-fb a{color:var(--brand); font-weight:600;}
   .schedule-highlight .sh-note{color:var(--ink-faint); font-size:0.82rem; margin-top:6px;}
   .schedule-highlight .book-service-btn{margin-top:0; flex-shrink:0;}
   .sh-actions{display:flex; flex-direction:column; align-items:stretch; gap:12px;}
@@ -733,12 +758,12 @@
   <nav class="links" id="navLinks">
     <a href="#heim">Heim</a>
     <a href="#joga">Jógatímar</a>
-    <a href="#fimmtudagar">Fimmtudagar með Gullu</a>
+    <a href="#a-dofinni">Á döfinni</a>
+    <a href="/vatnsmedferd.html">Vatnsmeðferð</a>
+    <a href="/somatisk-vinna.html">Sómatísk vinna</a>
     <a href="#einkatimar">Einkatímar</a>
     <a href="/fyrirtaeki.html">Fyrirtæki</a>
     <a href="#um-mig">Um mig</a>
-    <a href="#sjalfsthekking">Sjálfsþekking</a>
-    <a href="#tonlist">Tónlist</a>
     <a href="/en.html" class="lang-switch">EN</a>
     <a href="#joga" class="nav-cta open-booking-modal">Bóka tíma</a>
   </nav>
@@ -779,6 +804,7 @@
           <p class="sh-location">B4 · Bolholt 4 · 4. hæð</p>
           <p class="sh-price">60 mínútur · 3.500 kr</p>
           <p class="sh-note">Allir velkomnir, óháð reynslu.</p>
+          <p class="sh-fb">Á Facebook: <a href="https://www.facebook.com/events/1641124764459948/" target="_blank" rel="noopener">miðvikudagar</a> · <a href="https://www.facebook.com/events/1686378336825767/" target="_blank" rel="noopener">föstudagar</a></p>
         </div>
         <div class="sh-actions">
           <button type="button" class="book-service-btn open-booking-modal" id="fastirTimarBookBtn" aria-haspopup="dialog" aria-controls="bookingModal">Bóka tíma</button>
@@ -874,22 +900,51 @@
     </div>
   </section>
 
-  <section class="band alt thursday-invite" id="fimmtudagar">
-    <div class="wrap thursday-grid">
-      <figure class="thursday-figure">
-        <img src="img/gulla-fimmtudagar.webp" srcset="img/gulla-fimmtudagar-800w.webp 800w, img/gulla-fimmtudagar.webp 1400w" sizes="(max-width: 820px) min(90vw, 420px), 528px" alt="Guðlaug í jógarýminu að Bolholti 4" width="1400" height="933" loading="lazy" decoding="async">
-      </figure>
-      <div class="thursday-copy">
-        <p class="eyebrow">Fimmtudagar með Gullu</p>
-        <h2>Stund bara fyrir þig</h2>
-        <p>Á fimmtudögum tekur Gulla á móti þér í einkatíma í Bolholti 4. Veldu jóga, öndun og leidda djúpslökun eða Reikiheilun. Stundin er aðlöguð að þínum þörfum og líðan.</p>
-        <p>Langar þig að koma? Sendu Gullu línu með óskum þínum og þið finnið tíma sem hentar.</p>
-        <div class="thursday-meta">
-          <p class="th-location">Bolholt 4 · 4. hæð</p>
-          <p class="th-price">60 mínútur · 9.800 kr.</p>
-        </div>
-        <button type="button" class="book-service-btn open-enquiry-modal">Óska eftir einkatíma</button>
+  <section class="band surface" id="a-dofinni">
+    <div class="wrap">
+      <p class="eyebrow">Á döfinni</p>
+      <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem); color:var(--brand); margin-top:10px;">Viðburðir og námskeið</h2>
+      <div class="event-grid">
+        <article class="event-card water">
+          <p class="ev-kicker">Vatnsmeðferð · Álftaneslaug</p>
+          <h3>Flæði</h3>
+          <p>Saman í hlýju vatni með öndun, mjúkum hreyfingum og eigin meðferð fyrir hvern og einn. Annan hvern fimmtudag kl. 20:00.</p>
+          <p class="ev-date">Næst: <span data-biweekly="2026-11-19" data-ends="21:00">fimmtudaginn 19. nóvember</span></p>
+          <div class="ev-actions">
+            <a class="book-service-btn" href="/vatnsmedferd.html">Nánar og bókun</a>
+            <a class="ev-fb fb-event" href="https://www.facebook.com/flaediflot" target="_blank" rel="noopener">Á Facebook →</a>
+          </div>
+        </article>
+        <article class="event-card" data-until="2026-11-28T12:00">
+          <p class="ev-kicker">Fyrir konur · Bolholt 4</p>
+          <h3>Það sem líkaminn geymir</h3>
+          <p>Sómatísk losun, trommur, orkuvinna og tónheilun í styðjandi kvennarými. Með Hönnu Lilju og Lovísu.</p>
+          <ul class="ev-dates">
+            <li data-until="2026-11-18T21:30">Mið. 18. nóvember · 19:30</li>
+            <li data-until="2026-11-28T12:00">Lau. 28. nóvember · 10:00</li>
+          </ul>
+          <div class="ev-actions">
+            <a class="book-service-btn" href="https://houseofthecla.com/events/thad-sem-likaminn-geymir" target="_blank" rel="noopener">Skráning</a>
+            <a class="ev-fb" href="/somatisk-vinna.html">Nánar →</a>
+            <!-- Slóð Facebook-viðburðar. Birtist ekki fyrr en href er fyllt út. -->
+            <a class="ev-fb fb-event" href="" target="_blank" rel="noopener">Á Facebook →</a>
+          </div>
+        </article>
+        <article class="event-card">
+          <p class="ev-kicker">Með LovE Yoga · Bolholt 4</p>
+          <h3>Værð &amp; Mildi</h3>
+          <p>Jóga, öndun og djúpslökun með lifandi tónheilun. Opnir tímar alla laugardaga kl. 10:00.</p>
+          <div class="ev-actions">
+            <a class="book-service-btn course-link" href="https://www.loveyoga.is/service-page/v%C3%A6r%C3%B0-mildi" target="_blank" rel="noopener" data-course="vaerd-og-mildi">Skráning</a>
+            <a class="ev-fb fb-event" href="https://www.facebook.com/events/973107868413855/" target="_blank" rel="noopener">Á Facebook →</a>
+          </div>
+        </article>
       </div>
+      <p class="ev-more">
+        <a href="https://www.facebook.com/events/1641124764459948/" target="_blank" rel="noopener">Jóga Nidra á miðvikudögum →</a>
+        <a href="https://www.facebook.com/events/1686378336825767/" target="_blank" rel="noopener">Jóga Nidra á föstudögum →</a>
+        <a href="https://www.facebook.com/profile.php?id=61593960661093&amp;sk=events" target="_blank" rel="noopener">Allir viðburðir á Facebook →</a>
+      </p>
     </div>
   </section>
 
@@ -897,7 +952,7 @@
     <div class="wrap">
       <p class="eyebrow">Einkatímar</p>
       <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem); color:var(--brand); margin-top:10px; max-width:20ch;">Einstaklingsmiðuð stund, aðeins fyrir þig</h2>
-      <p class="measure" style="margin-top:16px; color:var(--ink-soft)">Í einkatíma gefst tækifæri til að fara hægar, dýpra og aðlaga stundina að þínum þörfum og líðan. Að öllu jöfnu kemur Gulla til þín og tímarnir eru heima hjá þér, en á fimmtudögum er hún í Bolholti 4 og tekur á móti þér þar. Þú getur valið á milli:</p>
+      <p class="measure" style="margin-top:16px; color:var(--ink-soft)">Í einkatíma gefst tækifæri til að fara hægar, dýpra og aðlaga stundina að þínum þörfum og líðan. Í jóga og Reikiheilun kemur Gulla til þín og tíminn fer fram heima hjá þér. Þú getur valið á milli:</p>
       <div class="choice-grid">
         <div class="choice">
           <span class="num">I</span>
@@ -907,12 +962,17 @@
         <div class="choice">
           <span class="num">II</span>
           <h3>Vatnsmeðferð · Aguahara</h3>
-          <p>Djúp vatnsupplifun þar sem stutt er við þig allan tímann í sundlaug.</p>
+          <p>Djúp vatnsupplifun í Álftaneslaug þar sem stutt er við þig allan tímann. <a href="/vatnsmedferd.html#einkatimar">Nánar →</a></p>
         </div>
         <div class="choice">
           <span class="num">III</span>
           <h3>Reikiheilun</h3>
           <p>Mild orkumeðferð þar sem þú færð rými til að taka á móti, hlusta inn á við og njóta kyrrðar.</p>
+        </div>
+        <div class="choice">
+          <span class="num">IV</span>
+          <h3>Að koma heim til sín</h3>
+          <p>Sómatísk vinna, tilfinningatjáning og heilun í 120 mínútna einkatíma. <a href="/somatisk-vinna.html#einkatimar">Nánar →</a></p>
         </div>
       </div>
       <div class="callout">
@@ -946,17 +1006,15 @@
   <section class="band alt modality water" id="vatnsmedferd">
     <div class="wrap">
       <div class="head">
-        <p class="eyebrow water">Einkatími</p>
-        <h2>Vatnsmeðferð · Aguahara</h2>
+        <p class="eyebrow water">Álftaneslaug · fimmtudagskvöld</p>
+        <h2>Vatnsmeðferð · Flæði</h2>
       </div>
       <div class="modality-body">
         <div>
-          <p><em>Vatnið heldur þér.</em> Aguahara er djúp vatnsupplifun þar sem þú flýtur í sundlaug á meðan við styðjum við líkamann allan tímann með mjúkum og flæðandi hreyfingum.</p>
-          <p>Með því að losa um þyngdaraflið getur líkaminn smám saman gefið eftir og hugurinn hægir á sér. Þú þarft ekki að gera neitt – aðeins að leyfa þér að fljóta, anda og treysta.</p>
-          <p>Hluti af upplifuninni fer fram undir yfirborði vatnsins, þar sem notuð er nefklemma og þú ert áfram í algeru flæði og stutt við líkamann allan tímann. Þegar umhverfishljóðin minnka getur skapast djúp kyrrð, þyngdarleysi og sterkari tenging við líkamann og innra rýmið.</p>
-          <p>Þú ræður alltaf þínum mörkum og ferð aðeins eins langt og þér líður vel með.</p>
+          <p><em>Vatnið heldur þér.</em> Í hlýju vatni flýtur þú á meðan stutt er við líkamann allan tímann með mjúkum og flæðandi hreyfingum. Líkaminn gefur smám saman eftir og hugurinn hægir á sér. Þú þarft ekki að gera neitt nema fljóta, anda og treysta.</p>
+          <p>Annan hvern fimmtudag í Álftaneslaug. Einkatímar í Aguahara eru kl. 19:00 og hóptíminn Flæði kl. 20:00.</p>
           <p class="rhythm-line" style="color:var(--water)">Þú mátt bara fljóta.</p>
-          <button type="button" class="book-service-btn open-enquiry-modal">Óska eftir einkatíma</button>
+          <a class="book-service-btn" href="/vatnsmedferd.html">Nánar um vatnsmeðferð og bókun</a>
         </div>
         <div class="water-gallery">
           <figure class="wg-wide">
@@ -977,11 +1035,6 @@
     <p class="eyebrow" style="text-align:center;">Fleiri valmöguleikar</p>
     <div class="wrap">
       <div class="explore-grid">
-        <a class="explore-card" href="#fimmtudagar">
-          <h3>Fimmtudagar með Gullu</h3>
-          <p>Einkatími í Bolholti 4, jóga, öndun og djúpslökun eða Reikiheilun.</p>
-          <span class="arrow">Skoða →</span>
-        </a>
         <a class="explore-card" href="#einkatimar">
           <h3>Einkatímar</h3>
           <p>Einstaklingsmiðuð stund í jóga, vatnsmeðferð eða Reiki, aðeins fyrir þig.</p>
@@ -997,9 +1050,14 @@
           <p>Mild orkumeðferð og djúp kyrrð, stund til að taka á móti.</p>
           <span class="arrow">Skoða →</span>
         </a>
-        <a class="explore-card" href="#vatnsmedferd">
-          <h3>Vatnsmeðferð · Aguahara</h3>
-          <p>Djúp vatnsupplifun í sundlaug þar sem þú mátt bara fljóta.</p>
+        <a class="explore-card" href="/vatnsmedferd.html">
+          <h3>Vatnsmeðferð · Flæði</h3>
+          <p>Hóptímar og einkatímar í hlýju vatni í Álftaneslaug.</p>
+          <span class="arrow">Skoða →</span>
+        </a>
+        <a class="explore-card" href="/somatisk-vinna.html">
+          <h3>Sómatísk vinna</h3>
+          <p>Það sem líkaminn geymir. Kvennarými og einkatímar í tilfinningalosun.</p>
           <span class="arrow">Skoða →</span>
         </a>
         <a class="explore-card" href="#um-mig">
@@ -1589,5 +1647,32 @@
   })();
 </script>
 
+<script>
+/* Dates that look after themselves:
+   [data-until="YYYY-MM-DDTHH:MM"]  hidden once that moment has passed
+   [data-hide-when-empty]           hidden when none of its [data-until] children are left
+   [data-biweekly="YYYY-MM-DD" data-ends="HH:MM"]  filled with the next date in a
+                                    two-week cycle starting on that date */
+(function(){
+  var now = new Date();
+  document.querySelectorAll('[data-until]').forEach(function(el){
+    if(new Date(el.getAttribute('data-until')) < now) el.hidden = true;
+  });
+  document.querySelectorAll('[data-hide-when-empty]').forEach(function(box){
+    var items = box.querySelectorAll('[data-until]');
+    if(items.length && Array.prototype.every.call(items, function(i){ return i.hidden; })) box.hidden = true;
+  });
+  var days = ['sunnudaginn','mánudaginn','þriðjudaginn','miðvikudaginn','fimmtudaginn','föstudaginn','laugardaginn'];
+  var months = ['janúar','febrúar','mars','apríl','maí','júní','júlí','ágúst','september','október','nóvember','desember'];
+  document.querySelectorAll('[data-biweekly]').forEach(function(el){
+    var end = (el.getAttribute('data-ends') || '23:59').split(':');
+    var d = new Date(el.getAttribute('data-biweekly') + 'T00:00');
+    var finished = function(x){ var e = new Date(x); e.setHours(+end[0], +end[1]); return e < now; };
+    while(finished(d)) d.setDate(d.getDate() + 14);
+    var txt = days[d.getDay()] + ' ' + d.getDate() + '. ' + months[d.getMonth()];
+    el.textContent = el.hasAttribute('data-cap') ? txt.charAt(0).toUpperCase() + txt.slice(1) : txt;
+  });
+})();
+</script>
 </body>
 </html>
