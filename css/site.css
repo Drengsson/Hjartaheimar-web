@@ -885,3 +885,61 @@ footer.site-foot{align-items:flex-start;}
   .wk-when{grid-area:when;} .wk-what{grid-area:what;} .wk-btn{grid-area:btn;}
 }
 .oneoffs .event-card{border:1px solid var(--line); border-top:3px solid var(--brand);}
+
+/* ---------- audit pass, 2026-11-17 ---------- */
+/* headings: tighter, explicit leading instead of the inherited 1.6 */
+h1,h2,h3,h4{line-height:1.2;}
+.hero-copy h1{line-height:1.03;}
+/* functional small text a touch larger */
+.eyebrow, .week-title, .ev-kicker, .offer-card .oc-kicker{font-size:0.76rem !important;}
+.form-row label{font-size:0.76rem;}
+.wk-what p{font-size:0.9rem;}
+nav.links a{font-size:0.86rem;}
+
+/* hero: one clear primary action plus the practical facts */
+.hero-cta{display:flex; flex-direction:column; align-items:flex-start; gap:10px; margin-top:4px;}
+.hero-facts{font-size:0.9rem; color:var(--ink-soft);}
+.hero-copy h1 .nick, .about-copy h1 .nick{font-style:italic; font-weight:420; color:var(--ink-soft); font-size:0.6em;}
+.btn{min-height:44px; display:inline-flex; align-items:center; justify-content:center;}
+.wk-btn{min-height:40px; display:inline-flex; align-items:center; justify-content:center;}
+.wk-btn.ghost{background:transparent; color:var(--brand);}
+.wk-btn.ghost:hover, .wk-btn.ghost:focus-visible{filter:none; background:var(--ground);}
+.of-sub{font-family:'Fraunces',serif; font-style:italic; color:var(--ink-soft) !important; margin-top:-6px;}
+
+/* mobile hero: the 340px minimum no longer wins over the shorter phone height */
+@media (max-width:820px){
+  .hero-figure{min-height:0; height:clamp(200px,58vw,260px);}
+  .hero-copy{padding-top:28px; gap:16px;}
+}
+
+/* between the desktop menu and the phone booking bar, keep the main action in the header */
+.header-cta{display:none;}
+@media (max-width:1260px) and (min-width:901px){
+  .header-cta{
+    display:inline-flex; align-items:center; min-height:40px; padding:0 16px; border-radius:2px;
+    background:var(--brand); color:var(--surface); text-decoration:none;
+    font:600 0.82rem/1 'Karla',sans-serif; letter-spacing:0.02em;
+  }
+}
+.lang-switch-header{min-width:44px; min-height:44px; display:inline-flex; align-items:center; justify-content:center;}
+.booking-modal-close{min-width:44px; min-height:44px;}
+
+/* booking modal: loading note behind the frame and a direct Noona fallback */
+.booking-modal-body{position:relative;}
+.frame-loading{position:absolute; top:24px; left:0; right:0; text-align:center; color:var(--ink-faint); font-size:0.9rem; z-index:0;}
+.booking-modal-body iframe{position:relative; z-index:1;}
+.booking-modal-body.loaded .frame-loading{display:none;}
+.modal-fallback{margin:0; padding:8px 18px 14px; font-size:0.8rem; color:var(--ink-faint);}
+.modal-fallback a{color:inherit; text-decoration:underline;}
+
+/* voucher prices as text, not only inside the graphic */
+.voucher-fact{display:block; margin-top:8px; text-align:center; font-size:0.86rem; color:var(--ink-soft);}
+.small-print-line{margin-top:14px; font-size:0.88rem; color:var(--ink-faint);}
+.register-help{font-size:0.86rem; color:var(--ink-soft); max-width:52ch;}
+
+/* Spotify loads only when asked */
+.spotify-load{
+  width:100%; height:152px; border:1px dashed var(--line); background:var(--surface); color:var(--brand);
+  font:600 0.9rem/1 'Karla',sans-serif; cursor:pointer; border-radius:2px;
+}
+.spotify-load:hover, .spotify-load:focus-visible{border-style:solid; border-color:var(--brand);}

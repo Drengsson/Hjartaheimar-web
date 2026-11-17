@@ -56,6 +56,7 @@
     <span>HJARTAHEIMAR</span>
   </a>
   <div class="nav-mobile-actions">
+    <a href="#fyrirspurn" class="header-cta">Fá tilboð</a>
     <a href="/corporate.html" class="lang-switch-header" lang="en">EN</a>
     <button class="nav-toggle" aria-label="Opna valmynd" aria-expanded="false" aria-controls="navLinks" id="navToggle">
       <span></span><span></span><span></span>
@@ -83,6 +84,10 @@
       <h1>Jóga Nidra fyrir fyrirtæki</h1>
       <p class="tagline">Gefðu starfsfólkinu rými til að hægja á.</p>
       <p class="lede">Í annríki hversdagsins er auðvelt að gleyma því að staldra við, anda og hvílast. Jóga Nidra er leidd djúpslökun þar sem starfsfólkið fær tækifæri til að stíga út úr hraðanum, sleppa spennu og tengjast sjálfu sér. Engin hreyfing og engin fyrri reynsla af jóga er nauðsynleg.</p>
+      <div class="hero-cta">
+        <a class="btn big" href="#fyrirspurn">Fá tilboð</a>
+        <p class="hero-facts">30, 45 eða 60 mínútur · frá 25.000 kr. fyrir hópinn</p>
+      </div>
     </div>
     <figure class="hero-figure" style="margin:0;">
       <img alt="Hópur í djúpslökun á jógadýnum, umvafinn teppum í kertaljósi" width="900" height="900" src="img/nidra-group.webp" srcset="img/nidra-group-700w.webp 700w, img/nidra-group.webp 900w" sizes="(max-width: 820px) 100vw, 42vw" fetchpriority="high" decoding="async">
@@ -325,12 +330,14 @@
 <div class="booking-modal" id="bookingModal" hidden>
   <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
     <div class="booking-modal-head">
-      <h3 id="bookingModalTitle">Bóka tíma · Jóga · Öndun · Djúpslökun</h3>
+      <h3 id="bookingModalTitle">Bóka í Jóga Nidra</h3>
       <button type="button" class="booking-modal-close" id="bookingModalClose" aria-label="Loka">&times;</button>
     </div>
     <div class="booking-modal-body">
-      <iframe src="https://noona.is/hjartaheimar/book?iframe=true&darkModeDisabled=true&showCancelButton=false" title="Bóka tíma hjá Hjartaheimar" frameborder="0" loading="lazy"></iframe>
+      <p class="frame-loading" aria-hidden="true">Hleð bókunarkerfi Noona…</p>
+      <iframe src="https://noona.is/hjartaheimar/book?iframe=true&darkModeDisabled=true&showCancelButton=false" title="Bóka í Jóga Nidra hjá Hjartaheimum á Noona" frameborder="0" loading="lazy"></iframe>
     </div>
+    <p class="modal-fallback">Opnast bókunin ekki rétt? <a href="https://noona.is/hjartaheimar" target="_blank" rel="noopener">Opna á noona.is í nýjum flipa</a>.</p>
   </div>
 </div>
 
@@ -384,7 +391,7 @@
           <label for="tf-service">Hvað langar þig að prófa?</label>
           <select id="tf-service" name="service">
             <option value="">Ekki viss ennþá</option>
-            <option value="Jóga, öndun og djúpslökun · einkatími">Jóga, öndun og djúpslökun · einkatími heima</option>
+            <option value="Jóga Nidra · einkatími heima">Jóga Nidra · einkatími heima</option>
             <option value="Reikiheilun">Reikiheilun</option>
             <option value="Vatnsmeðferð · Aguahara">Vatnsmeðferð · Aguahara</option>
             <option value="Að koma heim til sín · sómatísk vinna">Að koma heim til sín · sómatísk vinna</option>

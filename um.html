@@ -53,7 +53,8 @@
     <span>HJARTAHEIMAR</span>
   </a>
   <div class="nav-mobile-actions">
-    <a href="/en.html" class="lang-switch-header" lang="en">EN</a>
+    <a href="/joga.html" class="header-cta open-booking-modal">Bóka í Jóga Nidra</a>
+    <a href="/en.html#um-mig" class="lang-switch-header" lang="en">EN</a>
     <button class="nav-toggle" aria-label="Opna valmynd" aria-expanded="false" aria-controls="navLinks" id="navToggle">
       <span></span><span></span><span></span>
     </button>
@@ -66,8 +67,8 @@
     <a href="/reiki.html">Reiki</a>
     <a href="/fyrirtaeki.html">Fyrirtæki</a>
     <a href="/um.html" aria-current="page">Um Gullu</a>
-    <a href="/en.html" class="lang-switch" lang="en">EN</a>
-    <a href="/joga.html" class="nav-cta open-booking-modal">Bóka tíma</a>
+    <a href="/en.html#um-mig" class="lang-switch" lang="en">EN</a>
+    <a href="/joga.html" class="nav-cta open-booking-modal">Bóka í Jóga Nidra</a>
   </nav>
 </header>
 <!-- /HEADER -->
@@ -82,7 +83,7 @@
       </figure>
       <div class="about-copy">
         <p class="eyebrow">Um Gullu</p>
-        <h1 style="font-size:clamp(2.3rem,4.8vw,3.6rem); color:var(--brand); margin-top:8px; margin-bottom:22px;">Guðlaug Ósk Pétursdóttir</h1>
+        <h1 style="font-size:clamp(2.3rem,4.8vw,3.6rem); color:var(--brand); margin-top:8px; margin-bottom:22px;">Guðlaug Ósk Pétursdóttir <span class="nick">(Gulla)</span></h1>
         <p>Ég er jógakennari, gullsmiður og tómstunda- og félagsmálafræðingur. En undir öllum þessum hlutverkum liggur sama forvitnin um það sem býr undir yfirborðinu: tengslin milli líkama, huga, tilfinninga og orku.</p>
         <p>Hjartaheimar urðu til út frá þeirri löngun að skapa rými þar sem ekkert þarf að laga eða flýta, bara gefa okkur tíma til að vera.</p>
         <p>Ég hef starfað á ólíkum sviðum sem hafa kennt mér margt um manneskjuna og lífið, og í dag sameina ég það í gegnum jóga, öndun og djúpslökun, vatnsmeðferð, Reikiheilun og sómatíska vinnu.</p>
@@ -130,18 +131,18 @@
     <div class="wrap">
       <p class="eyebrow">Tónlist</p>
       <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem); color:var(--brand); margin-top:10px; max-width:26ch;">Lagalistar</h2>
-      <p class="measure" style="margin-top:16px;color:var(--ink-soft)">Til að hlusta á í ró heima, eða rifja upp andrúmsloftið eftir tíma.</p>
+      <p class="measure" style="margin-top:16px;color:var(--ink-soft)">Til að hlusta á í ró heima, eða rifja upp andrúmsloftið eftir tíma. Spilarinn frá Spotify hleðst fyrst þegar þú smellir.</p>
       <div class="playlist-grid">
         <div class="playlist-col">
           <h3 class="playlist-label">Hjartaheimar</h3>
           <div class="spotify-embed">
-            <iframe src="https://open.spotify.com/embed/playlist/3eouVh47JUWvdPtJApuYim?utm_source=generator&amp;theme=0" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Spotify lagalisti · Hjartaheimar"></iframe>
+            <button type="button" class="spotify-load" data-embed-src="https://open.spotify.com/embed/playlist/3eouVh47JUWvdPtJApuYim?utm_source=generator&amp;theme=0" data-embed-title="Spotify lagalisti · Hjartaheimar">▶ Hlusta á Spotify</button>
           </div>
         </div>
         <div class="playlist-col">
           <h3 class="playlist-label">Hjartaheimar · jógatímar</h3>
           <div class="spotify-embed">
-            <iframe src="https://open.spotify.com/embed/playlist/2PXzeFKCvQaIWuLjhq6Gjo?utm_source=generator&amp;theme=0" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Spotify lagalisti · Hjartaheimar jógatímar"></iframe>
+            <button type="button" class="spotify-load" data-embed-src="https://open.spotify.com/embed/playlist/2PXzeFKCvQaIWuLjhq6Gjo?utm_source=generator&amp;theme=0" data-embed-title="Spotify lagalisti · Hjartaheimar jógatímar">▶ Hlusta á Spotify</button>
           </div>
         </div>
       </div>
@@ -174,18 +175,20 @@
 <!-- /FOOTER -->
 
 <div class="mobile-book-bar">
-  <a href="/joga.html" class="mobile-book-btn open-booking-modal">Bóka tíma</a>
+  <a href="/joga.html" class="mobile-book-btn open-booking-modal">Bóka í Jóga Nidra</a>
 </div>
 
 <div class="booking-modal" id="bookingModal" hidden>
   <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
     <div class="booking-modal-head">
-      <h3 id="bookingModalTitle">Bóka tíma · Jóga · Öndun · Djúpslökun</h3>
+      <h3 id="bookingModalTitle">Bóka í Jóga Nidra</h3>
       <button type="button" class="booking-modal-close" id="bookingModalClose" aria-label="Loka">&times;</button>
     </div>
     <div class="booking-modal-body">
-      <iframe src="https://noona.is/hjartaheimar/book?iframe=true&darkModeDisabled=true&showCancelButton=false" title="Bóka tíma hjá Hjartaheimar" frameborder="0" loading="lazy"></iframe>
+      <p class="frame-loading" aria-hidden="true">Hleð bókunarkerfi Noona…</p>
+      <iframe src="https://noona.is/hjartaheimar/book?iframe=true&darkModeDisabled=true&showCancelButton=false" title="Bóka í Jóga Nidra hjá Hjartaheimum á Noona" frameborder="0" loading="lazy"></iframe>
     </div>
+    <p class="modal-fallback">Opnast bókunin ekki rétt? <a href="https://noona.is/hjartaheimar" target="_blank" rel="noopener">Opna á noona.is í nýjum flipa</a>.</p>
   </div>
 </div>
 
@@ -239,7 +242,7 @@
           <label for="tf-service">Hvað langar þig að prófa?</label>
           <select id="tf-service" name="service">
             <option value="">Ekki viss ennþá</option>
-            <option value="Jóga, öndun og djúpslökun · einkatími">Jóga, öndun og djúpslökun · einkatími heima</option>
+            <option value="Jóga Nidra · einkatími heima">Jóga Nidra · einkatími heima</option>
             <option value="Reikiheilun">Reikiheilun</option>
             <option value="Vatnsmeðferð · Aguahara">Vatnsmeðferð · Aguahara</option>
             <option value="Að koma heim til sín · sómatísk vinna">Að koma heim til sín · sómatísk vinna</option>

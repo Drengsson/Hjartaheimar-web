@@ -739,7 +739,7 @@
     <a href="/corporate.html">Corporate</a>
     <a href="#um-mig">About</a>
     <a href="/" class="lang-switch">IS</a>
-    <a href="#joga" class="nav-cta open-booking-modal">Book a Class</a>
+    <a href="#joga" class="nav-cta open-booking-modal">Book Yoga Nidra</a>
   </nav>
 </header>
 
@@ -751,7 +751,7 @@
       <h1>Hjartaheimar</h1>
       <p class="tagline">Meet yourself just as you are</p>
       <p class="lede">Yoga, breathwork, deep relaxation, water therapy and Reiki healing offer softness, presence and a moment to slow down and simply be.</p>
-      <a class="hero-badge open-booking-modal" href="#joga"><strong>Weekly Open Yoga Classes</strong> · Wed 17:15 &amp; Fri 12:00 →</a>
+      <a class="hero-badge open-booking-modal" href="#joga"><strong>Yoga Nidra</strong> · Wed 17:15 &amp; Fri 12:00 →</a>
       <a class="hero-badge course-link" href="https://www.loveyoga.is/service-page/v%C3%A6r%C3%B0-mildi" target="_blank" rel="noopener" data-course="vaerd-og-mildi"><strong>Værð &amp; Mildi</strong> · Sat 10:00 →</a>
       <div class="hero-actions">
         <a class="scroll-cue" href="#um-mig"><span class="line"></span> About Gulla</a>
@@ -767,7 +767,7 @@
     <div class="wrap">
       <div class="head">
         <p class="eyebrow">Yoga Classes</p>
-        <h2>Yoga · Breathwork · Deep Relaxation</h2>
+        <h2>Yoga Nidra · Deep Rest and Inner Connection</h2>
       </div>
 
       <div class="schedule-highlight">
@@ -834,7 +834,7 @@
                modal, same as the button higher up in this section) and a
                private/individual session (contact-only — no online booking
                for those yet). -->
-          <a href="#joga" class="book-service-btn open-booking-modal">Book an open class · Wed 17:15 &amp; Fri 12:00</a>
+          <a href="#joga" class="book-service-btn open-booking-modal">Book Yoga Nidra · Wed 17:15 &amp; Fri 12:00</a>
           <button type="button" class="book-service-btn open-enquiry-modal" style="margin-left:12px;">Request a private session</button>
         </div>
         <figure class="glow-figure" style="margin:0;">
@@ -849,8 +849,9 @@
       <div class="schedule-highlight" style="margin:24px 0 40px;">
         <div>
           <p class="sh-start">In partnership with LovE Yoga:</p>
-          <p class="sh-times">Saturdays at 10:00</p>
+          <p class="sh-times">Saturdays at 10:00–11:30</p>
           <p class="sh-location">Bolholt 4</p>
+          <p class="sh-price">90 minutes · ISK 4,000</p>
           <p class="sh-note">Yoga, breathwork, relaxation and sound healing. Open classes, booked and registered through LovE Yoga.</p>
         </div>
         <a class="book-service-btn course-link" href="https://www.loveyoga.is/service-page/v%C3%A6r%C3%B0-mildi" target="_blank" rel="noopener" data-course="vaerd-og-mildi">Sign up with LovE Yoga →</a>
@@ -881,7 +882,7 @@
       <div class="choice-grid">
         <div class="choice">
           <span class="num">I</span>
-          <h3>Yoga · Breathwork · Deep Relaxation</h3>
+          <h3>Yoga Nidra · private session at home</h3>
           <p>A one-on-one session focused on movement, breath and deep relaxation, shaped around your own situation.</p>
         </div>
         <div class="choice">
@@ -1100,18 +1101,19 @@
 </footer>
 
 <div class="mobile-book-bar">
-  <a href="#joga" class="mobile-book-btn open-booking-modal">Book a Class</a>
+  <a href="#joga" class="mobile-book-btn open-booking-modal">Book Yoga Nidra</a>
 </div>
 
 <div class="booking-modal" id="bookingModal" hidden>
   <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
     <div class="booking-modal-head">
-      <h3 id="bookingModalTitle">Book a Class · Yoga · Breathwork · Deep Relaxation</h3>
+      <h3 id="bookingModalTitle">Book Yoga Nidra</h3>
       <button type="button" class="booking-modal-close" id="bookingModalClose" aria-label="Close">&times;</button>
     </div>
     <div class="booking-modal-body">
-      <iframe src="https://noona.is/hjartaheimar/book?iframe=true&darkModeDisabled=true&showCancelButton=false" title="Book a class at Hjartaheimar" frameborder="0" loading="lazy"></iframe>
+      <iframe src="https://noona.is/hjartaheimar/book?iframe=true&darkModeDisabled=true&showCancelButton=false" title="Book Yoga Nidra at Hjartaheimar on Noona" frameborder="0" loading="lazy"></iframe>
     </div>
+    <p style="margin:0; padding:8px 18px 14px; font-size:0.8rem; color:var(--ink-faint);">Booking not loading? <a href="https://noona.is/hjartaheimar" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Open it on noona.is in a new tab</a>.</p>
   </div>
 </div>
 
@@ -1322,7 +1324,7 @@
       });
 
       function getFocusable(){
-        var nodes = modal.querySelectorAll('a[href], button, input, textarea, select, [tabindex]:not([tabindex="-1"])');
+        var nodes = modal.querySelectorAll('a[href], button, input, textarea, select, iframe, [tabindex]:not([tabindex="-1"])');
         return Array.prototype.filter.call(nodes, function(el){
           return !el.disabled && el.offsetParent !== null;
         });

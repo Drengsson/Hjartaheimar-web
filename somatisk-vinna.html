@@ -53,7 +53,8 @@
     <span>HJARTAHEIMAR</span>
   </a>
   <div class="nav-mobile-actions">
-    <a href="/en.html" class="lang-switch-header" lang="en">EN</a>
+    <a href="#vidburdir" class="header-cta">Skráning</a>
+    <a href="/en.html#einkatimar" class="lang-switch-header" lang="en">EN</a>
     <button class="nav-toggle" aria-label="Opna valmynd" aria-expanded="false" aria-controls="navLinks" id="navToggle">
       <span></span><span></span><span></span>
     </button>
@@ -66,7 +67,7 @@
     <a href="/reiki.html">Reiki</a>
     <a href="/fyrirtaeki.html">Fyrirtæki</a>
     <a href="/um.html">Um Gullu</a>
-    <a href="/en.html" class="lang-switch" lang="en">EN</a>
+    <a href="/en.html#einkatimar" class="lang-switch" lang="en">EN</a>
     <a href="#vidburdir" class="nav-cta">Skráning</a>
   </nav>
 </header>
@@ -103,8 +104,8 @@
           <div class="detail" style="grid-column:1 / -1;" data-hide-when-empty>
             <h3>Næstu viðburðir</h3>
             <ul class="date-list">
-              <li data-until="2026-11-18T21:30">Miðvikudaginn 18. nóvember · 19:30–21:30</li>
-              <li data-until="2026-11-28T12:00">Laugardaginn 28. nóvember · 10:00–12:00</li>
+              <li data-until="2026-11-18T21:30Z">Miðvikudaginn 18. nóvember · 19:30–21:30</li>
+              <li data-until="2026-11-28T12:00Z">Laugardaginn 28. nóvember · 10:00–12:00</li>
             </ul>
           </div>
           <div class="detail">
@@ -116,6 +117,11 @@
             <p>10.000 kr. · hámark 10 konur</p>
           </div>
         </div>
+      </div>
+
+      <div class="btn-row" data-hide-when-empty>
+        <a class="btn" data-until="2026-11-28T12:00Z" href="https://houseofthecla.com/events/thad-sem-likaminn-geymir" target="_blank" rel="noopener">Skrá mig á viðburð</a>
+        <span class="register-help" data-until="2026-11-28T12:00Z">Skráning fer fram hjá House of Thecla. Ef hún opnast ekki, sendu línu á <a class="text-link" href="mailto:Gulla@hjartaheimar.is?subject=Skr%C3%A1ning%20%C3%A1%20%C3%9Ea%C3%B0%20sem%20l%C3%ADkaminn%20geymir">Gulla@hjartaheimar.is</a> eða hringdu í 867 8743.</span>
       </div>
 
       <h3 style="font-size:1.4rem; color:var(--brand); margin-top:44px;">Hvernig stundin fer fram</h3>
@@ -151,7 +157,7 @@
         <p>Full endurgreiðsla ef afbókað er með minnst sólarhrings fyrirvara.</p>
       </div>
       <div class="btn-row">
-        <a class="btn big" href="https://houseofthecla.com/events/thad-sem-likaminn-geymir" target="_blank" rel="noopener">Skráning hjá House of Thecla →</a>
+        <a class="btn big" href="https://houseofthecla.com/events/thad-sem-likaminn-geymir" target="_blank" rel="noopener">Skrá mig hjá House of Thecla →</a>
         <!-- Settu slóð Facebook-viðburðarins inn í href. Hnappurinn birtist ekki fyrr. -->
         <a class="btn ghost fb-event" href="" target="_blank" rel="noopener">Viðburðurinn á Facebook</a>
       </div>
@@ -284,12 +290,14 @@
 <div class="booking-modal" id="bookingModal" hidden>
   <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
     <div class="booking-modal-head">
-      <h3 id="bookingModalTitle">Bóka tíma · Jóga · Öndun · Djúpslökun</h3>
+      <h3 id="bookingModalTitle">Bóka í Jóga Nidra</h3>
       <button type="button" class="booking-modal-close" id="bookingModalClose" aria-label="Loka">&times;</button>
     </div>
     <div class="booking-modal-body">
-      <iframe src="https://noona.is/hjartaheimar/book?iframe=true&darkModeDisabled=true&showCancelButton=false" title="Bóka tíma hjá Hjartaheimar" frameborder="0" loading="lazy"></iframe>
+      <p class="frame-loading" aria-hidden="true">Hleð bókunarkerfi Noona…</p>
+      <iframe src="https://noona.is/hjartaheimar/book?iframe=true&darkModeDisabled=true&showCancelButton=false" title="Bóka í Jóga Nidra hjá Hjartaheimum á Noona" frameborder="0" loading="lazy"></iframe>
     </div>
+    <p class="modal-fallback">Opnast bókunin ekki rétt? <a href="https://noona.is/hjartaheimar" target="_blank" rel="noopener">Opna á noona.is í nýjum flipa</a>.</p>
   </div>
 </div>
 
@@ -343,7 +351,7 @@
           <label for="tf-service">Hvað langar þig að prófa?</label>
           <select id="tf-service" name="service">
             <option value="">Ekki viss ennþá</option>
-            <option value="Jóga, öndun og djúpslökun · einkatími">Jóga, öndun og djúpslökun · einkatími heima</option>
+            <option value="Jóga Nidra · einkatími heima">Jóga Nidra · einkatími heima</option>
             <option value="Reikiheilun">Reikiheilun</option>
             <option value="Vatnsmeðferð · Aguahara">Vatnsmeðferð · Aguahara</option>
             <option value="Að koma heim til sín · sómatísk vinna">Að koma heim til sín · sómatísk vinna</option>

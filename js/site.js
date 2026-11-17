@@ -11,6 +11,7 @@
     function setOpen(open){
       body.classList.toggle('nav-open', open);
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.setAttribute('aria-label', open ? 'Loka valmynd' : 'Opna valmynd');
       // Closed *mobile* menu links must not be reachable by Tab, a screen
       // reader, or a click, even though they stay in the DOM for the
       // opacity/transform transition. Bug fixed 2026-09-06: this used to be
@@ -53,7 +54,8 @@
         var target = document.getElementById(id);
         if(!target) return;
         e.preventDefault();
-        target.scrollIntoView({behavior:'smooth', block:'start'});
+        var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        target.scrollIntoView({behavior: still ? 'auto' : 'smooth', block:'start'});
         if(history.pushState){ history.pushState(null, '', '#' + id); }
       });
     });
@@ -76,6 +78,19 @@
 
     // Reusable Noona iframe-modal controller — used for both the fastir
     // tímar booking modal and the 10-tíma-kort voucher modal below.
+    // While a dialog is open, everything else on the page is inert: not
+    // focusable, not clickable, hidden from screen readers.
+    function setBackgroundInert(modal, on){
+      Array.prototype.forEach.call(document.body.children, function(el){
+        if(el === modal || el.tagName === 'SCRIPT') return;
+        if(on){ if(!el.inert){ el.inert = true; el.setAttribute('data-hh-inert', ''); } }
+        else if(el.hasAttribute('data-hh-inert')){ el.inert = false; el.removeAttribute('data-hh-inert'); }
+      });
+    }
+    document.querySelectorAll('.booking-modal-body iframe').forEach(function(f){
+      f.addEventListener('load', function(){ f.parentNode.classList.add('loaded'); });
+    });
+
     function initNoonaModal(triggerSelector, modalId, closeId, gtagLabel){
       var openTriggers = document.querySelectorAll(triggerSelector);
       var modal = document.getElementById(modalId);
@@ -87,6 +102,7 @@
         if(e) e.preventDefault();
         lastFocused = document.activeElement;
         modal.hidden = false;
+        setBackgroundInert(modal, true);
         document.body.style.overflow = 'hidden';
         if(closeBtn) closeBtn.focus();
         // Give the modal its own history entry so a phone's back
@@ -100,6 +116,7 @@
       }
       function closeModal(fromPopstate){
         modal.hidden = true;
+        setBackgroundInert(modal, false);
         document.body.style.overflow = '';
         if(lastFocused && typeof lastFocused.focus === 'function'){ lastFocused.focus(); }
         // Closed some other way (× button, backdrop, Escape): consume the
@@ -116,7 +133,9 @@
       });
 
       function getFocusable(){
-        var nodes = modal.querySelectorAll('a[href], button, input, textarea, select, [tabindex]:not([tabindex="-1"])');
+        // The Noona iframe is included so Tab can move into the booking UI
+        // (and back out of it) instead of bouncing on the close button.
+        var nodes = modal.querySelectorAll('a[href], button, input, textarea, select, iframe, [tabindex]:not([tabindex="-1"])');
         return Array.prototype.filter.call(nodes, function(el){
           return !el.disabled && el.offsetParent !== null;
         });
@@ -149,7 +168,7 @@
       });
     }
 
-    // Fastir tímar (Jóga · Öndun · Djúpslökun) booking. Every entry point
+    // Jóga Nidra (weekly class) booking. Every entry point
     // that should open it carries .open-booking-modal: the nav "Bóka tíma"
     // button, the hero badge, and the "Bóka tíma" button inside the #joga
     // schedule card itself.
@@ -324,8 +343,25 @@
       hideBanner();
     });
     if(rejectBtn) rejectBtn.addEventListener('click', function(){
+      var wasActive = window.__hhGaLoaded || window.__hhFbLoaded;
       try{ localStorage.setItem(KEY, 'denied'); }catch(err){}
       hideBanner();
+      if(wasActive){
+        // Withdrawing consent: stop GA and Meta in this page, remove their
+        // cookies, and reload so neither script is running any more.
+        window['ga-disable-G-TPB5RGKBBF'] = true;
+        if(typeof gtag === 'function'){ gtag('consent', 'update', {analytics_storage:'denied', ad_storage:'denied'}); }
+        if(typeof fbq === 'function'){ fbq('consent', 'revoke'); }
+        document.cookie.split(';').forEach(function(c){
+          var name = c.split('=')[0].trim();
+          if(/^(_ga|_gid|_gat|_fbp|_fbc)/.test(name)){
+            ['', '; domain=' + location.hostname, '; domain=.' + location.hostname.replace(/^www\./, '')].forEach(function(d){
+              document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/' + d;
+            });
+          }
+        });
+        location.reload();
+      }
     });
     if(changeBtn) changeBtn.addEventListener('click', showBanner);
   })();
@@ -339,7 +375,9 @@
 (function(){
   var now = new Date();
   document.querySelectorAll('[data-until]').forEach(function(el){
-    if(new Date(el.getAttribute('data-until')) < now) el.hidden = true;
+    var v = el.getAttribute('data-until');
+    if(!/(Z|[+-]\d\d:\d\d)$/.test(v)) v += 'Z'; // Iceland is UTC all year
+    if(new Date(v) < now) el.hidden = true;
   });
   document.querySelectorAll('[data-hide-when-empty]').forEach(function(box){
     var items = box.querySelectorAll('[data-until]');
@@ -349,10 +387,22 @@
   var months = ['janúar','febrúar','mars','apríl','maí','júní','júlí','ágúst','september','október','nóvember','desember'];
   document.querySelectorAll('[data-biweekly]').forEach(function(el){
     var end = (el.getAttribute('data-ends') || '23:59').split(':');
-    var d = new Date(el.getAttribute('data-biweekly') + 'T00:00');
-    var finished = function(x){ var e = new Date(x); e.setHours(+end[0], +end[1]); return e < now; };
-    while(finished(d)) d.setDate(d.getDate() + 14);
-    var txt = days[d.getDay()] + ' ' + d.getDate() + '. ' + months[d.getMonth()];
+    var d = new Date(el.getAttribute('data-biweekly') + 'T00:00Z');
+    var finished = function(x){ var e = new Date(x); e.setUTCHours(+end[0], +end[1]); return e < now; };
+    while(finished(d)) d.setUTCDate(d.getUTCDate() + 14);
+    var txt = days[d.getUTCDay()] + ' ' + d.getUTCDate() + '. ' + months[d.getUTCMonth()];
     el.textContent = el.hasAttribute('data-cap') ? txt.charAt(0).toUpperCase() + txt.slice(1) : txt;
   });
 })();
+
+/* Optional embeds (Spotify) load only when the visitor asks for them. */
+document.querySelectorAll('[data-embed-src]').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var f = document.createElement('iframe');
+    f.src = btn.getAttribute('data-embed-src') + '&autoplay=1';
+    f.title = btn.getAttribute('data-embed-title') || '';
+    f.width = '100%'; f.height = '352'; f.style.border = '0';
+    f.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
+    btn.replaceWith(f);
+  });
+});

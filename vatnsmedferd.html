@@ -53,7 +53,8 @@
     <span>HJARTAHEIMAR</span>
   </a>
   <div class="nav-mobile-actions">
-    <a href="/en.html" class="lang-switch-header" lang="en">EN</a>
+    <a href="#bokun" class="header-cta">Bóka tíma</a>
+    <a href="/en.html#vatnsmedferd" class="lang-switch-header" lang="en">EN</a>
     <button class="nav-toggle" aria-label="Opna valmynd" aria-expanded="false" aria-controls="navLinks" id="navToggle">
       <span></span><span></span><span></span>
     </button>
@@ -66,7 +67,7 @@
     <a href="/reiki.html">Reiki</a>
     <a href="/fyrirtaeki.html">Fyrirtæki</a>
     <a href="/um.html">Um Gullu</a>
-    <a href="/en.html" class="lang-switch" lang="en">EN</a>
+    <a href="/en.html#vatnsmedferd" class="lang-switch" lang="en">EN</a>
     <a href="#bokun" class="nav-cta">Bóka tíma</a>
   </nav>
 </header>
@@ -76,8 +77,8 @@
 
   <section class="hero sub">
     <div class="hero-copy">
-      <p class="eyebrow">Vatnsmeðferð · Álftaneslaug</p>
-      <h1>Flæði</h1>
+      <p class="eyebrow">Flæði og Aguahara · Álftaneslaug</p>
+      <h1>Vatnsmeðferð</h1>
       <p class="tagline">Leyfðu vatninu að bera þig.</p>
       <p class="lede">Í hlýju vatni skapast rými til að hægja á og sleppa takinu. Vatnið umvefur þig og ber, og með mjúkum hreyfingum og öndun fær líkaminn að slaka á og hugurinn að hvílast. Þú þarft ekki að halda utan um neitt. Vatnið gerir það.</p>
       <div class="hero-links">
@@ -112,7 +113,7 @@
           </div>
           <div class="detail">
             <h3>Staður</h3>
-            <p>Álftaneslaug, innilaugin</p>
+            <p><a class="text-link" href="https://www.google.com/maps/search/?api=1&amp;query=%C3%81lftaneslaug" target="_blank" rel="noopener">Álftaneslaug, innilaugin</a></p>
           </div>
           <div class="detail">
             <h3>Verð</h3>
@@ -201,11 +202,16 @@
           </div>
           <div class="form-row">
             <label for="vf-type">Hvað viltu bóka?</label>
-            <select id="vf-type" name="type">
+            <select id="vf-type" name="type" required>
+              <option value="" disabled selected>Veldu</option>
               <option value="Einkatími · Aguahara">Einkatíma · Aguahara (kl. 19:00)</option>
               <option value="Flæði · hóptími">Flæði · hóptíma (kl. 20:00)</option>
               <option value="Annað">Annað</option>
             </select>
+          </div>
+          <div class="form-row">
+            <label for="vf-date">Hvaða fimmtudag? <span style="text-transform:none; letter-spacing:0;">(valfrjálst)</span></label>
+            <input type="text" id="vf-date" name="date_preference" autocomplete="off">
           </div>
           <div class="form-row">
             <label for="vf-message">Skilaboð <span style="text-transform:none; letter-spacing:0;">(valfrjálst)</span></label>
@@ -260,12 +266,14 @@
 <div class="booking-modal" id="bookingModal" hidden>
   <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
     <div class="booking-modal-head">
-      <h3 id="bookingModalTitle">Bóka tíma · Jóga · Öndun · Djúpslökun</h3>
+      <h3 id="bookingModalTitle">Bóka í Jóga Nidra</h3>
       <button type="button" class="booking-modal-close" id="bookingModalClose" aria-label="Loka">&times;</button>
     </div>
     <div class="booking-modal-body">
-      <iframe src="https://noona.is/hjartaheimar/book?iframe=true&darkModeDisabled=true&showCancelButton=false" title="Bóka tíma hjá Hjartaheimar" frameborder="0" loading="lazy"></iframe>
+      <p class="frame-loading" aria-hidden="true">Hleð bókunarkerfi Noona…</p>
+      <iframe src="https://noona.is/hjartaheimar/book?iframe=true&darkModeDisabled=true&showCancelButton=false" title="Bóka í Jóga Nidra hjá Hjartaheimum á Noona" frameborder="0" loading="lazy"></iframe>
     </div>
+    <p class="modal-fallback">Opnast bókunin ekki rétt? <a href="https://noona.is/hjartaheimar" target="_blank" rel="noopener">Opna á noona.is í nýjum flipa</a>.</p>
   </div>
 </div>
 
@@ -319,7 +327,7 @@
           <label for="tf-service">Hvað langar þig að prófa?</label>
           <select id="tf-service" name="service">
             <option value="">Ekki viss ennþá</option>
-            <option value="Jóga, öndun og djúpslökun · einkatími">Jóga, öndun og djúpslökun · einkatími heima</option>
+            <option value="Jóga Nidra · einkatími heima">Jóga Nidra · einkatími heima</option>
             <option value="Reikiheilun">Reikiheilun</option>
             <option value="Vatnsmeðferð · Aguahara">Vatnsmeðferð · Aguahara</option>
             <option value="Að koma heim til sín · sómatísk vinna">Að koma heim til sín · sómatísk vinna</option>
