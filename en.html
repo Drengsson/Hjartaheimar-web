@@ -584,7 +584,7 @@
   }
 
   /* private sessions */
-  .choice-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:40px;}
+  .choice-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:40px;}
   .choice{background:var(--surface); padding:32px 28px; display:flex; flex-direction:column; gap:12px; min-height:230px;}
   .choice .num{font-family:'Fraunces',serif; font-style:italic; color:var(--gold); font-size:0.95rem;}
   .choice h3{font-size:1.25rem; color:var(--ink);}
@@ -734,12 +734,10 @@
   <nav class="links" id="navLinks">
     <a href="#heim">Home</a>
     <a href="#joga">Yoga Classes</a>
-    <a href="#fimmtudagar">Thursdays with Gulla</a>
+    <a href="#vatnsmedferd">Water Therapy</a>
     <a href="#einkatimar">Private Sessions</a>
     <a href="/corporate.html">Corporate</a>
     <a href="#um-mig">About</a>
-    <a href="#sjalfsthekking">Self-Discovery</a>
-    <a href="#tonlist">Music</a>
     <a href="/" class="lang-switch">IS</a>
     <a href="#joga" class="nav-cta open-booking-modal">Book a Class</a>
   </nav>
@@ -875,30 +873,11 @@
     </div>
   </section>
 
-  <section class="band alt thursday-invite" id="fimmtudagar">
-    <div class="wrap thursday-grid">
-      <figure class="thursday-figure">
-        <img src="img/gulla-fimmtudagar.webp" srcset="img/gulla-fimmtudagar-800w.webp 800w, img/gulla-fimmtudagar.webp 1400w" sizes="(max-width: 820px) min(90vw, 420px), 528px" alt="Guðlaug in the yoga room at Bolholt 4" width="1400" height="933" loading="lazy" decoding="async">
-      </figure>
-      <div class="thursday-copy">
-        <p class="eyebrow">Thursdays with Gulla</p>
-        <h2>A moment just for you</h2>
-        <p>On Thursdays, Gulla welcomes you for a private session at Bolholt 4. Choose yoga, breathwork and guided deep relaxation, or Reiki healing. The session is shaped around your needs and how you’re feeling.</p>
-        <p>Would you like to come? Send Gulla a note with what you’re looking for, and you’ll find a time that works.</p>
-        <div class="thursday-meta">
-          <p class="th-location">Bolholt 4 · 4th floor</p>
-          <p class="th-price">60 minutes · ISK 9,800</p>
-        </div>
-        <button type="button" class="book-service-btn open-enquiry-modal">Request a private session</button>
-      </div>
-    </div>
-  </section>
-
   <section class="band surface" id="einkatimar">
     <div class="wrap">
       <p class="eyebrow">Private Sessions</p>
       <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem); color:var(--brand); margin-top:10px; max-width:20ch;">A one-on-one session, just for you</h2>
-      <p class="measure" style="margin-top:16px; color:var(--ink-soft)">A private session gives you the chance to slow down, go deeper and shape the time around your needs and how you’re feeling. Gulla usually comes to you, with sessions held in your own home, but on Thursdays she’s at Bolholt 4 and welcomes you there instead. You can choose between:</p>
+      <p class="measure" style="margin-top:16px; color:var(--ink-soft)">A private session gives you the chance to slow down, go deeper and shape the time around your needs and how you’re feeling. For yoga and Reiki, Gulla comes to you and the session takes place in your own home. Water therapy is held at Álftaneslaug pool, and somatic sessions at Bolholt 4. You can choose between:</p>
       <div class="choice-grid">
         <div class="choice">
           <span class="num">I</span>
@@ -914,6 +893,11 @@
           <span class="num">III</span>
           <h3>Reiki Healing</h3>
           <p>A gentle energy treatment that gives you room to receive, listen inward and enjoy the stillness.</p>
+        </div>
+        <div class="choice">
+          <span class="num">IV</span>
+          <h3>Coming Home to Yourself</h3>
+          <p>Somatic bodywork, emotional expression, meditation and healing in a 120-minute private session. <a href="/somatisk-vinna.html#einkatimar" style="color:var(--brand);font-weight:600;text-decoration:none;">In Icelandic →</a></p>
         </div>
       </div>
       <div class="callout">
@@ -947,17 +931,19 @@
   <section class="band alt modality water" id="vatnsmedferd">
     <div class="wrap">
       <div class="head">
-        <p class="eyebrow water">Private Session</p>
-        <h2>Water Therapy · Aguahara</h2>
+        <p class="eyebrow water">Álftaneslaug · Thursday evenings</p>
+        <h2>Water Therapy · Flæði &amp; Aguahara</h2>
       </div>
       <div class="modality-body">
         <div>
           <p><em>The water holds you.</em> Aguahara is a deep water experience where you float in the pool while we support your body the whole time, with soft, flowing movements.</p>
-          <p>By releasing the pull of gravity, the body can gradually let go and the mind slows down. You don’t need to do anything — only allow yourself to float, breathe and trust.</p>
+          <p>By releasing the pull of gravity, the body can gradually let go and the mind slows down. You don’t need to do anything. Just allow yourself to float, breathe and trust.</p>
           <p>Part of the experience takes place beneath the surface, using a nose clip, while you remain in complete flow and fully supported the whole time. As the sounds around you fade, a deep stillness can arise, along with weightlessness and a stronger connection to the body and the inner space.</p>
           <p>You’re always in charge of your own limits, and you only go as far as feels good to you.</p>
+          <p>Every other Thursday at Álftaneslaug pool: private Aguahara sessions at 19:00 (60 minutes, ISK 15,000) and the Flæði group session at 20:00 (ISK 7,000), where each participant also receives their own short treatment in the water.</p>
           <p class="rhythm-line" style="color:var(--water)">All you have to do is float.</p>
-          <button type="button" class="book-service-btn open-enquiry-modal">Request a private session</button>
+          <button type="button" class="book-service-btn open-enquiry-modal">Request a session</button>
+          <a class="book-service-btn" href="/vatnsmedferd.html" style="margin-left:12px; background:transparent; color:var(--water); border:1px solid var(--water);">More in Icelandic →</a>
         </div>
         <div class="water-gallery">
           <figure class="wg-wide">
@@ -970,54 +956,6 @@
             <img alt="Guðlaug in the pool where Aguahara water therapy sessions take place" width="1100" height="1100" src="img/aguahara-portrait.webp" loading="lazy" decoding="async">
           </figure>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="band surface" id="valmoguleikar">
-    <p class="eyebrow" style="text-align:center;">More to Explore</p>
-    <div class="wrap">
-      <div class="explore-grid">
-        <a class="explore-card" href="#fimmtudagar">
-          <h3>Thursdays with Gulla</h3>
-          <p>A private session at Bolholt 4 — yoga, breathwork and deep relaxation, or Reiki healing.</p>
-          <span class="arrow">Explore →</span>
-        </a>
-        <a class="explore-card" href="#einkatimar">
-          <h3>Private Sessions</h3>
-          <p>A one-on-one session in yoga, water therapy or Reiki, just for you.</p>
-          <span class="arrow">Explore →</span>
-        </a>
-        <a class="explore-card" href="/corporate.html">
-          <h3>Yoga Nidra for Companies</h3>
-          <p>Guided deep relaxation at your workplace, 30, 45 or 60 minutes for the group.</p>
-          <span class="arrow">Explore →</span>
-        </a>
-        <a class="explore-card" href="#reiki">
-          <h3>Reiki Healing</h3>
-          <p>A gentle energy treatment and deep stillness, a moment to receive.</p>
-          <span class="arrow">Explore →</span>
-        </a>
-        <a class="explore-card" href="#vatnsmedferd">
-          <h3>Water Therapy · Aguahara</h3>
-          <p>A deep water experience in the pool where all you have to do is float.</p>
-          <span class="arrow">Explore →</span>
-        </a>
-        <a class="explore-card" href="#um-mig">
-          <h3>About</h3>
-          <p>Get to know Guðlaug and the story behind Hjartaheimar.</p>
-          <span class="arrow">Explore →</span>
-        </a>
-        <a class="explore-card" href="#sjalfsthekking">
-          <h3>Self-Discovery</h3>
-          <p>Gene Keys, Human Design and the Enneagram — ways to get to know yourself.</p>
-          <span class="arrow">Explore →</span>
-        </a>
-        <a class="explore-card" href="#tonlist">
-          <h3>Music</h3>
-          <p>Playlists to listen to at home or to bring back the atmosphere.</p>
-          <span class="arrow">Explore →</span>
-        </a>
       </div>
     </div>
   </section>
