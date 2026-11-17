@@ -14,14 +14,86 @@
     <loc>https://www.hjartaheimar.is/en.html</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="is" href="https://www.hjartaheimar.is/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hjartaheimar.is/en.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hjartaheimar.is/" />
   </url>
   <url>
+    <loc>https://www.hjartaheimar.is/joga.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="is" href="https://www.hjartaheimar.is/joga.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hjartaheimar.is/yoga.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hjartaheimar.is/joga.html" />
+  </url>
+  <url>
+    <loc>https://www.hjartaheimar.is/yoga.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="is" href="https://www.hjartaheimar.is/joga.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hjartaheimar.is/yoga.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hjartaheimar.is/joga.html" />
+  </url>
+  <url>
+    <loc>https://www.hjartaheimar.is/vatnsmedferd.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="is" href="https://www.hjartaheimar.is/vatnsmedferd.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hjartaheimar.is/water-therapy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hjartaheimar.is/vatnsmedferd.html" />
+  </url>
+  <url>
+    <loc>https://www.hjartaheimar.is/water-therapy.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="is" href="https://www.hjartaheimar.is/vatnsmedferd.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hjartaheimar.is/water-therapy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hjartaheimar.is/vatnsmedferd.html" />
+  </url>
+  <url>
+    <loc>https://www.hjartaheimar.is/somatisk-vinna.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="is" href="https://www.hjartaheimar.is/somatisk-vinna.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hjartaheimar.is/somatic-work.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hjartaheimar.is/somatisk-vinna.html" />
+  </url>
+  <url>
+    <loc>https://www.hjartaheimar.is/somatic-work.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="is" href="https://www.hjartaheimar.is/somatisk-vinna.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hjartaheimar.is/somatic-work.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hjartaheimar.is/somatisk-vinna.html" />
+  </url>
+  <url>
+    <loc>https://www.hjartaheimar.is/reiki.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="is" href="https://www.hjartaheimar.is/reiki.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hjartaheimar.is/reiki-healing.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hjartaheimar.is/reiki.html" />
+  </url>
+  <url>
+    <loc>https://www.hjartaheimar.is/reiki-healing.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="is" href="https://www.hjartaheimar.is/reiki.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hjartaheimar.is/reiki-healing.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hjartaheimar.is/reiki.html" />
+  </url>
+  <url>
     <loc>https://www.hjartaheimar.is/fyrirtaeki.html</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="is" href="https://www.hjartaheimar.is/fyrirtaeki.html" />
@@ -30,7 +102,7 @@
   </url>
   <url>
     <loc>https://www.hjartaheimar.is/corporate.html</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="is" href="https://www.hjartaheimar.is/fyrirtaeki.html" />
@@ -38,38 +110,26 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hjartaheimar.is/fyrirtaeki.html" />
   </url>
   <url>
-    <loc>https://www.hjartaheimar.is/joga.html</loc>
-    <lastmod>2026-11-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.hjartaheimar.is/reiki.html</loc>
-    <lastmod>2026-11-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.hjartaheimar.is/um.html</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="is" href="https://www.hjartaheimar.is/um.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hjartaheimar.is/about.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hjartaheimar.is/um.html" />
   </url>
   <url>
-    <loc>https://www.hjartaheimar.is/vatnsmedferd.html</loc>
+    <loc>https://www.hjartaheimar.is/about.html</loc>
     <lastmod>2026-11-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.hjartaheimar.is/somatisk-vinna.html</loc>
-    <lastmod>2026-11-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="is" href="https://www.hjartaheimar.is/um.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hjartaheimar.is/about.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hjartaheimar.is/um.html" />
   </url>
   <url>
     <loc>https://www.hjartaheimar.is/personuvernd.html</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
     <xhtml:link rel="alternate" hreflang="is" href="https://www.hjartaheimar.is/personuvernd.html" />
@@ -78,7 +138,7 @@
   </url>
   <url>
     <loc>https://www.hjartaheimar.is/privacy.html</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
     <xhtml:link rel="alternate" hreflang="is" href="https://www.hjartaheimar.is/personuvernd.html" />

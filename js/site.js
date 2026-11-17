@@ -1,3 +1,8 @@
+/* One script for every page, Icelandic and English. T(is, en) picks the
+   string for the page's language (from <html lang>). */
+var HH_EN = document.documentElement.lang === 'en';
+function T(is, en){ return HH_EN ? en : is; }
+
 (function(){
     var btn = document.getElementById('navToggle');
     var body = document.body;
@@ -11,7 +16,7 @@
     function setOpen(open){
       body.classList.toggle('nav-open', open);
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      btn.setAttribute('aria-label', open ? 'Loka valmynd' : 'Opna valmynd');
+      btn.setAttribute('aria-label', open ? T('Loka valmynd','Close menu') : T('Opna valmynd','Open menu'));
       // Closed *mobile* menu links must not be reachable by Tab, a screen
       // reader, or a click, even though they stay in the DOM for the
       // opacity/transform transition. Bug fixed 2026-09-06: this used to be
@@ -248,7 +253,7 @@
       e.preventDefault();
       if(form.querySelector('.hp').checked) return; // honeypot tripped, silently drop
       btn.disabled = true;
-      btn.textContent = 'Sendi...';
+      btn.textContent = T('Sendi...', 'Sending...');
       status.textContent = '';
       status.className = 'form-status';
       fetch(form.action, {
@@ -269,12 +274,12 @@
             }
             if(typeof gtag === 'function' && gtagEvent){ gtag('event', gtagEvent); }
           } else {
-            status.textContent = 'Eitthvað fór úrskeiðis. Prófaðu aftur, eða sendu mér línu á Gulla@hjartaheimar.is.';
+            status.textContent = T('Eitthvað fór úrskeiðis. Prófaðu aftur, eða sendu mér línu á Gulla@hjartaheimar.is.', 'Something went wrong. Please try again, or email Gulla@hjartaheimar.is.');
             status.className = 'form-status err';
           }
         })
         .catch(function(){
-          status.textContent = 'Eitthvað fór úrskeiðis. Prófaðu aftur, eða sendu mér línu á Gulla@hjartaheimar.is.';
+          status.textContent = T('Eitthvað fór úrskeiðis. Prófaðu aftur, eða sendu mér línu á Gulla@hjartaheimar.is.', 'Something went wrong. Please try again, or email Gulla@hjartaheimar.is.');
           status.className = 'form-status err';
         })
         .finally(function(){
@@ -284,11 +289,11 @@
     });
   }
 
-  wireContactForm('contactForm', 'contactFormStatus', 'Takk fyrir — skilaboðin bárust. Ég svara eins fljótt og ég get.', 'contact_form_submit');
-  wireContactForm('enquiryForm', 'enquiryFormStatus', 'Takk fyrir fyrirspurnina. Gulla verður í sambandi við þig.', 'enquiry_form_submit', 'enquiryFormSuccess');
+  wireContactForm('contactForm', 'contactFormStatus', T('Takk fyrir, skilaboðin bárust. Ég svara eins fljótt og ég get.', 'Thank you, your message arrived. I will reply as soon as I can.'), 'contact_form_submit');
+  wireContactForm('enquiryForm', 'enquiryFormStatus', T('Takk fyrir fyrirspurnina. Gulla verður í sambandi við þig.', 'Thank you for your request. Gulla will be in touch.'), 'enquiry_form_submit', 'enquiryFormSuccess');
   // Booking/enquiry forms on the offering pages (vatnsmeðferð, sómatísk vinna, fyrirtæki)
-  wireContactForm('fyrirspurnForm', 'fyrirspurnFormStatus', 'Takk fyrir. Gulla verður í sambandi.', 'contact_form_submit', 'fyrirspurnFormSuccess');
-  wireContactForm('fyrirtaekiForm', 'fyrirtaekiFormStatus', 'Takk fyrir fyrirspurnina. Gulla verður í sambandi við ykkur.', 'corporate_form_submit', 'fyrirtaekiFormSuccess');
+  wireContactForm('fyrirspurnForm', 'fyrirspurnFormStatus', T('Takk fyrir. Gulla verður í sambandi.', 'Thank you. Gulla will be in touch.'), 'contact_form_submit', 'fyrirspurnFormSuccess');
+  wireContactForm('fyrirtaekiForm', 'fyrirtaekiFormStatus', T('Takk fyrir fyrirspurnina. Gulla verður í sambandi við ykkur.', 'Thank you for your enquiry. Gulla will be in touch.'), 'corporate_form_submit', 'fyrirtaekiFormSuccess');
 
 
   // Google Analytics and Meta Pixel only start loading once the visitor has
@@ -383,14 +388,15 @@
     var items = box.querySelectorAll('[data-until]');
     if(items.length && Array.prototype.every.call(items, function(i){ return i.hidden; })) box.hidden = true;
   });
-  var days = ['sunnudaginn','mánudaginn','þriðjudaginn','miðvikudaginn','fimmtudaginn','föstudaginn','laugardaginn'];
-  var months = ['janúar','febrúar','mars','apríl','maí','júní','júlí','ágúst','september','október','nóvember','desember'];
+  var days = HH_EN ? ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'] : ['sunnudaginn','mánudaginn','þriðjudaginn','miðvikudaginn','fimmtudaginn','föstudaginn','laugardaginn'];
+  var months = HH_EN ? ['January','February','March','April','May','June','July','August','September','October','November','December'] : ['janúar','febrúar','mars','apríl','maí','júní','júlí','ágúst','september','október','nóvember','desember'];
   document.querySelectorAll('[data-biweekly]').forEach(function(el){
     var end = (el.getAttribute('data-ends') || '23:59').split(':');
     var d = new Date(el.getAttribute('data-biweekly') + 'T00:00Z');
     var finished = function(x){ var e = new Date(x); e.setUTCHours(+end[0], +end[1]); return e < now; };
     while(finished(d)) d.setUTCDate(d.getUTCDate() + 14);
-    var txt = days[d.getUTCDay()] + ' ' + d.getUTCDate() + '. ' + months[d.getUTCMonth()];
+    var txt = HH_EN ? days[d.getUTCDay()] + ' ' + d.getUTCDate() + ' ' + months[d.getUTCMonth()]
+                    : days[d.getUTCDay()] + ' ' + d.getUTCDate() + '. ' + months[d.getUTCMonth()];
     el.textContent = el.hasAttribute('data-cap') ? txt.charAt(0).toUpperCase() + txt.slice(1) : txt;
   });
 })();
