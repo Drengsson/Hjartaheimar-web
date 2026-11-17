@@ -57,7 +57,7 @@
     <span>HJARTAHEIMAR</span>
   </a>
   <div class="nav-mobile-actions">
-    <a href="#bokun" class="header-cta">Bóka tíma</a>
+    <a href="#" class="header-cta open-enquiry-modal" role="button">Óska eftir tíma</a>
     <a href="/water-therapy.html" class="lang-switch-header" lang="en" hreflang="en">EN</a>
     <button class="nav-toggle" aria-label="Opna valmynd" aria-expanded="false" aria-controls="navLinks" id="navToggle">
       <span></span><span></span><span></span>
@@ -72,7 +72,7 @@
     <a href="/fyrirtaeki.html">Fyrirtæki</a>
     <a href="/um.html">Um Gullu</a>
     <a href="/water-therapy.html" class="lang-switch" lang="en" hreflang="en">EN</a>
-    <a href="#bokun" class="nav-cta">Bóka tíma</a>
+    <a href="#" class="nav-cta open-enquiry-modal" role="button">Óska eftir tíma</a>
   </nav>
 </header>
 <!-- /HEADER -->
@@ -126,7 +126,7 @@
         </div>
       </div>
       <div class="btn-row">
-        <a class="btn" href="https://m.me/61593960661093" target="_blank" rel="noopener">Bóka í skilaboðum</a>
+        <button type="button" class="btn open-enquiry-modal" data-service="Flæði · hóptími">Óska eftir tíma</button>
         <a class="btn ghost fb-event" href="https://www.facebook.com/flaediflot" target="_blank" rel="noopener">Skoða Flæði á Facebook</a>
       </div>
     </div>
@@ -154,7 +154,7 @@
             </div>
           </div>
           <div class="btn-row">
-            <a class="btn" href="#bokun">Bóka einkatíma</a>
+            <button type="button" class="btn open-enquiry-modal" data-service="Aguahara · einkatími">Óska eftir tíma</button>
           </div>
         </div>
         <div class="gallery">
@@ -165,72 +165,6 @@
     </div>
   </section>
 
-  <section class="band" id="bokun">
-    <div class="wrap contact-grid">
-      <div class="contact-copy">
-        <p class="eyebrow">Bókanir</p>
-        <h2>Taktu frá tíma</h2>
-        <p>Sendu línu og segðu hvort þú vilt koma í Flæði eða í einkatíma. Gulla hefur samband og staðfestir tímann.</p>
-        <dl class="contact-fields">
-          <div>
-            <dt>Messenger</dt>
-            <dd class="filled"><a href="https://m.me/61593960661093" target="_blank" rel="noopener">Senda skilaboð</a></dd>
-          </div>
-          <div>
-            <dt>Netfang</dt>
-            <dd class="filled"><a href="mailto:gulla@hjartaheimar.is">gulla@hjartaheimar.is</a></dd>
-          </div>
-          <div>
-            <dt>Sími</dt>
-            <dd class="filled"><a href="tel:+3548678743">867 8743</a></dd>
-          </div>
-        </dl>
-      </div>
-      <div>
-        <form class="contact-form" id="fyrirspurnForm" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="65892dab-6990-4005-a4a9-bc3da02886f6">
-          <input type="hidden" name="subject" value="Bókun í vatnsmeðferð">
-          <input type="hidden" name="from_name" value="Hjartaheimar · vefur">
-          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <div class="form-row">
-            <label for="vf-name">Nafn</label>
-            <input type="text" id="vf-name" name="name" required autocomplete="name">
-          </div>
-          <div class="form-row">
-            <label for="vf-email">Netfang</label>
-            <input type="email" id="vf-email" name="email" required autocomplete="email">
-          </div>
-          <div class="form-row">
-            <label for="vf-phone">Sími <span style="text-transform:none; letter-spacing:0;">(valfrjálst)</span></label>
-            <input type="tel" id="vf-phone" name="phone" autocomplete="tel">
-          </div>
-          <div class="form-row">
-            <label for="vf-type">Hvað viltu bóka?</label>
-            <select id="vf-type" name="type" required>
-              <option value="" disabled selected>Veldu</option>
-              <option value="Einkatími · Aguahara">Einkatíma · Aguahara (kl. 19:00)</option>
-              <option value="Flæði · hóptími">Flæði · hóptíma (kl. 20:00)</option>
-              <option value="Annað">Annað</option>
-            </select>
-          </div>
-          <div class="form-row">
-            <label for="vf-date">Hvaða fimmtudag? <span style="text-transform:none; letter-spacing:0;">(valfrjálst)</span></label>
-            <input type="text" id="vf-date" name="date_preference" autocomplete="off">
-          </div>
-          <div class="form-row">
-            <label for="vf-message">Skilaboð <span style="text-transform:none; letter-spacing:0;">(valfrjálst)</span></label>
-            <textarea id="vf-message" name="message" rows="3"></textarea>
-          </div>
-          <button type="submit" class="form-submit">Senda</button>
-          <p class="form-status" id="fyrirspurnFormStatus" role="status" aria-live="polite"></p>
-          <p style="font-size:0.78rem;color:var(--ink-faint);margin-top:-6px;">Sjá <a class="privacy-link" href="/personuvernd.html">persónuverndarstefnu</a> um meðferð gagna.</p>
-        </form>
-        <div class="form-success" id="fyrirspurnFormSuccess" hidden>
-          <p class="form-success-msg">Takk fyrir. Gulla verður í sambandi.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <section class="band alt">
     <div class="wrap">
@@ -264,7 +198,7 @@
 <!-- /FOOTER -->
 
 <div class="mobile-book-bar">
-  <a href="#bokun" class="mobile-book-btn">Bóka tíma</a>
+  <a href="#" class="mobile-book-btn open-enquiry-modal" role="button">Óska eftir tíma</a>
 </div>
 
 <div class="booking-modal" id="bookingModal" hidden>
@@ -310,15 +244,29 @@
 <div class="booking-modal" id="enquiryModal" hidden>
   <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="enquiryModalTitle">
     <div class="booking-modal-head">
-      <h3 id="enquiryModalTitle">Óska eftir einkatíma</h3>
+      <h3 id="enquiryModalTitle">Óska eftir tíma</h3>
       <button type="button" class="booking-modal-close" id="enquiryModalClose" aria-label="Loka">&times;</button>
     </div>
     <div class="booking-modal-body form-body">
+      <p class="form-intro">Gulla hefur samband, fer yfir óskir þínar og staðfestir tímann. Þetta er beiðni, ekki staðfest bókun.</p>
       <form class="contact-form" id="enquiryForm" action="https://api.web3forms.com/submit" method="POST" style="margin-top:0; padding-top:0; border-top:none;">
         <input type="hidden" name="access_key" value="65892dab-6990-4005-a4a9-bc3da02886f6">
-        <input type="hidden" name="subject" value="Fyrirspurn um einkatíma af hjartaheimar.is">
-        <input type="hidden" name="from_name" value="Hjartaheimar · vefur">
+        <input type="hidden" name="subject" value="Ósk um tíma af hjartaheimar.is">
+        <input type="hidden" name="from_name" value="Hjartaheimar · web">
         <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form-row">
+          <label for="tf-service">Hvað viltu bóka?</label>
+          <select id="tf-service" name="service">
+            <option value="">Ekki viss ennþá</option>
+            <option value="Jóga Nidra · einkatími heima">Jóga Nidra · einkatími heima</option>
+            <option value="Flæði · hóptími">Flæði · hóptími</option>
+            <option value="Aguahara · einkatími">Aguahara · einkatími</option>
+            <option value="Reikiheilun">Reikiheilun</option>
+            <option value="Að koma heim til sín · sómatísk vinna">Að koma heim til sín · sómatísk vinna</option>
+            <option value="Sjálfsþekking (Gene Keys, Human Design, Enneagram)">Sjálfsþekking (Gene Keys, Human Design, Enneagram)</option>
+            <option value="Mig langar að fá ráðleggingu">Mig langar að fá ráðleggingu</option>
+          </select>
+        </div>
         <div class="form-row">
           <label for="tf-name">Nafn</label>
           <input type="text" id="tf-name" name="name" required autocomplete="name">
@@ -328,32 +276,23 @@
           <input type="email" id="tf-email" name="email" required autocomplete="email">
         </div>
         <div class="form-row">
-          <label for="tf-service">Hvað langar þig að prófa?</label>
-          <select id="tf-service" name="service">
-            <option value="">Ekki viss ennþá</option>
-            <option value="Jóga Nidra · einkatími heima">Jóga Nidra · einkatími heima</option>
-            <option value="Reikiheilun">Reikiheilun</option>
-            <option value="Vatnsmeðferð · Aguahara">Vatnsmeðferð · Aguahara</option>
-            <option value="Að koma heim til sín · sómatísk vinna">Að koma heim til sín · sómatísk vinna</option>
-            <option value="Sjálfsþekking (Gene Keys, Human Design, Enneagram)">Sjálfsþekking (Gene Keys, Human Design, Enneagram)</option>
-            <option value="Mig langar að fá ráðleggingu">Mig langar að fá ráðleggingu</option>
-          </select>
+          <label for="tf-phone">Sími <span style="text-transform:none; letter-spacing:0;">(valfrjálst)</span></label>
+          <input type="tel" id="tf-phone" name="phone" autocomplete="tel">
         </div>
         <div class="form-row">
-          <label for="tf-when">Óskir um dagsetningu og tíma</label>
+          <label for="tf-when">Óskir um dag og tíma <span style="text-transform:none; letter-spacing:0;">(valfrjálst)</span></label>
           <input type="text" id="tf-when" name="date_time_preference" autocomplete="off">
         </div>
         <div class="form-row">
           <label for="tf-message">Skilaboð <span style="text-transform:none; letter-spacing:0;">(valfrjálst)</span></label>
           <textarea id="tf-message" name="message" rows="3"></textarea>
         </div>
-        <button type="submit" class="form-submit">Senda fyrirspurn</button>
-        <p class="form-hint">Gulla hefur samband til að fara yfir óskir þínar og staðfesta tíma.</p>
+        <button type="submit" class="form-submit">Senda ósk</button>
         <p class="form-status" id="enquiryFormStatus" role="status" aria-live="polite"></p>
         <p style="font-size:0.78rem;color:var(--ink-faint);margin-top:-6px;">Sjá <a class="privacy-link" href="/personuvernd.html">persónuverndarstefnu</a> um meðferð gagna.</p>
       </form>
       <div class="form-success" id="enquiryFormSuccess" hidden>
-        <p class="form-success-msg">Takk fyrir fyrirspurnina. Gulla verður í sambandi við þig.</p>
+        <p class="form-success-msg">Takk. Gulla hefur samband og staðfestir tímann.</p>
         <button type="button" class="book-service-btn" id="enquiryFormSuccessClose">Loka</button>
       </div>
     </div>

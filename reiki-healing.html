@@ -57,7 +57,7 @@
     <span>HJARTAHEIMAR</span>
   </a>
   <div class="nav-mobile-actions">
-    <a href="#" class="header-cta open-enquiry-modal" data-service="Reiki healing">Request a session</a>
+    <a href="#" class="header-cta open-enquiry-modal" role="button" data-service="Reiki healing">Request a time</a>
     <a href="/reiki.html" class="lang-switch-header" lang="is" hreflang="is">IS</a>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks" id="navToggle">
       <span></span><span></span><span></span>
@@ -72,7 +72,7 @@
     <a href="/corporate.html">Companies</a>
     <a href="/about.html">About Gulla</a>
     <a href="/reiki.html" class="lang-switch" lang="is" hreflang="is">IS</a>
-    <a href="#" class="nav-cta open-enquiry-modal" data-service="Reiki healing">Request a session</a>
+    <a href="#" class="nav-cta open-enquiry-modal" role="button" data-service="Reiki healing">Request a time</a>
   </nav>
 </header>
 <!-- /HEADER -->
@@ -86,7 +86,7 @@
       <p class="tagline">A moment to receive.</p>
       <p class="lede">Reiki is a Japanese energy treatment built on the idea that life energy flows through everything living. You lie on a table in a calm setting while hands are placed lightly on the body, or held just above it.</p>
       <div class="hero-links">
-        <button type="button" class="btn open-enquiry-modal" data-service="Reiki healing">Request a session</button>
+        <button type="button" class="btn open-enquiry-modal" data-service="Reiki healing">Request a time</button>
       </div>
     </div>
     <div class="hero-figure">
@@ -103,7 +103,7 @@
           <p>For some the mind grows quieter, while others feel a stronger connection to the body, or find that feelings that have been sitting under the surface get some room. The experience is personal, and no two treatments are the same.</p>
           <p>Reiki is used to support balance, wellbeing and relaxation. It's a beautiful way to give yourself time to stop, listen inward and notice what the body and mind are saying. All you need to do is come as you are and allow yourself to receive.</p>
           <p class="rhythm-line"><span>A moment to be</span><span>A moment to receive</span><span>A moment for you</span></p>
-          <button type="button" class="book-service-btn open-enquiry-modal" data-service="Reiki healing">Request a private session</button>
+          <button type="button" class="book-service-btn open-enquiry-modal" data-service="Reiki healing">Request a time</button>
         </div>
       </div>
       <div class="small-print" style="margin:48px auto 0; max-width:62ch;">
@@ -138,7 +138,7 @@
 <!-- /FOOTER -->
 
 <div class="mobile-book-bar">
-  <a href="#" class="mobile-book-btn open-enquiry-modal" data-service="Reiki healing">Request a session</a>
+  <a href="#" class="mobile-book-btn open-enquiry-modal" role="button" data-service="Reiki healing">Request a time</a>
 </div>
 
 <div class="booking-modal" id="bookingModal" hidden>
@@ -184,15 +184,29 @@
 <div class="booking-modal" id="enquiryModal" hidden>
   <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="enquiryModalTitle">
     <div class="booking-modal-head">
-      <h3 id="enquiryModalTitle">Request a Private Session</h3>
+      <h3 id="enquiryModalTitle">Request a time</h3>
       <button type="button" class="booking-modal-close" id="enquiryModalClose" aria-label="Close">&times;</button>
     </div>
     <div class="booking-modal-body form-body">
+      <p class="form-intro">Gulla will get back to you, go through what you would like and confirm the time. This is a request, not a confirmed booking.</p>
       <form class="contact-form" id="enquiryForm" action="https://api.web3forms.com/submit" method="POST" style="margin-top:0; padding-top:0; border-top:none;">
         <input type="hidden" name="access_key" value="65892dab-6990-4005-a4a9-bc3da02886f6">
-        <input type="hidden" name="subject" value="Private session inquiry from hjartaheimar.is (EN)">
-        <input type="hidden" name="from_name" value="Hjartaheimar · website">
+        <input type="hidden" name="subject" value="Request from hjartaheimar.is (EN)">
+        <input type="hidden" name="from_name" value="Hjartaheimar · web">
         <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form-row">
+          <label for="tf-service">What would you like to book?</label>
+          <select id="tf-service" name="service">
+            <option value="">Not sure yet</option>
+            <option value="Yoga Nidra · private session at home">Yoga Nidra · private session at home</option>
+            <option value="Flæði · group session">Flæði · group session</option>
+            <option value="Aguahara · private session">Aguahara · private session</option>
+            <option value="Reiki healing">Reiki healing</option>
+            <option value="Coming Home to Yourself · somatic work">Coming Home to Yourself · somatic work</option>
+            <option value="Self-discovery (Gene Keys, Human Design, Enneagram)">Self-discovery (Gene Keys, Human Design, Enneagram)</option>
+            <option value="I'd like some guidance">I'd like some guidance</option>
+          </select>
+        </div>
         <div class="form-row">
           <label for="tf-name">Name</label>
           <input type="text" id="tf-name" name="name" required autocomplete="name">
@@ -202,32 +216,23 @@
           <input type="email" id="tf-email" name="email" required autocomplete="email">
         </div>
         <div class="form-row">
-          <label for="tf-service">What would you like to try?</label>
-          <select id="tf-service" name="service">
-            <option value="">Not sure yet</option>
-            <option value="Yoga Nidra · private session at home">Yoga Nidra · private session at home</option>
-            <option value="Reiki healing">Reiki healing</option>
-            <option value="Water Therapy · Aguahara">Water Therapy · Aguahara</option>
-            <option value="Coming Home to Yourself · somatic work">Coming Home to Yourself · somatic work</option>
-            <option value="Self-Discovery (Gene Keys, Human Design, Enneagram)">Self-Discovery (Gene Keys, Human Design, Enneagram)</option>
-            <option value="I’d like some guidance">I’d like some guidance</option>
-          </select>
+          <label for="tf-phone">Phone <span style="text-transform:none; letter-spacing:0;">(optional)</span></label>
+          <input type="tel" id="tf-phone" name="phone" autocomplete="tel">
         </div>
         <div class="form-row">
-          <label for="tf-when">Preferred date and time</label>
+          <label for="tf-when">Preferred day and time <span style="text-transform:none; letter-spacing:0;">(optional)</span></label>
           <input type="text" id="tf-when" name="date_time_preference" autocomplete="off">
         </div>
         <div class="form-row">
           <label for="tf-message">Message <span style="text-transform:none; letter-spacing:0;">(optional)</span></label>
           <textarea id="tf-message" name="message" rows="3"></textarea>
         </div>
-        <button type="submit" class="form-submit">Send inquiry</button>
-        <p class="form-hint">Gulla will get in touch to go over your preferences and confirm a time.</p>
+        <button type="submit" class="form-submit">Send request</button>
         <p class="form-status" id="enquiryFormStatus" role="status" aria-live="polite"></p>
         <p style="font-size:0.78rem;color:var(--ink-faint);margin-top:-6px;">See our <a class="privacy-link" href="/privacy.html">privacy policy</a> regarding data handling.</p>
       </form>
       <div class="form-success" id="enquiryFormSuccess" hidden>
-        <p class="form-success-msg">Thank you for your inquiry. Gulla will be in touch with you.</p>
+        <p class="form-success-msg">Thank you. Gulla will be in touch to confirm the time.</p>
         <button type="button" class="book-service-btn" id="enquiryFormSuccessClose">Close</button>
       </div>
     </div>

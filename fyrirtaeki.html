@@ -57,7 +57,7 @@
     <span>HJARTAHEIMAR</span>
   </a>
   <div class="nav-mobile-actions">
-    <a href="#fyrirspurn" class="header-cta">Fá tilboð</a>
+    <a href="#" class="header-cta open-quote-modal" role="button">Fá tilboð</a>
     <a href="/corporate.html" class="lang-switch-header" lang="en" hreflang="en">EN</a>
     <button class="nav-toggle" aria-label="Opna valmynd" aria-expanded="false" aria-controls="navLinks" id="navToggle">
       <span></span><span></span><span></span>
@@ -72,7 +72,7 @@
     <a href="/fyrirtaeki.html" aria-current="page">Fyrirtæki</a>
     <a href="/um.html">Um Gullu</a>
     <a href="/corporate.html" class="lang-switch" lang="en" hreflang="en">EN</a>
-    <a href="#fyrirspurn" class="nav-cta">Fá tilboð</a>
+    <a href="#" class="nav-cta open-quote-modal" role="button">Fá tilboð</a>
   </nav>
 </header>
 <!-- /HEADER -->
@@ -86,7 +86,7 @@
       <p class="tagline">Gefðu starfsfólkinu rými til að hægja á.</p>
       <p class="lede">Í annríki hversdagsins er auðvelt að gleyma því að staldra við, anda og hvílast. Jóga Nidra er leidd djúpslökun þar sem starfsfólkið fær tækifæri til að stíga út úr hraðanum, sleppa spennu og tengjast sjálfu sér. Engin hreyfing og engin fyrri reynsla af jóga er nauðsynleg.</p>
       <div class="hero-cta">
-        <a class="btn big" href="#fyrirspurn">Fá tilboð</a>
+        <button type="button" class="btn big open-quote-modal" aria-haspopup="dialog">Fá tilboð</button>
         <p class="hero-facts">30, 45 eða 60 mínútur · frá 25.000 kr. fyrir hópinn</p>
       </div>
     </div>
@@ -197,7 +197,7 @@
       <div class="price-note">
         <p>Hægt er að dreifa tímunum yfir það tímabil sem hentar ykkur. Einnig er hægt að semja um lengra samstarf með tímum vikulega eða á tveggja vikna fresti.</p>
       </div>
-      <a href="#fyrirspurn" class="form-submit" style="margin-top:32px; text-decoration:none; display:inline-block;">Fá tilboð fyrir ykkar hóp</a>
+      <button type="button" class="form-submit open-quote-modal" style="margin-top:32px;">Fá tilboð fyrir ykkar hóp</button>
     </div>
   </section>
 
@@ -233,7 +233,10 @@
             <dd class="filled"><a href="tel:+3548678743">867 8743</a></dd>
           </div>
         </dl>
-        <div class="next-steps">
+
+      </div>
+      <div>
+        <div class="next-steps" style="margin-top:0; border-top:0; padding-top:0;">
           <h3>Hvað gerist næst</h3>
           <ol>
             <li>Þið sendið fyrirspurn með fjölda þátttakenda og óskum um tímasetningu.</li>
@@ -241,9 +244,154 @@
             <li>Þið staðfestið tíma og Gulla kemur á vinnustaðinn með leiðsögnina.</li>
           </ol>
         </div>
+        <div class="btn-row">
+          <button type="button" class="btn big open-quote-modal" aria-haspopup="dialog">Fá tilboð</button>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div>
+</main>
+
+<!-- FOOTER: shared by every page; built by build.py. -->
+<footer class="site-foot">
+  <div class="foot-brand">
+    <a class="brandmark" href="/">
+      <img class="icon-light" alt="" width="220" height="143" src="/img/logo-light.png" decoding="async">
+      <img class="icon-dark" alt="" width="220" height="143" src="/img/logo-dark.png" decoding="async">
+      <span>HJARTAHEIMAR</span>
+    </a>
+    <small>Mættu þér eins og þú ert</small>
+  </div>
+  <div class="foot-contact">
+    <a href="mailto:Gulla@hjartaheimar.is">Gulla@hjartaheimar.is</a>
+    <a href="tel:+3548678743">867 8743</a>
+    <a href="https://maps.app.goo.gl/vLaoku56jWaAJrbAA" target="_blank" rel="noopener">Bolholt 4, 4. hæð, Reykjavík</a>
+    <span><a href="https://www.facebook.com/profile.php?id=61593960661093" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.instagram.com/hjartaheimar/" target="_blank" rel="noopener">Instagram</a></span>
+  </div>
+  <div class="foot-meta-group">
+    <p class="foot-meta">Kt. 531109-2360</p>
+    <p class="foot-meta">Vefhönnun: <a class="privacy-link" href="https://drengsson.is" target="_blank" rel="noopener">Drengsson</a> · <a class="privacy-link" href="/personuvernd.html">Persónuvernd</a> · <button type="button" id="consentChangeBtn" class="privacy-link consent-change-btn">Breyta vali um vafrakökur</button></p>
+  </div>
+</footer>
+<!-- /FOOTER -->
+
+<div class="mobile-book-bar">
+  <a href="#" class="mobile-book-btn open-quote-modal" role="button">Fá tilboð</a>
+</div>
+
+<div class="booking-modal" id="bookingModal" hidden>
+  <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
+    <div class="booking-modal-head">
+      <h3 id="bookingModalTitle">Bóka í Jóga Nidra</h3>
+      <button type="button" class="booking-modal-close" id="bookingModalClose" aria-label="Loka">&times;</button>
+    </div>
+    <div class="booking-modal-body">
+      <p class="frame-loading" aria-hidden="true">Hleð bókunarkerfi Noona…</p>
+      <iframe src="https://noona.is/hjartaheimar/book?iframe=true&darkModeDisabled=true&showCancelButton=false" title="Bóka í Jóga Nidra hjá Hjartaheimum á Noona" frameborder="0" loading="lazy"></iframe>
+    </div>
+    <p class="modal-fallback">Opnast bókunin ekki rétt? <a href="https://noona.is/hjartaheimar" target="_blank" rel="noopener">Opna á noona.is í nýjum flipa</a>.</p>
+  </div>
+</div>
+
+<div class="booking-modal" id="voucherModal" hidden>
+  <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="voucherModalTitle">
+    <div class="booking-modal-head">
+      <h3 id="voucherModalTitle">Kaupa gjafakort · 10 tíma kort</h3>
+      <button type="button" class="booking-modal-close" id="voucherModalClose" aria-label="Loka">&times;</button>
+    </div>
+    <div class="booking-modal-body">
+      <iframe src="https://noona.is/hjartaheimar/vouchers/5wKDA8qfgmo6BLGf0UYEvsvx?source=Company&iframe=true" title="Kaupa 10 tíma kort hjá Hjartaheimar" frameborder="0" loading="lazy"></iframe>
+    </div>
+    <p style="margin:0; padding:8px 18px 14px; font-size:0.78rem; color:var(--ink-faint);">Opnast síðan ekki rétt? <a href="https://noona.is/hjartaheimar/vouchers/5wKDA8qfgmo6BLGf0UYEvsvx?source=Company" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Opna á noona.is í nýjum flipa</a>.</p>
+  </div>
+</div>
+
+<div class="booking-modal" id="voucher20Modal" hidden>
+  <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="voucher20ModalTitle">
+    <div class="booking-modal-head">
+      <h3 id="voucher20ModalTitle">Kaupa gjafakort · 20 tíma kort</h3>
+      <button type="button" class="booking-modal-close" id="voucher20ModalClose" aria-label="Loka">&times;</button>
+    </div>
+    <div class="booking-modal-body">
+      <iframe src="https://noona.is/hjartaheimar/vouchers/wDTNAcDyS5FrjwB9Zbcv0rUz?source=Company&iframe=true" title="Kaupa 20 tíma kort hjá Hjartaheimar" frameborder="0" loading="lazy"></iframe>
+    </div>
+    <p style="margin:0; padding:8px 18px 14px; font-size:0.78rem; color:var(--ink-faint);">Opnast síðan ekki rétt? <a href="https://noona.is/hjartaheimar/vouchers/wDTNAcDyS5FrjwB9Zbcv0rUz?source=Company" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Opna á noona.is í nýjum flipa</a>.</p>
+  </div>
+</div>
+
+<div class="booking-modal" id="enquiryModal" hidden>
+  <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="enquiryModalTitle">
+    <div class="booking-modal-head">
+      <h3 id="enquiryModalTitle">Óska eftir tíma</h3>
+      <button type="button" class="booking-modal-close" id="enquiryModalClose" aria-label="Loka">&times;</button>
+    </div>
+    <div class="booking-modal-body form-body">
+      <p class="form-intro">Gulla hefur samband, fer yfir óskir þínar og staðfestir tímann. Þetta er beiðni, ekki staðfest bókun.</p>
+      <form class="contact-form" id="enquiryForm" action="https://api.web3forms.com/submit" method="POST" style="margin-top:0; padding-top:0; border-top:none;">
+        <input type="hidden" name="access_key" value="65892dab-6990-4005-a4a9-bc3da02886f6">
+        <input type="hidden" name="subject" value="Ósk um tíma af hjartaheimar.is">
+        <input type="hidden" name="from_name" value="Hjartaheimar · web">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form-row">
+          <label for="tf-service">Hvað viltu bóka?</label>
+          <select id="tf-service" name="service">
+            <option value="">Ekki viss ennþá</option>
+            <option value="Jóga Nidra · einkatími heima">Jóga Nidra · einkatími heima</option>
+            <option value="Flæði · hóptími">Flæði · hóptími</option>
+            <option value="Aguahara · einkatími">Aguahara · einkatími</option>
+            <option value="Reikiheilun">Reikiheilun</option>
+            <option value="Að koma heim til sín · sómatísk vinna">Að koma heim til sín · sómatísk vinna</option>
+            <option value="Sjálfsþekking (Gene Keys, Human Design, Enneagram)">Sjálfsþekking (Gene Keys, Human Design, Enneagram)</option>
+            <option value="Mig langar að fá ráðleggingu">Mig langar að fá ráðleggingu</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="tf-name">Nafn</label>
+          <input type="text" id="tf-name" name="name" required autocomplete="name">
+        </div>
+        <div class="form-row">
+          <label for="tf-email">Netfang</label>
+          <input type="email" id="tf-email" name="email" required autocomplete="email">
+        </div>
+        <div class="form-row">
+          <label for="tf-phone">Sími <span style="text-transform:none; letter-spacing:0;">(valfrjálst)</span></label>
+          <input type="tel" id="tf-phone" name="phone" autocomplete="tel">
+        </div>
+        <div class="form-row">
+          <label for="tf-when">Óskir um dag og tíma <span style="text-transform:none; letter-spacing:0;">(valfrjálst)</span></label>
+          <input type="text" id="tf-when" name="date_time_preference" autocomplete="off">
+        </div>
+        <div class="form-row">
+          <label for="tf-message">Skilaboð <span style="text-transform:none; letter-spacing:0;">(valfrjálst)</span></label>
+          <textarea id="tf-message" name="message" rows="3"></textarea>
+        </div>
+        <button type="submit" class="form-submit">Senda ósk</button>
+        <p class="form-status" id="enquiryFormStatus" role="status" aria-live="polite"></p>
+        <p style="font-size:0.78rem;color:var(--ink-faint);margin-top:-6px;">Sjá <a class="privacy-link" href="/personuvernd.html">persónuverndarstefnu</a> um meðferð gagna.</p>
+      </form>
+      <div class="form-success" id="enquiryFormSuccess" hidden>
+        <p class="form-success-msg">Takk. Gulla hefur samband og staðfestir tímann.</p>
+        <button type="button" class="book-service-btn" id="enquiryFormSuccessClose">Loka</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="consent-banner" id="consentBanner" role="region" aria-label="Vafrakökur og mælingar" hidden>
+  <p>Þessi vefur notar valfrjálsar mæli- og markaðskökur (Google Analytics, Meta) til að skilja notkun og bæta þjónustuna. <a href="/personuvernd.html">Lesa meira í persónuverndarstefnu</a>.</p>
+  <div class="consent-actions">
+    <button type="button" id="consentReject" class="consent-btn consent-btn-ghost">Hafna</button>
+    <button type="button" id="consentAccept" class="consent-btn">Leyfa</button>
+  </div>
+</div>
+<div class="booking-modal" id="quoteModal" hidden>
+  <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="quoteModalTitle">
+    <div class="booking-modal-head">
+      <h3 id="quoteModalTitle">Fá tilboð</h3>
+      <button type="button" class="booking-modal-close" id="quoteModalClose" aria-label="Loka">&times;</button>
+    </div>
+    <div class="booking-modal-body form-body">
         <form class="contact-form" id="fyrirtaekiForm" action="https://api.web3forms.com/submit" method="POST">
           <input type="hidden" name="access_key" value="65892dab-6990-4005-a4a9-bc3da02886f6">
           <input type="hidden" name="subject" value="Fyrirspurn um Jóga Nidra fyrir fyrirtæki">
@@ -295,137 +443,7 @@
         <div class="form-success" id="fyrirtaekiFormSuccess" hidden>
           <p class="form-success-msg">Takk fyrir fyrirspurnina. Gulla verður í sambandi við ykkur.</p>
         </div>
-      </div>
     </div>
-  </section>
-
-</main>
-
-<!-- FOOTER: shared by every page; built by build.py. -->
-<footer class="site-foot">
-  <div class="foot-brand">
-    <a class="brandmark" href="/">
-      <img class="icon-light" alt="" width="220" height="143" src="/img/logo-light.png" decoding="async">
-      <img class="icon-dark" alt="" width="220" height="143" src="/img/logo-dark.png" decoding="async">
-      <span>HJARTAHEIMAR</span>
-    </a>
-    <small>Mættu þér eins og þú ert</small>
-  </div>
-  <div class="foot-contact">
-    <a href="mailto:Gulla@hjartaheimar.is">Gulla@hjartaheimar.is</a>
-    <a href="tel:+3548678743">867 8743</a>
-    <a href="https://maps.app.goo.gl/vLaoku56jWaAJrbAA" target="_blank" rel="noopener">Bolholt 4, 4. hæð, Reykjavík</a>
-    <span><a href="https://www.facebook.com/profile.php?id=61593960661093" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.instagram.com/hjartaheimar/" target="_blank" rel="noopener">Instagram</a></span>
-  </div>
-  <div class="foot-meta-group">
-    <p class="foot-meta">Kt. 531109-2360</p>
-    <p class="foot-meta">Vefhönnun: <a class="privacy-link" href="https://drengsson.is" target="_blank" rel="noopener">Drengsson</a> · <a class="privacy-link" href="/personuvernd.html">Persónuvernd</a> · <button type="button" id="consentChangeBtn" class="privacy-link consent-change-btn">Breyta vali um vafrakökur</button></p>
-  </div>
-</footer>
-<!-- /FOOTER -->
-
-<div class="mobile-book-bar">
-  <a href="#fyrirspurn" class="mobile-book-btn">Fá tilboð</a>
-</div>
-
-<div class="booking-modal" id="bookingModal" hidden>
-  <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
-    <div class="booking-modal-head">
-      <h3 id="bookingModalTitle">Bóka í Jóga Nidra</h3>
-      <button type="button" class="booking-modal-close" id="bookingModalClose" aria-label="Loka">&times;</button>
-    </div>
-    <div class="booking-modal-body">
-      <p class="frame-loading" aria-hidden="true">Hleð bókunarkerfi Noona…</p>
-      <iframe src="https://noona.is/hjartaheimar/book?iframe=true&darkModeDisabled=true&showCancelButton=false" title="Bóka í Jóga Nidra hjá Hjartaheimum á Noona" frameborder="0" loading="lazy"></iframe>
-    </div>
-    <p class="modal-fallback">Opnast bókunin ekki rétt? <a href="https://noona.is/hjartaheimar" target="_blank" rel="noopener">Opna á noona.is í nýjum flipa</a>.</p>
-  </div>
-</div>
-
-<div class="booking-modal" id="voucherModal" hidden>
-  <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="voucherModalTitle">
-    <div class="booking-modal-head">
-      <h3 id="voucherModalTitle">Kaupa gjafakort · 10 tíma kort</h3>
-      <button type="button" class="booking-modal-close" id="voucherModalClose" aria-label="Loka">&times;</button>
-    </div>
-    <div class="booking-modal-body">
-      <iframe src="https://noona.is/hjartaheimar/vouchers/5wKDA8qfgmo6BLGf0UYEvsvx?source=Company&iframe=true" title="Kaupa 10 tíma kort hjá Hjartaheimar" frameborder="0" loading="lazy"></iframe>
-    </div>
-    <p style="margin:0; padding:8px 18px 14px; font-size:0.78rem; color:var(--ink-faint);">Opnast síðan ekki rétt? <a href="https://noona.is/hjartaheimar/vouchers/5wKDA8qfgmo6BLGf0UYEvsvx?source=Company" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Opna á noona.is í nýjum flipa</a>.</p>
-  </div>
-</div>
-
-<div class="booking-modal" id="voucher20Modal" hidden>
-  <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="voucher20ModalTitle">
-    <div class="booking-modal-head">
-      <h3 id="voucher20ModalTitle">Kaupa gjafakort · 20 tíma kort</h3>
-      <button type="button" class="booking-modal-close" id="voucher20ModalClose" aria-label="Loka">&times;</button>
-    </div>
-    <div class="booking-modal-body">
-      <iframe src="https://noona.is/hjartaheimar/vouchers/wDTNAcDyS5FrjwB9Zbcv0rUz?source=Company&iframe=true" title="Kaupa 20 tíma kort hjá Hjartaheimar" frameborder="0" loading="lazy"></iframe>
-    </div>
-    <p style="margin:0; padding:8px 18px 14px; font-size:0.78rem; color:var(--ink-faint);">Opnast síðan ekki rétt? <a href="https://noona.is/hjartaheimar/vouchers/wDTNAcDyS5FrjwB9Zbcv0rUz?source=Company" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Opna á noona.is í nýjum flipa</a>.</p>
-  </div>
-</div>
-
-<div class="booking-modal" id="enquiryModal" hidden>
-  <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="enquiryModalTitle">
-    <div class="booking-modal-head">
-      <h3 id="enquiryModalTitle">Óska eftir einkatíma</h3>
-      <button type="button" class="booking-modal-close" id="enquiryModalClose" aria-label="Loka">&times;</button>
-    </div>
-    <div class="booking-modal-body form-body">
-      <form class="contact-form" id="enquiryForm" action="https://api.web3forms.com/submit" method="POST" style="margin-top:0; padding-top:0; border-top:none;">
-        <input type="hidden" name="access_key" value="65892dab-6990-4005-a4a9-bc3da02886f6">
-        <input type="hidden" name="subject" value="Fyrirspurn um einkatíma af hjartaheimar.is">
-        <input type="hidden" name="from_name" value="Hjartaheimar · vefur">
-        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <div class="form-row">
-          <label for="tf-name">Nafn</label>
-          <input type="text" id="tf-name" name="name" required autocomplete="name">
-        </div>
-        <div class="form-row">
-          <label for="tf-email">Netfang</label>
-          <input type="email" id="tf-email" name="email" required autocomplete="email">
-        </div>
-        <div class="form-row">
-          <label for="tf-service">Hvað langar þig að prófa?</label>
-          <select id="tf-service" name="service">
-            <option value="">Ekki viss ennþá</option>
-            <option value="Jóga Nidra · einkatími heima">Jóga Nidra · einkatími heima</option>
-            <option value="Reikiheilun">Reikiheilun</option>
-            <option value="Vatnsmeðferð · Aguahara">Vatnsmeðferð · Aguahara</option>
-            <option value="Að koma heim til sín · sómatísk vinna">Að koma heim til sín · sómatísk vinna</option>
-            <option value="Sjálfsþekking (Gene Keys, Human Design, Enneagram)">Sjálfsþekking (Gene Keys, Human Design, Enneagram)</option>
-            <option value="Mig langar að fá ráðleggingu">Mig langar að fá ráðleggingu</option>
-          </select>
-        </div>
-        <div class="form-row">
-          <label for="tf-when">Óskir um dagsetningu og tíma</label>
-          <input type="text" id="tf-when" name="date_time_preference" autocomplete="off">
-        </div>
-        <div class="form-row">
-          <label for="tf-message">Skilaboð <span style="text-transform:none; letter-spacing:0;">(valfrjálst)</span></label>
-          <textarea id="tf-message" name="message" rows="3"></textarea>
-        </div>
-        <button type="submit" class="form-submit">Senda fyrirspurn</button>
-        <p class="form-hint">Gulla hefur samband til að fara yfir óskir þínar og staðfesta tíma.</p>
-        <p class="form-status" id="enquiryFormStatus" role="status" aria-live="polite"></p>
-        <p style="font-size:0.78rem;color:var(--ink-faint);margin-top:-6px;">Sjá <a class="privacy-link" href="/personuvernd.html">persónuverndarstefnu</a> um meðferð gagna.</p>
-      </form>
-      <div class="form-success" id="enquiryFormSuccess" hidden>
-        <p class="form-success-msg">Takk fyrir fyrirspurnina. Gulla verður í sambandi við þig.</p>
-        <button type="button" class="book-service-btn" id="enquiryFormSuccessClose">Loka</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="consent-banner" id="consentBanner" role="region" aria-label="Vafrakökur og mælingar" hidden>
-  <p>Þessi vefur notar valfrjálsar mæli- og markaðskökur (Google Analytics, Meta) til að skilja notkun og bæta þjónustuna. <a href="/personuvernd.html">Lesa meira í persónuverndarstefnu</a>.</p>
-  <div class="consent-actions">
-    <button type="button" id="consentReject" class="consent-btn consent-btn-ghost">Hafna</button>
-    <button type="button" id="consentAccept" class="consent-btn">Leyfa</button>
   </div>
 </div>
 

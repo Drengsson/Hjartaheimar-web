@@ -57,7 +57,7 @@
     <span>HJARTAHEIMAR</span>
   </a>
   <div class="nav-mobile-actions">
-    <a href="#" class="header-cta open-enquiry-modal" data-service="Reikiheilun">Óska eftir tíma</a>
+    <a href="#" class="header-cta open-enquiry-modal" role="button" data-service="Reikiheilun">Óska eftir tíma</a>
     <a href="/reiki-healing.html" class="lang-switch-header" lang="en" hreflang="en">EN</a>
     <button class="nav-toggle" aria-label="Opna valmynd" aria-expanded="false" aria-controls="navLinks" id="navToggle">
       <span></span><span></span><span></span>
@@ -72,7 +72,7 @@
     <a href="/fyrirtaeki.html">Fyrirtæki</a>
     <a href="/um.html">Um Gullu</a>
     <a href="/reiki-healing.html" class="lang-switch" lang="en" hreflang="en">EN</a>
-    <a href="#" class="nav-cta open-enquiry-modal" data-service="Reikiheilun">Óska eftir tíma</a>
+    <a href="#" class="nav-cta open-enquiry-modal" role="button" data-service="Reikiheilun">Óska eftir tíma</a>
   </nav>
 </header>
 <!-- /HEADER -->
@@ -103,7 +103,7 @@
           <p>Hjá sumum verður hugurinn kyrrari, á meðan aðrir finna sterkari tengingu við líkamann eða upplifa að tilfinningar sem hafa verið undir yfirborðinu fái rými. Upplifunin er einstaklingsbundin og engar tvær meðferðir eru eins.</p>
           <p>Reiki er notað til að styðja við jafnvægi, vellíðan og slökun. Þetta er falleg leið til að gefa sér tíma til að stoppa, hlusta inn á við og taka eftir því sem líkaminn og hugurinn eru að segja. Þú þarft aðeins að koma eins og þú ert og leyfa þér að taka á móti.</p>
           <p class="rhythm-line"><span>Stund til að vera</span><span>Stund til að taka á móti</span><span>Stund fyrir þig</span></p>
-          <button type="button" class="book-service-btn open-enquiry-modal" data-service="Reikiheilun">Óska eftir einkatíma</button>
+          <button type="button" class="book-service-btn open-enquiry-modal" data-service="Reikiheilun">Óska eftir tíma</button>
         </div>
       </div>
       <div class="small-print" style="margin:48px auto 0; max-width:62ch;">
@@ -138,7 +138,7 @@
 <!-- /FOOTER -->
 
 <div class="mobile-book-bar">
-  <a href="#" class="mobile-book-btn open-enquiry-modal" data-service="Reikiheilun">Óska eftir tíma</a>
+  <a href="#" class="mobile-book-btn open-enquiry-modal" role="button" data-service="Reikiheilun">Óska eftir tíma</a>
 </div>
 
 <div class="booking-modal" id="bookingModal" hidden>
@@ -184,15 +184,29 @@
 <div class="booking-modal" id="enquiryModal" hidden>
   <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="enquiryModalTitle">
     <div class="booking-modal-head">
-      <h3 id="enquiryModalTitle">Óska eftir einkatíma</h3>
+      <h3 id="enquiryModalTitle">Óska eftir tíma</h3>
       <button type="button" class="booking-modal-close" id="enquiryModalClose" aria-label="Loka">&times;</button>
     </div>
     <div class="booking-modal-body form-body">
+      <p class="form-intro">Gulla hefur samband, fer yfir óskir þínar og staðfestir tímann. Þetta er beiðni, ekki staðfest bókun.</p>
       <form class="contact-form" id="enquiryForm" action="https://api.web3forms.com/submit" method="POST" style="margin-top:0; padding-top:0; border-top:none;">
         <input type="hidden" name="access_key" value="65892dab-6990-4005-a4a9-bc3da02886f6">
-        <input type="hidden" name="subject" value="Fyrirspurn um einkatíma af hjartaheimar.is">
-        <input type="hidden" name="from_name" value="Hjartaheimar · vefur">
+        <input type="hidden" name="subject" value="Ósk um tíma af hjartaheimar.is">
+        <input type="hidden" name="from_name" value="Hjartaheimar · web">
         <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form-row">
+          <label for="tf-service">Hvað viltu bóka?</label>
+          <select id="tf-service" name="service">
+            <option value="">Ekki viss ennþá</option>
+            <option value="Jóga Nidra · einkatími heima">Jóga Nidra · einkatími heima</option>
+            <option value="Flæði · hóptími">Flæði · hóptími</option>
+            <option value="Aguahara · einkatími">Aguahara · einkatími</option>
+            <option value="Reikiheilun">Reikiheilun</option>
+            <option value="Að koma heim til sín · sómatísk vinna">Að koma heim til sín · sómatísk vinna</option>
+            <option value="Sjálfsþekking (Gene Keys, Human Design, Enneagram)">Sjálfsþekking (Gene Keys, Human Design, Enneagram)</option>
+            <option value="Mig langar að fá ráðleggingu">Mig langar að fá ráðleggingu</option>
+          </select>
+        </div>
         <div class="form-row">
           <label for="tf-name">Nafn</label>
           <input type="text" id="tf-name" name="name" required autocomplete="name">
@@ -202,32 +216,23 @@
           <input type="email" id="tf-email" name="email" required autocomplete="email">
         </div>
         <div class="form-row">
-          <label for="tf-service">Hvað langar þig að prófa?</label>
-          <select id="tf-service" name="service">
-            <option value="">Ekki viss ennþá</option>
-            <option value="Jóga Nidra · einkatími heima">Jóga Nidra · einkatími heima</option>
-            <option value="Reikiheilun">Reikiheilun</option>
-            <option value="Vatnsmeðferð · Aguahara">Vatnsmeðferð · Aguahara</option>
-            <option value="Að koma heim til sín · sómatísk vinna">Að koma heim til sín · sómatísk vinna</option>
-            <option value="Sjálfsþekking (Gene Keys, Human Design, Enneagram)">Sjálfsþekking (Gene Keys, Human Design, Enneagram)</option>
-            <option value="Mig langar að fá ráðleggingu">Mig langar að fá ráðleggingu</option>
-          </select>
+          <label for="tf-phone">Sími <span style="text-transform:none; letter-spacing:0;">(valfrjálst)</span></label>
+          <input type="tel" id="tf-phone" name="phone" autocomplete="tel">
         </div>
         <div class="form-row">
-          <label for="tf-when">Óskir um dagsetningu og tíma</label>
+          <label for="tf-when">Óskir um dag og tíma <span style="text-transform:none; letter-spacing:0;">(valfrjálst)</span></label>
           <input type="text" id="tf-when" name="date_time_preference" autocomplete="off">
         </div>
         <div class="form-row">
           <label for="tf-message">Skilaboð <span style="text-transform:none; letter-spacing:0;">(valfrjálst)</span></label>
           <textarea id="tf-message" name="message" rows="3"></textarea>
         </div>
-        <button type="submit" class="form-submit">Senda fyrirspurn</button>
-        <p class="form-hint">Gulla hefur samband til að fara yfir óskir þínar og staðfesta tíma.</p>
+        <button type="submit" class="form-submit">Senda ósk</button>
         <p class="form-status" id="enquiryFormStatus" role="status" aria-live="polite"></p>
         <p style="font-size:0.78rem;color:var(--ink-faint);margin-top:-6px;">Sjá <a class="privacy-link" href="/personuvernd.html">persónuverndarstefnu</a> um meðferð gagna.</p>
       </form>
       <div class="form-success" id="enquiryFormSuccess" hidden>
-        <p class="form-success-msg">Takk fyrir fyrirspurnina. Gulla verður í sambandi við þig.</p>
+        <p class="form-success-msg">Takk. Gulla hefur samband og staðfestir tímann.</p>
         <button type="button" class="book-service-btn" id="enquiryFormSuccessClose">Loka</button>
       </div>
     </div>

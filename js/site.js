@@ -193,6 +193,9 @@ function T(is, en){ return HH_EN ? en : is; }
     // overview) opens this same modal.
     initNoonaModal('.open-enquiry-modal', 'enquiryModal', 'enquiryModalClose', 'enquiry-modal');
 
+    // Company quote request (fyrirtaeki / corporate pages only).
+    initNoonaModal('.open-quote-modal', 'quoteModal', 'quoteModalClose', 'quote-modal');
+
     // Reset the enquiry modal back to its form view (not the success
     // panel) each time it's opened, so a second enquiry later in the
     // session doesn't still show the previous "takk fyrir" message.
@@ -384,6 +387,12 @@ function T(is, en){ return HH_EN ? en : is; }
     if(!/(Z|[+-]\d\d:\d\d)$/.test(v)) v += 'Z'; // Iceland is UTC all year
     if(new Date(v) < now) el.hidden = true;
   });
+  // [data-after]: the reverse of data-until, shown only once the moment has passed.
+  document.querySelectorAll('[data-after]').forEach(function(el){
+    var v = el.getAttribute('data-after');
+    if(!/(Z|[+-]\d\d:\d\d)$/.test(v)) v += 'Z';
+    el.hidden = new Date(v) >= now;
+  });
   document.querySelectorAll('[data-hide-when-empty]').forEach(function(box){
     var items = box.querySelectorAll('[data-until]');
     if(items.length && Array.prototype.every.call(items, function(i){ return i.hidden; })) box.hidden = true;
@@ -411,4 +420,12 @@ document.querySelectorAll('[data-embed-src]').forEach(function(btn){
     f.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
     btn.replaceWith(f);
   });
+});
+
+/* Arriving with #section in the address: re-align once fonts and images have
+   settled, so the phone does not land a little above or below the section. */
+window.addEventListener('load', function(){
+  if(!location.hash) return;
+  var t = document.getElementById(location.hash.slice(1));
+  if(t) setTimeout(function(){ t.scrollIntoView({block:'start'}); }, 50);
 });

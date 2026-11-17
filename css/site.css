@@ -943,3 +943,7 @@ nav.links a{font-size:0.86rem;}
   font:600 0.9rem/1 'Karla',sans-serif; cursor:pointer; border-radius:2px;
 }
 .spotify-load:hover, .spotify-load:focus-visible{border-style:solid; border-color:var(--brand);}
+
+/* one request pop-up for every service */
+.form-intro{font-size:0.9rem; color:var(--ink-soft); margin:0 0 20px; max-width:52ch;}
+button.wk-btn{cursor:pointer; font-family:'Karla',sans-serif;}

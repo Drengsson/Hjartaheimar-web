@@ -57,7 +57,7 @@
     <span>HJARTAHEIMAR</span>
   </a>
   <div class="nav-mobile-actions">
-    <a href="#inquiry" class="header-cta">Get a quote</a>
+    <a href="#" class="header-cta open-quote-modal" role="button">Get a quote</a>
     <a href="/fyrirtaeki.html" class="lang-switch-header" lang="is" hreflang="is">IS</a>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks" id="navToggle">
       <span></span><span></span><span></span>
@@ -72,7 +72,7 @@
     <a href="/corporate.html" aria-current="page">Companies</a>
     <a href="/about.html">About Gulla</a>
     <a href="/fyrirtaeki.html" class="lang-switch" lang="is" hreflang="is">IS</a>
-    <a href="#inquiry" class="nav-cta">Get a quote</a>
+    <a href="#" class="nav-cta open-quote-modal" role="button">Get a quote</a>
   </nav>
 </header>
 <!-- /HEADER -->
@@ -86,7 +86,7 @@
       <p class="tagline">Give your team room to slow down.</p>
       <p class="lede">In the rush of the working day it is easy to forget to pause, breathe and rest. Yoga Nidra is a guided deep relaxation that gives your team a chance to step out of the pace, release tension and reconnect with themselves. No movement and no previous experience of yoga is needed.</p>
       <div class="hero-cta">
-        <a class="btn big" href="#inquiry">Get a quote</a>
+        <button type="button" class="btn big open-quote-modal" aria-haspopup="dialog">Get a quote</button>
         <p class="hero-facts">30, 45 or 60 minutes · from ISK 25,000 for the group</p>
       </div>
     </div>
@@ -197,7 +197,7 @@
       <div class="price-note">
         <p>The sessions can be spread over whatever period suits you. Longer collaborations with weekly or fortnightly sessions can also be arranged.</p>
       </div>
-      <a href="#inquiry" class="form-submit" style="margin-top:32px; text-decoration:none; display:inline-block;">Get a quote for your team</a>
+      <button type="button" class="form-submit open-quote-modal" style="margin-top:32px;">Get a quote for your team</button>
     </div>
   </section>
 
@@ -233,7 +233,10 @@
             <dd class="filled"><a href="tel:+3548678743">+354 867 8743</a></dd>
           </div>
         </dl>
-        <div class="next-steps">
+
+      </div>
+      <div>
+        <div class="next-steps" style="margin-top:0; border-top:0; padding-top:0;">
           <h3>What happens next</h3>
           <ol>
             <li>You send an inquiry with the number of participants and your preferred timing.</li>
@@ -241,9 +244,154 @@
             <li>You confirm a time and Gulla comes to your workplace to lead the session.</li>
           </ol>
         </div>
+        <div class="btn-row">
+          <button type="button" class="btn big open-quote-modal" aria-haspopup="dialog">Get a quote</button>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div>
+</main>
+
+<!-- FOOTER: shared by every page; built by build.py. -->
+<footer class="site-foot">
+  <div class="foot-brand">
+    <a class="brandmark" href="/en.html">
+      <img class="icon-light" alt="" width="220" height="143" src="/img/logo-light.png" decoding="async">
+      <img class="icon-dark" alt="" width="220" height="143" src="/img/logo-dark.png" decoding="async">
+      <span>HJARTAHEIMAR</span>
+    </a>
+    <small>Meet yourself just as you are</small>
+  </div>
+  <div class="foot-contact">
+    <a href="mailto:Gulla@hjartaheimar.is">Gulla@hjartaheimar.is</a>
+    <a href="tel:+3548678743">867 8743</a>
+    <a href="https://maps.app.goo.gl/vLaoku56jWaAJrbAA" target="_blank" rel="noopener">Bolholt 4, 4th floor, Reykjavík</a>
+    <span><a href="https://www.facebook.com/profile.php?id=61593960661093" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.instagram.com/hjartaheimar/" target="_blank" rel="noopener">Instagram</a></span>
+  </div>
+  <div class="foot-meta-group">
+    <p class="foot-meta">Reg. no. 531109-2360</p>
+    <p class="foot-meta">Web design: <a class="privacy-link" href="https://drengsson.is" target="_blank" rel="noopener">Drengsson</a> · <a class="privacy-link" href="/privacy.html">Privacy</a> · <button type="button" id="consentChangeBtn" class="privacy-link consent-change-btn">Change cookie preferences</button></p>
+  </div>
+</footer>
+<!-- /FOOTER -->
+
+<div class="mobile-book-bar">
+  <a href="#" class="mobile-book-btn open-quote-modal" role="button">Get a quote</a>
+</div>
+
+<div class="booking-modal" id="bookingModal" hidden>
+  <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
+    <div class="booking-modal-head">
+      <h3 id="bookingModalTitle">Book Yoga Nidra</h3>
+      <button type="button" class="booking-modal-close" id="bookingModalClose" aria-label="Close">&times;</button>
+    </div>
+    <div class="booking-modal-body">
+      <p class="frame-loading" aria-hidden="true">Loading Noona booking…</p>
+      <iframe src="https://noona.is/hjartaheimar/book?iframe=true&darkModeDisabled=true&showCancelButton=false" title="Book Yoga Nidra at Hjartaheimar on Noona" frameborder="0" loading="lazy"></iframe>
+    </div>
+    <p class="modal-fallback">Booking not loading? <a href="https://noona.is/hjartaheimar" target="_blank" rel="noopener">Open it on noona.is in a new tab</a>.</p>
+  </div>
+</div>
+
+<div class="booking-modal" id="voucherModal" hidden>
+  <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="voucherModalTitle">
+    <div class="booking-modal-head">
+      <h3 id="voucherModalTitle">Buy a Gift Card · 10-Class Card</h3>
+      <button type="button" class="booking-modal-close" id="voucherModalClose" aria-label="Close">&times;</button>
+    </div>
+    <div class="booking-modal-body">
+      <iframe src="https://noona.is/hjartaheimar/vouchers/5wKDA8qfgmo6BLGf0UYEvsvx?source=Company&iframe=true" title="Buy a 10-class card at Hjartaheimar" frameborder="0" loading="lazy"></iframe>
+    </div>
+    <p style="margin:0; padding:8px 18px 14px; font-size:0.78rem; color:var(--ink-faint);">Isn’t the page loading correctly? <a href="https://noona.is/hjartaheimar/vouchers/5wKDA8qfgmo6BLGf0UYEvsvx?source=Company" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Open on noona.is in a new tab</a>.</p>
+  </div>
+</div>
+
+<div class="booking-modal" id="voucher20Modal" hidden>
+  <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="voucher20ModalTitle">
+    <div class="booking-modal-head">
+      <h3 id="voucher20ModalTitle">Buy a Gift Card · 20-Class Card</h3>
+      <button type="button" class="booking-modal-close" id="voucher20ModalClose" aria-label="Close">&times;</button>
+    </div>
+    <div class="booking-modal-body">
+      <iframe src="https://noona.is/hjartaheimar/vouchers/wDTNAcDyS5FrjwB9Zbcv0rUz?source=Company&iframe=true" title="Buy a 20-class card at Hjartaheimar" frameborder="0" loading="lazy"></iframe>
+    </div>
+    <p style="margin:0; padding:8px 18px 14px; font-size:0.78rem; color:var(--ink-faint);">Isn’t the page loading correctly? <a href="https://noona.is/hjartaheimar/vouchers/wDTNAcDyS5FrjwB9Zbcv0rUz?source=Company" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Open on noona.is in a new tab</a>.</p>
+  </div>
+</div>
+
+<div class="booking-modal" id="enquiryModal" hidden>
+  <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="enquiryModalTitle">
+    <div class="booking-modal-head">
+      <h3 id="enquiryModalTitle">Request a time</h3>
+      <button type="button" class="booking-modal-close" id="enquiryModalClose" aria-label="Close">&times;</button>
+    </div>
+    <div class="booking-modal-body form-body">
+      <p class="form-intro">Gulla will get back to you, go through what you would like and confirm the time. This is a request, not a confirmed booking.</p>
+      <form class="contact-form" id="enquiryForm" action="https://api.web3forms.com/submit" method="POST" style="margin-top:0; padding-top:0; border-top:none;">
+        <input type="hidden" name="access_key" value="65892dab-6990-4005-a4a9-bc3da02886f6">
+        <input type="hidden" name="subject" value="Request from hjartaheimar.is (EN)">
+        <input type="hidden" name="from_name" value="Hjartaheimar · web">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form-row">
+          <label for="tf-service">What would you like to book?</label>
+          <select id="tf-service" name="service">
+            <option value="">Not sure yet</option>
+            <option value="Yoga Nidra · private session at home">Yoga Nidra · private session at home</option>
+            <option value="Flæði · group session">Flæði · group session</option>
+            <option value="Aguahara · private session">Aguahara · private session</option>
+            <option value="Reiki healing">Reiki healing</option>
+            <option value="Coming Home to Yourself · somatic work">Coming Home to Yourself · somatic work</option>
+            <option value="Self-discovery (Gene Keys, Human Design, Enneagram)">Self-discovery (Gene Keys, Human Design, Enneagram)</option>
+            <option value="I'd like some guidance">I'd like some guidance</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="tf-name">Name</label>
+          <input type="text" id="tf-name" name="name" required autocomplete="name">
+        </div>
+        <div class="form-row">
+          <label for="tf-email">Email</label>
+          <input type="email" id="tf-email" name="email" required autocomplete="email">
+        </div>
+        <div class="form-row">
+          <label for="tf-phone">Phone <span style="text-transform:none; letter-spacing:0;">(optional)</span></label>
+          <input type="tel" id="tf-phone" name="phone" autocomplete="tel">
+        </div>
+        <div class="form-row">
+          <label for="tf-when">Preferred day and time <span style="text-transform:none; letter-spacing:0;">(optional)</span></label>
+          <input type="text" id="tf-when" name="date_time_preference" autocomplete="off">
+        </div>
+        <div class="form-row">
+          <label for="tf-message">Message <span style="text-transform:none; letter-spacing:0;">(optional)</span></label>
+          <textarea id="tf-message" name="message" rows="3"></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send request</button>
+        <p class="form-status" id="enquiryFormStatus" role="status" aria-live="polite"></p>
+        <p style="font-size:0.78rem;color:var(--ink-faint);margin-top:-6px;">See our <a class="privacy-link" href="/privacy.html">privacy policy</a> regarding data handling.</p>
+      </form>
+      <div class="form-success" id="enquiryFormSuccess" hidden>
+        <p class="form-success-msg">Thank you. Gulla will be in touch to confirm the time.</p>
+        <button type="button" class="book-service-btn" id="enquiryFormSuccessClose">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="consent-banner" id="consentBanner" role="region" aria-label="Cookies and analytics" hidden>
+  <p>This site uses optional analytics and marketing cookies (Google Analytics, Meta) to understand usage and improve the service. <a href="/privacy.html">Read more in our privacy policy</a>.</p>
+  <div class="consent-actions">
+    <button type="button" id="consentReject" class="consent-btn consent-btn-ghost">Decline</button>
+    <button type="button" id="consentAccept" class="consent-btn">Allow</button>
+  </div>
+</div>
+<div class="booking-modal" id="quoteModal" hidden>
+  <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="quoteModalTitle">
+    <div class="booking-modal-head">
+      <h3 id="quoteModalTitle">Get a quote</h3>
+      <button type="button" class="booking-modal-close" id="quoteModalClose" aria-label="Close">&times;</button>
+    </div>
+    <div class="booking-modal-body form-body">
         <form class="contact-form" id="fyrirtaekiForm" action="https://api.web3forms.com/submit" method="POST">
           <input type="hidden" name="access_key" value="65892dab-6990-4005-a4a9-bc3da02886f6">
           <input type="hidden" name="subject" value="Corporate Yoga Nidra inquiry from hjartaheimar.is (EN)">
@@ -295,137 +443,7 @@
         <div class="form-success" id="fyrirtaekiFormSuccess" hidden>
           <p class="form-success-msg">Thank you for your inquiry. Gulla will be in touch with you.</p>
         </div>
-      </div>
     </div>
-  </section>
-
-</main>
-
-<!-- FOOTER: shared by every page; built by build.py. -->
-<footer class="site-foot">
-  <div class="foot-brand">
-    <a class="brandmark" href="/en.html">
-      <img class="icon-light" alt="" width="220" height="143" src="/img/logo-light.png" decoding="async">
-      <img class="icon-dark" alt="" width="220" height="143" src="/img/logo-dark.png" decoding="async">
-      <span>HJARTAHEIMAR</span>
-    </a>
-    <small>Meet yourself just as you are</small>
-  </div>
-  <div class="foot-contact">
-    <a href="mailto:Gulla@hjartaheimar.is">Gulla@hjartaheimar.is</a>
-    <a href="tel:+3548678743">867 8743</a>
-    <a href="https://maps.app.goo.gl/vLaoku56jWaAJrbAA" target="_blank" rel="noopener">Bolholt 4, 4th floor, Reykjavík</a>
-    <span><a href="https://www.facebook.com/profile.php?id=61593960661093" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.instagram.com/hjartaheimar/" target="_blank" rel="noopener">Instagram</a></span>
-  </div>
-  <div class="foot-meta-group">
-    <p class="foot-meta">Reg. no. 531109-2360</p>
-    <p class="foot-meta">Web design: <a class="privacy-link" href="https://drengsson.is" target="_blank" rel="noopener">Drengsson</a> · <a class="privacy-link" href="/privacy.html">Privacy</a> · <button type="button" id="consentChangeBtn" class="privacy-link consent-change-btn">Change cookie preferences</button></p>
-  </div>
-</footer>
-<!-- /FOOTER -->
-
-<div class="mobile-book-bar">
-  <a href="#inquiry" class="mobile-book-btn">Get a quote</a>
-</div>
-
-<div class="booking-modal" id="bookingModal" hidden>
-  <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
-    <div class="booking-modal-head">
-      <h3 id="bookingModalTitle">Book Yoga Nidra</h3>
-      <button type="button" class="booking-modal-close" id="bookingModalClose" aria-label="Close">&times;</button>
-    </div>
-    <div class="booking-modal-body">
-      <p class="frame-loading" aria-hidden="true">Loading Noona booking…</p>
-      <iframe src="https://noona.is/hjartaheimar/book?iframe=true&darkModeDisabled=true&showCancelButton=false" title="Book Yoga Nidra at Hjartaheimar on Noona" frameborder="0" loading="lazy"></iframe>
-    </div>
-    <p class="modal-fallback">Booking not loading? <a href="https://noona.is/hjartaheimar" target="_blank" rel="noopener">Open it on noona.is in a new tab</a>.</p>
-  </div>
-</div>
-
-<div class="booking-modal" id="voucherModal" hidden>
-  <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="voucherModalTitle">
-    <div class="booking-modal-head">
-      <h3 id="voucherModalTitle">Buy a Gift Card · 10-Class Card</h3>
-      <button type="button" class="booking-modal-close" id="voucherModalClose" aria-label="Close">&times;</button>
-    </div>
-    <div class="booking-modal-body">
-      <iframe src="https://noona.is/hjartaheimar/vouchers/5wKDA8qfgmo6BLGf0UYEvsvx?source=Company&iframe=true" title="Buy a 10-class card at Hjartaheimar" frameborder="0" loading="lazy"></iframe>
-    </div>
-    <p style="margin:0; padding:8px 18px 14px; font-size:0.78rem; color:var(--ink-faint);">Isn’t the page loading correctly? <a href="https://noona.is/hjartaheimar/vouchers/5wKDA8qfgmo6BLGf0UYEvsvx?source=Company" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Open on noona.is in a new tab</a>.</p>
-  </div>
-</div>
-
-<div class="booking-modal" id="voucher20Modal" hidden>
-  <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="voucher20ModalTitle">
-    <div class="booking-modal-head">
-      <h3 id="voucher20ModalTitle">Buy a Gift Card · 20-Class Card</h3>
-      <button type="button" class="booking-modal-close" id="voucher20ModalClose" aria-label="Close">&times;</button>
-    </div>
-    <div class="booking-modal-body">
-      <iframe src="https://noona.is/hjartaheimar/vouchers/wDTNAcDyS5FrjwB9Zbcv0rUz?source=Company&iframe=true" title="Buy a 20-class card at Hjartaheimar" frameborder="0" loading="lazy"></iframe>
-    </div>
-    <p style="margin:0; padding:8px 18px 14px; font-size:0.78rem; color:var(--ink-faint);">Isn’t the page loading correctly? <a href="https://noona.is/hjartaheimar/vouchers/wDTNAcDyS5FrjwB9Zbcv0rUz?source=Company" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Open on noona.is in a new tab</a>.</p>
-  </div>
-</div>
-
-<div class="booking-modal" id="enquiryModal" hidden>
-  <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="enquiryModalTitle">
-    <div class="booking-modal-head">
-      <h3 id="enquiryModalTitle">Request a Private Session</h3>
-      <button type="button" class="booking-modal-close" id="enquiryModalClose" aria-label="Close">&times;</button>
-    </div>
-    <div class="booking-modal-body form-body">
-      <form class="contact-form" id="enquiryForm" action="https://api.web3forms.com/submit" method="POST" style="margin-top:0; padding-top:0; border-top:none;">
-        <input type="hidden" name="access_key" value="65892dab-6990-4005-a4a9-bc3da02886f6">
-        <input type="hidden" name="subject" value="Private session inquiry from hjartaheimar.is (EN)">
-        <input type="hidden" name="from_name" value="Hjartaheimar · website">
-        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <div class="form-row">
-          <label for="tf-name">Name</label>
-          <input type="text" id="tf-name" name="name" required autocomplete="name">
-        </div>
-        <div class="form-row">
-          <label for="tf-email">Email</label>
-          <input type="email" id="tf-email" name="email" required autocomplete="email">
-        </div>
-        <div class="form-row">
-          <label for="tf-service">What would you like to try?</label>
-          <select id="tf-service" name="service">
-            <option value="">Not sure yet</option>
-            <option value="Yoga Nidra · private session at home">Yoga Nidra · private session at home</option>
-            <option value="Reiki healing">Reiki healing</option>
-            <option value="Water Therapy · Aguahara">Water Therapy · Aguahara</option>
-            <option value="Coming Home to Yourself · somatic work">Coming Home to Yourself · somatic work</option>
-            <option value="Self-Discovery (Gene Keys, Human Design, Enneagram)">Self-Discovery (Gene Keys, Human Design, Enneagram)</option>
-            <option value="I’d like some guidance">I’d like some guidance</option>
-          </select>
-        </div>
-        <div class="form-row">
-          <label for="tf-when">Preferred date and time</label>
-          <input type="text" id="tf-when" name="date_time_preference" autocomplete="off">
-        </div>
-        <div class="form-row">
-          <label for="tf-message">Message <span style="text-transform:none; letter-spacing:0;">(optional)</span></label>
-          <textarea id="tf-message" name="message" rows="3"></textarea>
-        </div>
-        <button type="submit" class="form-submit">Send inquiry</button>
-        <p class="form-hint">Gulla will get in touch to go over your preferences and confirm a time.</p>
-        <p class="form-status" id="enquiryFormStatus" role="status" aria-live="polite"></p>
-        <p style="font-size:0.78rem;color:var(--ink-faint);margin-top:-6px;">See our <a class="privacy-link" href="/privacy.html">privacy policy</a> regarding data handling.</p>
-      </form>
-      <div class="form-success" id="enquiryFormSuccess" hidden>
-        <p class="form-success-msg">Thank you for your inquiry. Gulla will be in touch with you.</p>
-        <button type="button" class="book-service-btn" id="enquiryFormSuccessClose">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="consent-banner" id="consentBanner" role="region" aria-label="Cookies and analytics" hidden>
-  <p>This site uses optional analytics and marketing cookies (Google Analytics, Meta) to understand usage and improve the service. <a href="/privacy.html">Read more in our privacy policy</a>.</p>
-  <div class="consent-actions">
-    <button type="button" id="consentReject" class="consent-btn consent-btn-ghost">Decline</button>
-    <button type="button" id="consentAccept" class="consent-btn">Allow</button>
   </div>
 </div>
 

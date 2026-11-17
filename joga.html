@@ -114,7 +114,7 @@
           <p class="sh-fb">Á Facebook: <a href="https://www.facebook.com/events/1641124764459948/" target="_blank" rel="noopener">miðvikudagar</a> · <a href="https://www.facebook.com/events/1686378336825767/" target="_blank" rel="noopener">föstudagar</a></p>
         </div>
         <div class="sh-actions">
-          <button type="button" class="book-service-btn open-booking-modal" id="fastirTimarBookBtn" aria-haspopup="dialog" aria-controls="bookingModal">Bóka tíma</button>
+          <button type="button" class="book-service-btn open-booking-modal" id="fastirTimarBookBtn" aria-haspopup="dialog" aria-controls="bookingModal">Bóka</button>
         </div>
       </div>
 
@@ -170,7 +170,7 @@
           <p>Í Jóga Nidra fylgir róleg og markviss leiðsögn þér inn í djúpa slökun. Athyglinni er beint inn í líkamann, að öndun og innri upplifun.</p>
           <p>Þú þarft ekkert að gera eða kunna. Þú leggst einfaldlega niður, lokar augunum og fylgir leiðsögninni. Líkami og hugur fá að hægja á sér og sökkva smám saman inn í djúpa hvíld.</p>
           <p class="rhythm-line"><span>Hægðu á</span><span>Andaðu</span><span>Slepptu</span><span>Hvíldu</span></p>
-          <button type="button" class="book-service-btn open-booking-modal">Bóka í opinn tíma</button>
+          <button type="button" class="book-service-btn open-booking-modal">Bóka í Jóga Nidra</button>
         </div>
         <figure class="glow-figure" style="margin:0;">
           <img alt="Hópur í djúpslökun á jógadýnum, umvafinn teppum í kertaljósi" width="900" height="900" src="img/nidra-group.webp" srcset="img/nidra-group-700w.webp 700w, img/nidra-group.webp 900w" sizes="(max-width: 900px) 85vw, 452px" loading="lazy" decoding="async">
@@ -195,7 +195,7 @@
           <p class="sh-note">Bókað og skráð hjá LovE Yoga.</p>
           <p class="sh-fb">Á Facebook: <a href="https://www.facebook.com/events/973107868413855/" target="_blank" rel="noopener">Værð &amp; Mildi</a></p>
         </div>
-        <a class="book-service-btn course-link" href="https://www.loveyoga.is/service-page/v%C3%A6r%C3%B0-mildi" target="_blank" rel="noopener" data-course="vaerd-og-mildi">Skrá sig hjá LovE Yoga →</a>
+        <a class="book-service-btn course-link" href="https://www.loveyoga.is/service-page/v%C3%A6r%C3%B0-mildi" target="_blank" rel="noopener" data-course="vaerd-og-mildi">Skrá mig hjá LovE Yoga ↗</a>
       </div>
 
       <div class="modality-body">
@@ -223,7 +223,7 @@
         <p class="intro">Í einkatíma kemur Gulla til þín. Stundin er löguð að þínum aðstæðum, líðan og þörfum, með hreyfingu, öndun og djúpslökun á þínum hraða. Hentar vel ef þú vilt fara hægar og dýpra, ert að byrja eða vilt einfaldlega stund aðeins fyrir þig.</p>
       </div>
       <div class="btn-row">
-        <button type="button" class="btn open-enquiry-modal" data-service="Jóga Nidra · einkatími heima">Óska eftir einkatíma</button>
+        <button type="button" class="btn open-enquiry-modal" data-service="Jóga Nidra · einkatími heima">Óska eftir tíma</button>
       </div>
       <p class="small-print-line">Sendu fyrirspurn og Gulla svarar með verði og tillögu að tíma.</p>
     </div>
@@ -301,15 +301,29 @@
 <div class="booking-modal" id="enquiryModal" hidden>
   <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="enquiryModalTitle">
     <div class="booking-modal-head">
-      <h3 id="enquiryModalTitle">Óska eftir einkatíma</h3>
+      <h3 id="enquiryModalTitle">Óska eftir tíma</h3>
       <button type="button" class="booking-modal-close" id="enquiryModalClose" aria-label="Loka">&times;</button>
     </div>
     <div class="booking-modal-body form-body">
+      <p class="form-intro">Gulla hefur samband, fer yfir óskir þínar og staðfestir tímann. Þetta er beiðni, ekki staðfest bókun.</p>
       <form class="contact-form" id="enquiryForm" action="https://api.web3forms.com/submit" method="POST" style="margin-top:0; padding-top:0; border-top:none;">
         <input type="hidden" name="access_key" value="65892dab-6990-4005-a4a9-bc3da02886f6">
-        <input type="hidden" name="subject" value="Fyrirspurn um einkatíma af hjartaheimar.is">
-        <input type="hidden" name="from_name" value="Hjartaheimar · vefur">
+        <input type="hidden" name="subject" value="Ósk um tíma af hjartaheimar.is">
+        <input type="hidden" name="from_name" value="Hjartaheimar · web">
         <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form-row">
+          <label for="tf-service">Hvað viltu bóka?</label>
+          <select id="tf-service" name="service">
+            <option value="">Ekki viss ennþá</option>
+            <option value="Jóga Nidra · einkatími heima">Jóga Nidra · einkatími heima</option>
+            <option value="Flæði · hóptími">Flæði · hóptími</option>
+            <option value="Aguahara · einkatími">Aguahara · einkatími</option>
+            <option value="Reikiheilun">Reikiheilun</option>
+            <option value="Að koma heim til sín · sómatísk vinna">Að koma heim til sín · sómatísk vinna</option>
+            <option value="Sjálfsþekking (Gene Keys, Human Design, Enneagram)">Sjálfsþekking (Gene Keys, Human Design, Enneagram)</option>
+            <option value="Mig langar að fá ráðleggingu">Mig langar að fá ráðleggingu</option>
+          </select>
+        </div>
         <div class="form-row">
           <label for="tf-name">Nafn</label>
           <input type="text" id="tf-name" name="name" required autocomplete="name">
@@ -319,32 +333,23 @@
           <input type="email" id="tf-email" name="email" required autocomplete="email">
         </div>
         <div class="form-row">
-          <label for="tf-service">Hvað langar þig að prófa?</label>
-          <select id="tf-service" name="service">
-            <option value="">Ekki viss ennþá</option>
-            <option value="Jóga Nidra · einkatími heima">Jóga Nidra · einkatími heima</option>
-            <option value="Reikiheilun">Reikiheilun</option>
-            <option value="Vatnsmeðferð · Aguahara">Vatnsmeðferð · Aguahara</option>
-            <option value="Að koma heim til sín · sómatísk vinna">Að koma heim til sín · sómatísk vinna</option>
-            <option value="Sjálfsþekking (Gene Keys, Human Design, Enneagram)">Sjálfsþekking (Gene Keys, Human Design, Enneagram)</option>
-            <option value="Mig langar að fá ráðleggingu">Mig langar að fá ráðleggingu</option>
-          </select>
+          <label for="tf-phone">Sími <span style="text-transform:none; letter-spacing:0;">(valfrjálst)</span></label>
+          <input type="tel" id="tf-phone" name="phone" autocomplete="tel">
         </div>
         <div class="form-row">
-          <label for="tf-when">Óskir um dagsetningu og tíma</label>
+          <label for="tf-when">Óskir um dag og tíma <span style="text-transform:none; letter-spacing:0;">(valfrjálst)</span></label>
           <input type="text" id="tf-when" name="date_time_preference" autocomplete="off">
         </div>
         <div class="form-row">
           <label for="tf-message">Skilaboð <span style="text-transform:none; letter-spacing:0;">(valfrjálst)</span></label>
           <textarea id="tf-message" name="message" rows="3"></textarea>
         </div>
-        <button type="submit" class="form-submit">Senda fyrirspurn</button>
-        <p class="form-hint">Gulla hefur samband til að fara yfir óskir þínar og staðfesta tíma.</p>
+        <button type="submit" class="form-submit">Senda ósk</button>
         <p class="form-status" id="enquiryFormStatus" role="status" aria-live="polite"></p>
         <p style="font-size:0.78rem;color:var(--ink-faint);margin-top:-6px;">Sjá <a class="privacy-link" href="/personuvernd.html">persónuverndarstefnu</a> um meðferð gagna.</p>
       </form>
       <div class="form-success" id="enquiryFormSuccess" hidden>
-        <p class="form-success-msg">Takk fyrir fyrirspurnina. Gulla verður í sambandi við þig.</p>
+        <p class="form-success-msg">Takk. Gulla hefur samband og staðfestir tímann.</p>
         <button type="button" class="book-service-btn" id="enquiryFormSuccessClose">Loka</button>
       </div>
     </div>
