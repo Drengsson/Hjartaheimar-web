@@ -128,6 +128,7 @@
     <p><strong>Bókanir.</strong> Þegar þú bókar tíma eða kaupir tímakort í gegnum bókunarkerfið eru nafn, netfang, símanúmer og valin tímasetning skráð hjá Noona, sem sér um bókunarkerfið fyrir hönd Hjartaheimar. Bókunarkerfið hleðst aðeins inn þegar þú opnar bókunargluggann.</p>
     <p><strong>Skráningar hjá samstarfsaðilum.</strong> Skráning í Værð &amp; Mildi fer fram hjá LovE Yoga og viðburðir í samstarfi við House of Thecla eru skráðir þar. Þá gilda persónuverndarstefnur þeirra.</p>
     <p><strong>Fyrirspurnir og óskir um tíma.</strong> Þegar þú sendir formið neðst á síðunum eru nafn, netfang, símanúmer (valfrjálst), þjónustan sem þú velur, óskir um dag og tíma og skilaboðin send til Hjartaheimar í tölvupósti, svo hægt sé að svara þér og staðfesta tíma. Fyrirtæki gefa auk þess upp heiti fyrirtækis og fjölda þátttakenda. Ekkert af þessu er sent í vefgreiningu.</p>
+    <p><strong>Heimsóknatölur.</strong> Vercel, sem hýsir vefinn, telur heimsóknir án vafrakaka og án þess að bera kennsl á einstaka gesti: hvaða síður eru skoðaðar, hvaðan umferð kemur og almenna tegund tækis. Þetta er notað til að sjá hvaða efni og auglýsingar skila sér.</p>
     <p><strong>Notkun vefsins.</strong> Ef þú samþykkir vafrakökur í borðanum sem birtist við fyrstu heimsókn, safnar Google Analytics gögnum um heimsóknir — til dæmis hvaða síður eru skoðaðar, hvaðan umferð kemur og almennar upplýsingar um tæki og vafra — í samandregnu formi til að skilja hvernig vefurinn er notaður. Ef þú hafnar er þessum gögnum ekki safnað.</p>
     <p><strong>Auglýsingar.</strong> Sé vafrakaka samþykkt er Meta Pixel (Facebook/Instagram) notaður til að mæla árangur auglýsinga og sýna viðeigandi efni frá Hjartaheimar til fólks sem hefur áður heimsótt vefinn.</p>
     <p><strong>Tónlist.</strong> Á síðunni Um Gullu eru innfelldir lagalistar frá Spotify sem hlaðast þegar síðan er opnuð. Spotify getur þá skráð tæknileg gögn samkvæmt eigin persónuverndarstefnu.</p>
@@ -151,7 +152,7 @@
     <li><strong>Google Analytics</strong> — vefgreining (aðeins ef samþykkt)</li>
     <li><strong>Meta (Facebook/Instagram)</strong> — auglýsingamælingar (aðeins ef samþykkt)</li>
     <li><strong>Spotify</strong> — innfelldir lagalistar</li>
-    <li><strong>Vercel</strong> — hýsing vefsins</li>
+    <li><strong>Vercel</strong>: hýsing vefsins og vefgreining án vafrakaka</li>
   </ul>
 
   <h2>Varðveisla gagna</h2>
@@ -186,6 +187,8 @@
   </div>
 </div>
 
+<script>window.va = window.va || function(){ (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
 <script src="/js/site.js"></script>
 
 </body>
