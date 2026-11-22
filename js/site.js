@@ -472,23 +472,23 @@ window.addEventListener('load', function(){
   forms.forEach(function(f){ io.observe(f); });
 })();
 
-/* Newsletter: Zoho answers a plain form post with raw JSON, so send it in the
-   background and go to our own thank-you page. Without JS the plain post still subscribes. */
+/* Newsletter: Zoho answers a plain form post with raw JSON. The form posts into a
+   hidden frame instead, and when Zoho has answered we go to our own thank-you page.
+   Without JS the plain post still subscribes. */
 (function(){
   var f = document.querySelector('.newsletter-form');
-  if (!f || !window.fetch) return;
-  f.addEventListener('submit', function(e){
-    e.preventDefault();
+  if (!f) return;
+  var sink = document.createElement('iframe');
+  sink.name = 'nlSink'; sink.title = 'nl'; sink.hidden = true; sink.setAttribute('aria-hidden','true'); sink.tabIndex = -1;
+  document.body.appendChild(sink);
+  f.target = 'nlSink';
+  var sent = false;
+  f.addEventListener('submit', function(){
+    sent = true;
     var btn = f.querySelector('button[type="submit"]');
-    var hint = f.querySelector('.form-hint');
-    btn.disabled = true;
-    fetch(f.action, { method:'POST', mode:'no-cors', body:new URLSearchParams(new FormData(f)) })
-      .then(function(){ window.location.href = '/takk.html'; })
-      .catch(function(){
-        btn.disabled = false;
-        if (hint) hint.textContent = document.documentElement.lang === 'en'
-          ? 'Something went wrong. Please try again, or email Gulla@hjartaheimar.is.'
-          : 'Eitthvað fór úrskeiðis. Reyndu aftur eða sendu póst á Gulla@hjartaheimar.is.';
-      });
+    if (btn) btn.disabled = true;
+  });
+  sink.addEventListener('load', function(){
+    if (sent) window.location.href = '/takk.html';
   });
 })();
