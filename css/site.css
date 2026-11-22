@@ -1054,7 +1054,7 @@ button.wk-btn{cursor:pointer; font-family:'Karla',sans-serif;}
 .promo-pill:hover, .promo-pill:focus-visible{background:var(--surface);}
 .promo-band{padding-top:clamp(24px,4vw,48px);}
 .promo-feature{margin-top:0; border-color:var(--terracotta-soft);}
-.promo-feature img{object-position:58% 50%;}
+.promo-feature img{object-position:75% 50%;}
 .promo-feature .of-copy{gap:12px;}
 .promo-feature h2{font-size:clamp(1.8rem,3.2vw,2.5rem); color:var(--brand); margin:0; line-height:1.1;}
 .promo-price{font-size:0.9rem; color:var(--ink-faint) !important; margin-top:-4px;}
