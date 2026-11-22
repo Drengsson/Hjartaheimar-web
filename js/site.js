@@ -472,23 +472,17 @@ window.addEventListener('load', function(){
   forms.forEach(function(f){ io.observe(f); });
 })();
 
-/* Newsletter: Zoho answers a plain form post with raw JSON. The form posts into a
-   hidden frame instead, and when Zoho has answered we go to our own thank-you page.
-   Without JS the plain post still subscribes. */
+/* Newsletter (Zoho Campaigns). Zoho's own script sends the form and redirects to /takk.html.
+   Enter in the email field clicks Zoho's button, and English visitors are remembered
+   so /takk.html can forward them to /thanks.html. */
 (function(){
-  var f = document.querySelector('.newsletter-form');
-  if (!f) return;
-  var sink = document.createElement('iframe');
-  sink.name = 'nlSink'; sink.title = 'nl'; sink.hidden = true; sink.setAttribute('aria-hidden','true'); sink.tabIndex = -1;
-  document.body.appendChild(sink);
-  f.target = 'nlSink';
-  var sent = false;
-  f.addEventListener('submit', function(){
-    sent = true;
-    var btn = f.querySelector('button[type="submit"]');
-    if (btn) btn.disabled = true;
-  });
-  sink.addEventListener('load', function(){
-    if (sent) window.location.href = document.documentElement.lang === 'en' ? '/thanks.html' : '/takk.html';
+  var btn = document.getElementById('zcWebOptin');
+  var input = document.getElementById('EMBED_FORM_EMAIL_LABEL');
+  if (!btn) return;
+  btn.addEventListener('click', function(){
+    try { sessionStorage.setItem('nlLang', document.documentElement.lang === 'en' ? 'en' : 'is'); } catch(e){}
+  }, true);
+  if (input) input.addEventListener('keydown', function(e){
+    if (e.key === 'Enter') { e.preventDefault(); btn.click(); }
   });
 })();

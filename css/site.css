@@ -1015,15 +1015,31 @@ button.wk-btn{cursor:pointer; font-family:'Karla',sans-serif;}
 .newsletter h2{font-size:clamp(1.9rem,3.4vw,2.6rem); color:var(--brand); margin:10px 0 0; max-width:22ch;}
 .newsletter .measure{margin-top:16px; color:var(--ink-soft);}
 .newsletter-form{display:flex; flex-direction:column; gap:12px;}
-.nl-label{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap;}
-.nl-row{display:flex; gap:10px; align-items:stretch;}
-.nl-row input{
-  flex:1; min-width:0; font:400 1rem/1.5 'Karla',sans-serif; color:var(--ink); background:var(--surface);
-  border:1px solid var(--line); border-radius:2px; padding:12px 14px; min-height:46px;
-}
-.nl-row input:focus{outline:none; border-color:var(--brand);}
-.nl-row .form-submit{align-self:stretch; min-height:46px; white-space:nowrap;}
 .newsletter-form .form-hint a{color:inherit;}
 .foot-nl{margin-top:6px;}
 @media (max-width:820px){ .newsletter{grid-template-columns:1fr; align-items:start;} }
-@media (max-width:380px){ .nl-row{flex-direction:column;} }
+
+/* Zoho's official form markup, restyled. Zoho sets inline styles, hence !important. */
+.nl-zoho [name="SIGNUP_BODY"]{background:none !important; border:0 !important; border-radius:0 !important; width:auto !important; font-family:inherit !important; overflow:visible !important;}
+.nl-zoho [name="SIGNUP_BODY"] > div{text-align:left !important;}
+.nl-zoho #SIGNUP_HEADING{display:none !important;}
+.nl-zoho #zcampaignOptinForm{display:flex !important; flex-wrap:wrap; gap:10px; align-items:stretch; width:100% !important;}
+.nl-zoho #zcampaignOptinForm > div{margin:0 !important; height:auto !important; width:auto !important;}
+.nl-zoho #zcampaignOptinForm > div:has(#EMBED_FORM_EMAIL_LABEL){flex:1 1 220px; display:block !important;}
+.nl-zoho #zcampaignOptinForm > div:has(#EMBED_FORM_EMAIL_LABEL) > div{position:absolute !important; width:1px !important; height:1px !important; overflow:hidden !important; clip:rect(0 0 0 0); white-space:nowrap;}
+.nl-zoho #EMBED_FORM_EMAIL_LABEL{
+  width:100% !important; height:auto !important; min-height:46px; box-sizing:border-box;
+  font:400 1rem/1.5 'Karla',sans-serif !important; color:var(--ink) !important; background:var(--surface) !important;
+  border:1px solid var(--line) !important; border-radius:2px !important; padding:12px 14px !important;
+}
+.nl-zoho #EMBED_FORM_EMAIL_LABEL:focus{outline:none !important; border-color:var(--brand) !important;}
+.nl-zoho #zcampaignOptinForm > div:has(#zcWebOptin){flex:0 0 auto;}
+.nl-zoho #zcWebOptin{
+  width:auto !important; height:100% !important; min-height:46px; padding:12px 22px !important;
+  font:500 0.85rem/1 'Karla',sans-serif !important; letter-spacing:0.03em; white-space:nowrap;
+  background:var(--brand) !important; color:var(--surface) !important; border:1px solid var(--brand) !important; border-radius:2px !important;
+  transition:background .2s ease, border-color .2s ease;
+}
+.nl-zoho #zcWebOptin:hover, .nl-zoho #zcWebOptin:focus-visible{background:var(--brand-2) !important; border-color:var(--brand-2) !important;}
+.nl-zoho #errorMsgDiv{order:3; flex-basis:100%; margin:0 !important; padding:0 !important; background:none !important; border:0 !important; color:var(--brand-2) !important; font-size:0.85rem !important;}
+@media (max-width:380px){ .nl-zoho #zcampaignOptinForm > div:has(#zcWebOptin){flex-basis:100%;} .nl-zoho #zcWebOptin{width:100% !important;} }
