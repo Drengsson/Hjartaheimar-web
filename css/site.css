@@ -1008,3 +1008,22 @@ button.wk-btn{cursor:pointer; font-family:'Karla',sans-serif;}
   .wk:has(.wk-btns){grid-template-columns:1fr; grid-template-areas:"when" "what" "btn";}
   .wk-btns{flex-wrap:wrap;}
 }
+
+/* ---------- newsletter ---------- */
+.newsletter{display:grid; grid-template-columns:1.1fr 1fr; gap:clamp(28px,6vw,80px); align-items:end;}
+.newsletter > *{min-width:0;}
+.newsletter h2{font-size:clamp(1.9rem,3.4vw,2.6rem); color:var(--brand); margin:10px 0 0; max-width:22ch;}
+.newsletter .measure{margin-top:16px; color:var(--ink-soft);}
+.newsletter-form{display:flex; flex-direction:column; gap:12px;}
+.nl-label{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap;}
+.nl-row{display:flex; gap:10px; align-items:stretch;}
+.nl-row input{
+  flex:1; min-width:0; font:400 1rem/1.5 'Karla',sans-serif; color:var(--ink); background:var(--surface);
+  border:1px solid var(--line); border-radius:2px; padding:12px 14px; min-height:46px;
+}
+.nl-row input:focus{outline:none; border-color:var(--brand);}
+.nl-row .form-submit{align-self:stretch; min-height:46px; white-space:nowrap;}
+.newsletter-form .form-hint a{color:inherit;}
+.foot-nl{margin-top:6px;}
+@media (max-width:820px){ .newsletter{grid-template-columns:1fr; align-items:start;} }
+@media (max-width:380px){ .nl-row{flex-direction:column;} }
