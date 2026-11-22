@@ -41,7 +41,7 @@
     display:flex; align-items:center; justify-content:center; text-align:center;
   }
   .wrap{max-width:480px; padding:clamp(32px,8vw,64px) clamp(20px,5vw,40px);}
-  .eyebrow{
+  .eyebrow{ margin-left:auto !important; margin-right:auto !important;
     font-size:0.8rem; letter-spacing:0.08em; text-transform:uppercase;
     color:var(--ink-faint); margin:0 0 14px;
   }
@@ -57,7 +57,7 @@
   }
   .home-link:hover, .home-link:focus-visible{filter:brightness(0.9);}
   .home-link:focus-visible{outline:2px solid var(--brand-2); outline-offset:3px;}
-  .en{margin-top:44px; padding-top:24px; border-top:1px solid var(--line);}
+  .en{margin-top:28px;}
   .en p{margin-bottom:12px; font-size:0.92rem;}
   .en a{color:var(--brand); font-size:0.92rem;}
   @media (prefers-reduced-motion: reduce){ *{transition-duration:0.001ms !important;} }
@@ -69,10 +69,7 @@
     <h1>Takk fyrir</h1>
     <p>Við sendum þér tölvupóst til staðfestingar. Smelltu á hlekkinn í honum til að ljúka skráningunni. Ef hann berst ekki innan nokkurra mínútna er gott að kíkja í ruslpóstinn.</p>
     <a class="home-link" href="/">Til baka á forsíðuna</a>
-    <div class="en" lang="en">
-      <p>Thank you. We have sent you an email to confirm your sign-up. Click the link in it to finish.</p>
-      <a href="/en.html">Back to the English site</a>
-    </div>
+    <div class="en"><a href="/thanks.html" lang="en">In English</a></div>
   </main>
   <script>window.va = window.va || function(){ (window.vaq = window.vaq || []).push(arguments); };</script>
   <script defer src="/_vercel/insights/script.js"></script>

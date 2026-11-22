@@ -489,6 +489,6 @@ window.addEventListener('load', function(){
     if (btn) btn.disabled = true;
   });
   sink.addEventListener('load', function(){
-    if (sent) window.location.href = '/takk.html';
+    if (sent) window.location.href = document.documentElement.lang === 'en' ? '/thanks.html' : '/takk.html';
   });
 })();
