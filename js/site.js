@@ -471,3 +471,24 @@ window.addEventListener('load', function(){
   }, {threshold: 0.15});
   forms.forEach(function(f){ io.observe(f); });
 })();
+
+/* Newsletter: Zoho answers a plain form post with raw JSON, so send it in the
+   background and go to our own thank-you page. Without JS the plain post still subscribes. */
+(function(){
+  var f = document.querySelector('.newsletter-form');
+  if (!f || !window.fetch) return;
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var btn = f.querySelector('button[type="submit"]');
+    var hint = f.querySelector('.form-hint');
+    btn.disabled = true;
+    fetch(f.action, { method:'POST', mode:'no-cors', body:new URLSearchParams(new FormData(f)) })
+      .then(function(){ window.location.href = '/takk.html'; })
+      .catch(function(){
+        btn.disabled = false;
+        if (hint) hint.textContent = document.documentElement.lang === 'en'
+          ? 'Something went wrong. Please try again, or email Gulla@hjartaheimar.is.'
+          : 'Eitthvað fór úrskeiðis. Reyndu aftur eða sendu póst á Gulla@hjartaheimar.is.';
+      });
+  });
+})();
