@@ -206,6 +206,9 @@ function T(is, en){ return HH_EN ? en : is; }
     // 20 tíma kort voucher purchase.
     initNoonaModal('.open-voucher20-modal', 'voucher20Modal', 'voucher20ModalClose', 'fastir-timar-voucher20-modal');
 
+    // Black Friday: fyrsti tíminn á 1.500 kr. (Noona voucher).
+    initNoonaModal('.open-intro-modal', 'introModal', 'introModalClose', 'black-friday-intro-modal');
+
     // Private-session enquiry form (opens a modal with a form, not a
     // Noona iframe — the open/close/escape/backdrop behavior is
     // identical, so the same helper works here too). Every "Óska eftir
